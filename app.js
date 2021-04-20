@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/chatbot', index); // 최초 동작 라우팅 
-app.use('/', index); // request, callback 라우팅
+app.use('/chatbot', index);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
