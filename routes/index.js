@@ -7,202 +7,224 @@ const romance_stage1 = require('./themes/romance/stage1');
 
 
 router.get('/', async (req, res, next) => {
-  // 유저 목록 검색 (1)
-  const users = await libKakaoWork.getUserList();
+    // 유저 목록 검색 (1)
+    const users = await libKakaoWork.getUserList();
 
-  // 검색된 모든 유저에게 각각 채팅방 생성 (2)
-  const conversations = await Promise.all(
-    users.map((user) => libKakaoWork.openConversations({ userId: user.id }))
-  );
+    // 검색된 모든 유저에게 각각 채팅방 생성 (2)
+    const conversations = await Promise.all(
+        users.map((user) => libKakaoWork.openConversations({ userId: user.id }))
+    );
 
-  // 생성된 채팅방에 메세지 전송 (3)
-  const messages = await Promise.all([
-    conversations.map((conversation) =>
-      libKakaoWork.sendMessage({
-        conversationId: conversation.id,
-        text: '설문조사 이벤트',
-        blocks: [
-          {
-            type: 'header',
-            text: '☕ 사내 카페 만족도 조사 🥤',
-            style: 'blue',
-          },
-          {
-            type: 'text',
-            text:
-              '어느덧 사내카페가 바뀐지 한달이 되었습니다.\n구르미들이 카페를 이용하고 계신지 의견을 들어보고자 설문 조사를 진행해봅니다!!\n설문에 참여하면 푸짐한 경품 찬스가있으니 상품 꼭 받아가세요! 🎁',
-            markdown: true,
-          },
-          {
-            type: 'button',
-            action_type: 'call_modal',
-            value: 'cafe_survey',
-            text: '설문 참여하기',
-            style: 'default',
-          },
-          {
-            type: 'button',
-            action_type: 'submit_action',
-            action_name: "accept",
-            value: 'romance',
-            text: '연애',
-            style: 'default',
-          },
-        ],
-      })
-    ),
-  ]);
-
-  // 응답값은 자유롭게 작성하셔도 됩니다.
-  res.json({
-    result: true,
-  });
+    // 생성된 채팅방에 메세지 전송 (3)
+    const messages = await Promise.all([
+        conversations.map((conversation) =>
+            libKakaoWork.sendMessage({
+                conversationId: conversation.id,
+                text: '설문조사 이벤트',
+                blocks: [
+                    {
+                        type: 'header',
+                        text: '온라인 방탈출에 오신 것을 환영',
+                        style: 'red',
+                    },
+                    {
+                        type: 'text',
+                        text: '이름을 입력해주세요.',
+                        markdown: true,
+                    },
+                    {
+                        type: 'button',
+                        text: '입력하기',
+                        style: 'default',
+                        action_type: 'call_modal',
+                        value: 'set_name',
+                    },
+                ],
+            })
+        ),
+    ]);
+    
+    // 응답값은 자유롭게 작성하셔도 됩니다.
+    res.json({
+        result: true,
+    });
 });
 
-
 router.post('/request', async (req, res, next) => {
-  console.log(req.body);
-  const { message, value } = req.body;
+    console.log(req.body);
+    const { message, value } = req.body;
 
-  switch (value) {          
+    switch (value) {
+        case 'set_name':
+            // 설문조사용 모달 전송 (3)
+            return res.json({
+                view: {
+                    title: '이름을 알려주세요.',
+                    accept: '확인',
+                    decline: '취소',
+                    value: 'user_name',
+                    blocks: [
+                        {
+                            type: 'label',
+                            text: '내 이름',
+                            markdown: true,
+                        },
+                        {
+                            type: 'input',
+                            name: 'input_name',
+                            required: true,
+                            placeholder: '이름을 입력해주세요.',
+                        },
+                    ],
+                },
+            });
+            break;
+        case 'game_start':
+            return res.json({
+                view: {
+                    title: '이름을 알려주세요.',
+                    accept: '확인',
+                    decline: '취소',
+                    value: 'user_name',
+                    blocks: [
+                        {
+                            type: 'label',
+                            text: '내 이름',
+                            markdown: true,
+                        },
+                        {
+                            type: 'input',
+                            name: 'input_name',
+                            required: true,
+                            placeholder: '이름을 입력해주세요.',
+                        },
+                    ],
+                },
 
-    case 'cafe_survey':
-      // 설문조사용 모달 전송 (3)
-      return res.json({
-        view: {
-          title: '설문조사',
-          accept: '설문조사 전송하기',
-          decline: '취소',
-          value: 'cafe_survey_results',
-          blocks: [
-            {
-              type: 'label',
-              text: '카페 평점을 알려주세요',
-              markdown: false,
-            },
-            {
-              type: 'select',
-              name: 'rating',
-              required: true,
-              options: [
-                {
-                  text: '1점',
-                  value: '1',
-                },
-                {
-                  text: '2점',
-                  value: '2',
-                },
-                {
-                  text: '3점',
-                  value: '3',
-                },
-                {
-                  text: '4점',
-                  value: '4',
-                },
-                {
-                  text: '5점',
-                  value: '5',
-                },
-              ],
-              placeholder: '평점',
-            },
-            {
-              type: 'label',
-              text: '바라는 점이 있다면 알려주세요!',
-              markdown: false,
-            },
-            {
-              type: 'input',
-              name: 'wanted',
-              required: false,
-              placeholder: 'ex) 와플을 팔면 좋겠습니다',
-            },
-          ],
-        },
-      });
-      break;
-          
-    
-    default:
-  }
+            });
+            break;
+        default:
+    }
 
-  res.json({});
+    res.json({});
 });
 
 router.post('/callback', async (req, res, next) => {
-  console.log(req.body);
-  const { message, actions, action_time, value } = req.body;
+    console.log(req.body);
+    const { message, actions, action_time, value } = req.body;
 
-  switch (value) {
-    case 'romance':
-      await romance_stage1.sendMessage(message);
-      // await libKakaoWork.sendMessage({
-      //   conversationId: message.conversation_id,
-      //   text: '연애 버튼 테스트',
-      //   blocks: [
-      //     {
-      //       type: 'text',
-      //       text: '연애 버튼 테스트',
-      //       markdown: true,
-      //     },
-      //   ],
-      // });
-      break;
-    case 'cafe_survey_results':
-      // 설문조사 응답 결과 메세지 전송 (3)
-      await libKakaoWork.sendMessage({
-        conversationId: message.conversation_id,
-        text: '설문조사에 응해주셔서 감사합니다!',
-        blocks: [
-          {
-            type: 'text',
-            text: '설문조사에 응해주셔서 감사합니다! 🎁',
-            markdown: true,
-          },
-          {
-            type: 'text',
-            text: '*답변 내용*',
-            markdown: true,
-          },
-          {
-            type: 'description',
-            term: '평점',
-            content: {
-              type: 'text',
-              text: actions.rating,
-              markdown: false,
-            },
-            accent: true,
-          },
-          {
-            type: 'description',
-            term: '바라는 점',
-            content: {
-              type: 'text',
-              text: actions.wanted,
-              markdown: false,
-            },
-            accent: true,
-          },
-          {
-            type: 'description',
-            term: '시간',
-            content: {
-              type: 'text',
-              text: action_time,
-              markdown: false,
-            },
-            accent: true,
-          },
-        ],
-      });
-      break;
-    default:
-  }
-
-  res.json({ result: true });
+    switch (value) {
+        case 'user_name':
+            // 설문조사 응답 결과 메세지 전송 (3)
+            await libKakaoWork.sendMessage({
+                conversationId: message.conversation_id,
+                text: '입력 완료!',
+                blocks: [
+                    {
+                        type: 'text',
+                        text: '이름을 저장했습니다! 🎁',
+                        markdown: true,
+                    },
+                    {
+                        type: 'text',
+                        text: '*답변 내용*',
+                        markdown: true,
+                    },
+                    {
+                        type: 'description',
+                        term: '이름',
+                        content: {
+                            type: 'text',
+                            text: actions.input_name,
+                            markdown: false,
+                        },
+                        accent: true,
+                    },
+                    // {
+                    // 	type: 'description',
+                    // 	term: '바라는 점',
+                    // 	content: {
+                    // 		type: 'text',
+                    // 		text: actions.wanted,
+                    // 		markdown: false,
+                    // 	},
+                    // 	accent: true,
+                    // },
+                    {
+                        type: 'description',
+                        term: '시간',
+                        content: {
+                            type: 'text',
+                            text: action_time,
+                            markdown: false,
+                        },
+                        accent: true,
+                    },
+                    {
+                        type: 'button',
+                        text: '☠️ 게임 시작하기 ☠️',
+                        style: 'danger',
+                        action_type: 'submit_action',
+						action_name: 'game_start',
+                        value: 'game_start',
+                    },
+                ],
+            });
+            break;
+        case 'game_start':
+            await libKakaoWork.sendMessage({
+                conversationId: message.conversation_id,
+                text: '입력 완료!',
+                blocks: [
+                    {
+                        type: 'header',
+                        text: '테마 종류',
+                        style: 'blue',
+                    },
+                    {
+                        type: 'text',
+                        text: '방탈출 테마를 선택해주세요.',
+                        markdown: true,
+                    },
+                    {
+                        type: 'button',
+                        text: '공포',
+                        style: 'default',
+                    },
+                    {
+                        type: 'button',
+                        text: '판타지',
+                        style: 'default',
+                    },
+                    {
+                        type: 'button',
+                        text: '일상',
+                        style: 'default',
+                    },
+                    {
+                        type: 'button',
+                        text: '퀴즈쇼',
+                        style: 'default',
+                    },
+                    {
+                        type: 'button',
+                        text: '연애',
+                        style: 'default',
+                        action_type: 'submit_action',
+						action_name: 'romance',
+                        value: 'romance',
+                    },
+                ],
+            });
+            break;
+            
+        case 'romance':
+          await romance_stage1.sendMessage(message);
+          break;
+            
+        default:
+    }
+    res.json({ result: true });
 });
 
 module.exports = router;
