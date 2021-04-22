@@ -3,6 +3,9 @@ const router = express.Router();
 
 const libKakaoWork = require('../libs/kakaoWork');
 
+const romance_stage1 = require('./themes/romance/stage1');
+
+
 router.get('/', async (req, res, next) => {
   // 유저 목록 검색 (1)
   const users = await libKakaoWork.getUserList();
@@ -37,6 +40,14 @@ router.get('/', async (req, res, next) => {
             text: '설문 참여하기',
             style: 'default',
           },
+          {
+            type: 'button',
+            action_type: 'submit_action',
+            action_name: "accept",
+            value: 'romance',
+            text: '연애',
+            style: 'default',
+          },
         ],
       })
     ),
@@ -53,7 +64,8 @@ router.post('/request', async (req, res, next) => {
   console.log(req.body);
   const { message, value } = req.body;
 
-  switch (value) {
+  switch (value) {          
+
     case 'cafe_survey':
       // 설문조사용 모달 전송 (3)
       return res.json({
@@ -111,6 +123,8 @@ router.post('/request', async (req, res, next) => {
         },
       });
       break;
+          
+    
     default:
   }
 
@@ -122,6 +136,20 @@ router.post('/callback', async (req, res, next) => {
   const { message, actions, action_time, value } = req.body;
 
   switch (value) {
+    case 'romance':
+      await romance_stage1.sendMessage(message);
+      // await libKakaoWork.sendMessage({
+      //   conversationId: message.conversation_id,
+      //   text: '연애 버튼 테스트',
+      //   blocks: [
+      //     {
+      //       type: 'text',
+      //       text: '연애 버튼 테스트',
+      //       markdown: true,
+      //     },
+      //   ],
+      // });
+      break;
     case 'cafe_survey_results':
       // 설문조사 응답 결과 메세지 전송 (3)
       await libKakaoWork.sendMessage({
