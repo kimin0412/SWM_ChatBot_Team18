@@ -100,6 +100,11 @@ router.post('/request', async (req, res, next) => {
             });
             break;
         default:
+			if (value.includes('detective')) {
+				return res.json({
+					view: require('./themes/detective').modalBuilder(req.body)
+				}) 
+			}
     }
 
     res.json({});
@@ -107,7 +112,7 @@ router.post('/request', async (req, res, next) => {
 
 router.post('/callback', async (req, res, next) => {
     console.log(req.body);
-    const { message, actions, action_time, value } = req.body;
+    const { message, actions, action_time, value, action_name } = req.body;
 
     switch (value) {
         case 'user_name':
@@ -207,10 +212,21 @@ router.post('/callback', async (req, res, next) => {
                         text: '연애',
                         style: 'default',
                     },
+                    {
+                        type: 'button',
+                        text: '추리',
+                        style: 'default',
+						action_type: 'submit_action',
+						action_name: 'game_detective',
+                        value: 'detective_quiz_1',
+                    },
                 ],
             });
             break;
         default:
+			if (value.includes('detective')) {
+				await require('./themes/detective').messageBuilder(req.body);
+			}
     }
 
     res.json({ result: true });
