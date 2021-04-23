@@ -21,6 +21,8 @@ const wrong_answer = require('./blocks/wrong_answer');
 
 //마지막 블록
 const lastmsg = require('./blocks/lastmsg');
+//정답 체크
+const ans= require('./answer.js');
 
 module.exports = {
     modalBuilder: (data) => {
@@ -53,8 +55,8 @@ module.exports = {
                     ...quizMessage1()
                 });
                 break;
-            case 'nonsense_check_answer_1': // 정답은 answer폴더에 따로 관리 (git ignore 추가)
-                if (actions.answer_word == '정답1'){
+            case 'nonsense_check_answer_1': // 정답은 answer파일에 따로 관리 (git ignore 추가)
+                if (actions.answer_word == ans(1)){
                      await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
                     ...quizMessage2()
@@ -66,9 +68,10 @@ module.exports = {
                     ...wrong_answer()
                 });
                 }
+                
                 break;
             case 'nonsense_check_answer_2':
-                if (actions.answer_word == '정답2'){
+                if (actions.answer_word == ans(2)){
                      await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
                     ...quizMessage3()
@@ -82,7 +85,7 @@ module.exports = {
                 }
                 break;
             case 'nonsense_check_answer_3':
-                if (actions.answer_word == '정답3'){
+                if (actions.answer_word == ans(3)){
                      await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
                     ...quizMessage4()
@@ -96,7 +99,7 @@ module.exports = {
                 }
                 break;
             case 'nonsense_check_answer_4':
-                if (actions.answer_word == '정답4'){
+                if (actions.answer_word == ans(4)){
                      await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
                     ...quizMessage5()
@@ -110,11 +113,12 @@ module.exports = {
                 }
                 break;
             case 'nonsense_check_answer_5':
-                if (actions.answer_word == '정답5'){
+                if (actions.answer_word == ans(5)){
                      await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
                     ...lastmsg()
                 });
+                    //클리어 결과 DB 저장
                 }
                 else{
                     await libKakaoWork.sendMessage({
