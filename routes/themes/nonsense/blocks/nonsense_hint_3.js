@@ -1,11 +1,11 @@
 module.exports = () => {
     return {
-        text: '오답입니다.',
+        text: '3번 문제 힌트입니다.',
         blocks: [
             {
                 type: 'text',
-                text: '오답입니다.',
-                markdown: false,
+                text: 'go! go!' ,
+                markdown: true,
             },
         ],
     };

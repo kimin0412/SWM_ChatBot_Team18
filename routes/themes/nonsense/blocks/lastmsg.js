@@ -9,12 +9,22 @@ module.exports = () => {
             },
             {
                 type: 'text',
+                text: '"따르릉~ 전화가 울린다."',
+                markdown: true,
+            },
+            {
+                type: 'text',
+                text: '"여보세요?"',
+                markdown: true,
+            },
+            {
+                type: 'text',
                 text: '"축하합니다!" \n"아재개그 동아리에 최종 합격 하셧습니다!"',
                 markdown: true,
             },
             {
                 type: 'text',
-                text: '앞으로 많은 활동 부탁드립니다.',
+                text: '앞으로 많은 활동 부탁드립니다. 메일로 활동 가이드를 보내드렷습니다!',
                 markdown: true,
             },
             {
