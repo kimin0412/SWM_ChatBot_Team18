@@ -2,8 +2,10 @@
  * accept 버튼 클릭 시 동일 문제 단계의 check 메세지 호출하도록 설정
  * check 메세지 호출 단계에서 정답 여부 판단
 */
-module.exports = (userId) => {
-	const quote = (userId % 2 == 0) ? '좋습니다. 비밀이라,\n절 구슬리는 법을 아시는군요.' : '글쎄 구미가 그리 당기진 않는데,\n의뢰를 거절할 이유도 딱히 없군요.'
+module.exports = (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const quote = (react_user_id % 2 == 0) ? '좋습니다. 비밀이라,\n절 구슬리는 법을 아시는군요.' : '글쎄 구미가 그리 당기진 않는데,\n의뢰를 거절할 이유도 딱히 없군요.'
 	
     return {
         title: '진실은 언제나 하나 !! ✨',

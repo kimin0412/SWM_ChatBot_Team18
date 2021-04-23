@@ -3,11 +3,10 @@
  * 정답 메세지의 경우 버튼이 다음 단계의 메세지를 호출하도록
  * 오답 메세지의 경우 버튼이 이번 단계의 메세지를 다시 호출하도록 설정
 */
-module.exports = (answer_choice) => {
+module.exports = (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
 	
-	console.log(answer_choice)
-	
-	if (answer_choice == 4) {
+	if (actions.answer_choice == 4) {
 		return {
 			text: '방탈출 - 추리 테마',
 			blocks: [
