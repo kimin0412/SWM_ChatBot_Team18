@@ -6,7 +6,7 @@
 module.exports = (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 	
-	if (actions.answer_choice == 4) {
+	if (actions.answer == 4) {
 		return {
 			text: '방탈출 - 추리 테마',
 			blocks: [
@@ -19,7 +19,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						`당신은 의아해 하며 질문한다. 그정도로 급한 일인가?`,
+						`당신은 의아해하며 질문한다. 그정도로 급한 일인가?`,
 					markdown: true,
 				},
 				{
