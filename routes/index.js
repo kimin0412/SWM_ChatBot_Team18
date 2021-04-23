@@ -100,6 +100,11 @@ router.post('/request', async (req, res, next) => {
             });
             break;
         default:
+            if (value.includes('nonsense')) {
+				return res.json({
+					view: require('./themes/nonsense').modalBuilder(req.body)
+				}) 
+			}
     }
 
     res.json({});
@@ -136,16 +141,6 @@ router.post('/callback', async (req, res, next) => {
                         },
                         accent: true,
                     },
-                    // {
-                    // 	type: 'description',
-                    // 	term: '바라는 점',
-                    // 	content: {
-                    // 		type: 'text',
-                    // 		text: actions.wanted,
-                    // 		markdown: false,
-                    // 	},
-                    // 	accent: true,
-                    // },
                     {
                         type: 'description',
                         term: '시간',
@@ -207,10 +202,21 @@ router.post('/callback', async (req, res, next) => {
                         text: '연애',
                         style: 'default',
                     },
+                    {
+                        type: 'button',
+                        text: '넌센스',
+                        style: 'default',
+                        action_type:'submit_action',
+                        action_name:'nonsense_quiz_1',
+                        value:'nonsense_quiz_1',
+                    },
                 ],
             });
             break;
         default:
+            if (value.includes('nonsense')) {
+				await require('./themes/nonsense').messageBuilder(req.body);  
+			}
     }
 
     res.json({ result: true });
