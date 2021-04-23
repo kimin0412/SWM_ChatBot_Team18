@@ -44,10 +44,6 @@ module.exports = (data) => {
 					markdown: true,
 				},
 				{
-					type: 'image_link',
-					url: 'https://i.ibb.co/1GyV5Qh/wrong-2.jpg'
-				},
-				{
 					type: 'text',
 					text:
 						`잠깐의 정적 후 한 사람이 자리에서 일어나 출입문을 향해 걸어간다. 차가운 쇳소리를 내며 문이 잠긴다.`,

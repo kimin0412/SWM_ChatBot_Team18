@@ -5,7 +5,7 @@
 module.exports = (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 	
-	const quote = (react_user_id % 2 == 0) ? '좋습니다. 비밀이라,\n절 구슬리는 법을 아시는군요.' : '비밀? 글쎄 구미가 그리 당기진 않는데,\n의뢰를 거절할 이유도 딱히 없군요.'
+	const quote = (react_user_id % 2 == 0) ? '좋습니다. 비밀이라,\n탐정을 유혹하는 법을 아시는군요.' : '비밀? 글쎄 구미가 그리 당기진 않는데,\n의뢰를 거절할 이유도 딱히 없군요.'
 	
     return {
         title: '진실은 언제나 하나 !! ✨',
