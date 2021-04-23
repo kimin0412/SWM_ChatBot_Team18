@@ -1,9 +1,9 @@
 module.exports = () => {
     return {
-        title: '문제 1번 정답입력',
+        title: '문제 2번 정답입력',
         accept: '제출',
         decline: '취소',
-        value: 'nonsense_check_answer_1',
+        value: 'nonsense_check_answer_2',
         blocks: [
             {
                 type: 'label',

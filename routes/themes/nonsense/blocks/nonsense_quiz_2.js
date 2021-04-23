@@ -1,45 +1,47 @@
 module.exports = () => {
     return {
-        text: '방탈출 - 추리 테마',
+        text: '방탈출 - 넌센스 테마',
         blocks: [
             {
                 type: 'header',
-                text: '추리 테마🔍 - 문제 1 ',
+                text: '문제 2',
                 style: 'blue',
             },
             {
                 type: 'text',
                 text:
-                    '문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문문제지문',
+                    '"환영합니다. 이곳으로 찾아오세요"\n 라는 메시지와 함께 또 하나의 문제가 보인다.',
                 markdown: true,
             },
             {
-                type: 'image_link',
-                url:
-                    'https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image3@3x.jpg',
+                type: 'divider',
             },
             {
                 type: 'text',
-                text: ' * 조건1\n * 조건2 \n * 조건3',
+                text: '"사내 도서관에서 책을 빌리고 3일이나 늦게 반납했다. 나는 무엇인가?"',
                 markdown: true,
             },
             {
-                type: 'button',
-                text: '힌트 보기 👀',
-                style: 'danger',
-                action_type: 'submit_action',
-                action_name:'nonsense_hint_1',
-                value: 'nonsense_hint_1',
+                type: 'action',
+                elements: [
+                    {
+                        type: 'button',
+                        text: '힌트 보기',
+                        style: 'danger',
+                        action_type: 'submit_action',
+                        action_name: 'nonsense_hint_2',
+                        value: 'nonsense_hint_2',
+                    },
+                    {
+                        type: 'button',
+                        text: '정답 입력',
+                        style: 'primary',
+                        action_type: 'call_modal',
+                        action_name: 'nonsense_answer_2',
+                        value: 'nonsense_answer_2',
+                    },
+                ],
             },
-            {
-                type: 'button',
-                text: '정답은?? 🔍',
-                style: 'primary',
-                action_type: 'call_modal',
-                action_name: 'nonsense_answer_1',
-                value: 'nonsense_answer_1',
-            },
-            
         ],
     };
 };

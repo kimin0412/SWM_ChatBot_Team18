@@ -1,9 +1,9 @@
 module.exports = () => {
     return {
-        title: '문제 1번 정답입력',
+        title: '문제 4번 정답입력',
         accept: '제출',
         decline: '취소',
-        value: 'nonsense_check_answer_1',
+        value: 'nonsense_check_answer_4',
         blocks: [
             {
                 type: 'label',
@@ -14,7 +14,7 @@ module.exports = () => {
                 type: 'input',
                 name: 'answer_word',
                 required: true,
-                placeholder: '한글 4글자',
+                placeholder: '영어 3글자',
             },
         ],
     };
