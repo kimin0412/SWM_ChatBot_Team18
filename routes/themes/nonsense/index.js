@@ -12,7 +12,11 @@ const quizMessage3 = require('./blocks/nonsense_quiz_3');
 const quizMessage4 = require('./blocks/nonsense_quiz_4');
 const quizMessage5 = require('./blocks/nonsense_quiz_5');
 // 힌트 블록
-
+const hint1 = require('./blocks/nonsense_hint_1');
+const hint2 = require('./blocks/nonsense_hint_2');
+const hint3 = require('./blocks/nonsense_hint_3');
+const hint4 = require('./blocks/nonsense_hint_4');
+const hint5 = require('./blocks/nonsense_hint_5');
 // 안내사항
 const notice = require('./blocks/notice');
 
@@ -45,6 +49,7 @@ module.exports = {
         const { message, actions, action_time, value, action_name } = data;
         
 		switch (value) {
+            //문제 진행
             case 'nonsense_quiz_1':
                  await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
@@ -118,7 +123,7 @@ module.exports = {
                     conversationId: message.conversation_id,
                     ...lastmsg()
                 });
-                    //클리어 결과 DB 저장
+                    
                 }
                 else{
                     await libKakaoWork.sendMessage({
@@ -126,6 +131,38 @@ module.exports = {
                     ...wrong_answer()
                 });
                 }
+                break;
+                
+            // 힌트
+            case 'nonsense_hint_1':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...hint1()
+                });
+                break;
+            case 'nonsense_hint_2':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...hint2()
+                });
+                break;
+            case 'nonsense_hint_3':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...hint3()
+                });
+                break;
+            case 'nonsense_hint_4':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...hint4()
+                });
+                break;
+            case 'nonsense_hint_5':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...hint5()
+                });
                 break;
             default:
         }
