@@ -1,3 +1,6 @@
+/**
+ * 함수 형식으로 구현해서 사용자가 보낸 데이터에 따라 동적으로 블록의 텍스트 등을 변경할 수 있도록 만듬
+*/
 module.exports = (userName) => {
 	userName = userName || 'placeholder'
     return {
