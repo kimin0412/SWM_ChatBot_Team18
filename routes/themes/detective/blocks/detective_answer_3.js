@@ -9,18 +9,18 @@ module.exports = (data) => {
         title: '진실은 언제나 하나 !! ✨',
         accept: '확인',
         decline: '취소',
-        value: 'detective_check_2',
+        value: 'detective_check_3',
         blocks: [
             {
                 type: 'label',
-                text: `이 사람들이 강조해서 말한 단어들은 뭐였지?`,
+                text: `숫자들 사이의 연관성을 찾아야 해.`,
                 markdown: true,
             },
             {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '6글자, 영어단어, 소문자',
+                placeholder: '0~99 사이의 수',
             },
         ],
     };

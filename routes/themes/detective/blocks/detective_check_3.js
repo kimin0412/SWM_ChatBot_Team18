@@ -6,29 +6,41 @@
 module.exports = (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data
 	
-	if (actions.answer == 'greece') {
+	if (actions.answer == '11') {
 		return {
 			text: '방탈출 - 추리 테마',
 			blocks: [
 				{
 					type: 'text',
 					text:
-						`"허허허 탐정 선생 역시 머리가 비상하구만!"`,
+						`무사히 열린 컨테이너를 두고 당신은 안도의 한숨을 쉰다.`,
 					markdown: true,
 				},
 				{
 					type: 'text',
 					text:
-						`호탕한 웃음소리와 함께 성대한 배웅을 받으며 당신은 다음 목적지로 향한다.`,
+						`"덕분에 수고를 덜었군."`,
+					markdown: true,
+				},
+				{
+					type: 'text',
+					text:
+						`순간 둔탁한 소리와 함께 당신은 쓰러진다. 당신을 조롱하는 소리가 희미하게 들려온다.`,
+					markdown: true,
+				},
+				{
+					type: 'text',
+					text:
+						`"산 채로 바다에 수장되는 것 보단 편할거다. 하하하."`,
 					markdown: true,
 				},
 				{
 					type: 'button',
-					text: '그리스 아테네로 🛫',
+					text: '다음은?? 😫',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'detective_quiz_3',
-					value: 'detective_quiz_3'
+					action_name: 'detective_quiz_4',
+					value: 'detective_quiz_4'
 				},
 			],
 		};	
@@ -40,22 +52,28 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						`당신이 대답하자 사람좋게 웃던 그들의 표정이 순식간에 굳어진다.`,
+						`당신이 번호를 입력하자 잠금장치로부터 스파크가 튀어오른다.`,
 					markdown: true,
 				},
 				{
 					type: 'text',
 					text:
-						`잠깐의 정적 후 한 사람이 자리에서 일어나 출입문을 향해 걸어간다. 차가운 쇳소리를 내며 문이 잠긴다.`,
+						`"..... 뭐, 어쩔 수 없겠군. 전기톱으로라도 열어야지. 얘들아 탐정 나리는 보내드려라."`,
+					markdown: true,
+				},
+				{
+					type: 'text',
+					text:
+						`당신은 바다를 향해 거칠게 끌려간다.`,
 					markdown: true,
 				},
 				{
 					type: 'button',
-					text: '틀렸습니다... 💀',
+					text: '틀렸습니다... 🌊💀',
 					style: 'danger',
 					action_type: 'submit_action',
-					action_name: 'detective_quiz_2',
-					value: 'detective_quiz_2'
+					action_name: 'detective_quiz_3',
+					value: 'detective_quiz_3'
 				},
 			],
 		};
