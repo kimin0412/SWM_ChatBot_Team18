@@ -22,6 +22,9 @@ module.exports = () => {
 				type: 'button',
 				text: '게임 시작',
 				style: 'default',
+				action_type: 'submit_action',
+				action_name: 'fantasy_msg',
+				value: 'question1'
 			},
 		],
 	};

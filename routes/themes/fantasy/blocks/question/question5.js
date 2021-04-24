@@ -4,7 +4,7 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: '판타지 1:question name',
+				text: '판타지 5:question name',
 				style: 'blue',
 			},
 			{
@@ -26,15 +26,15 @@ module.exports = () => {
 						text: '정답',
 						style: 'primary',
 						action_type: 'call_modal',
-						action_name: 'answer1',
-						value: 'answer1',
+						value: 'fantasy_answerModal5',
 					},
 					{
 						type: 'button',
 						text: '힌트',
 						style: 'danger',
 						action_type: 'submit_action',
-						value: 'hint1',
+						action_name: 'fantasy_hint',
+						value: 'hint5',
 					},
 				],
 			},
