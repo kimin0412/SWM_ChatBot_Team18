@@ -9,7 +9,7 @@ const index = require('./routes/index');
 
 const app = express();
 
-const PORT = 8080;
+const PORT = 3000;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
