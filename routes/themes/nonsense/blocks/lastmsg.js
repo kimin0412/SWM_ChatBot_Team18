@@ -49,6 +49,14 @@ module.exports = () => {
                 text: '"THE END"',
                 markdown: true,
             },
+            {
+                type: 'button',
+                text: '테마 선택하기',
+                style: 'default',
+                action_type: 'submit_action',
+                action_name: 'game_start',
+                value: 'game_start',
+            },
         ],
     };
 };
