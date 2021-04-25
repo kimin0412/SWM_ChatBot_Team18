@@ -3,7 +3,11 @@ const router = express.Router();
 
 const libKakaoWork = require('../libs/kakaoWork');
 
-const romance_stage1 = require('./themes/romance/stage1');
+const romanceMain = require('./themes/romance/main');
+const romanceStage1Conversation = require('./themes/romance/stage1/conversation');
+const romanceStage1Question = require('./themes/romance/stage1/question');
+const romanceStage1Answer = require('./themes/romance/stage1/answer');
+const romanceStage1Result = require('./themes/romance/stage1/result');
 
 
 router.get('/', async (req, res, next) => {
@@ -103,6 +107,11 @@ router.post('/request', async (req, res, next) => {
 
             });
             break;
+            
+        case 'romance_stage1_answer':
+            return res.json(romanceStage1Answer.getBlock());
+            break;
+            
         default:
     }
 
@@ -211,16 +220,28 @@ router.post('/callback', async (req, res, next) => {
                         text: '연애',
                         style: 'default',
                         action_type: 'submit_action',
-						action_name: 'romance',
-                        value: 'romance',
+						action_name: 'romance_main',
+                        value: 'romance_main',
                     },
                 ],
             });
             break;
             
-        case 'romance':
-          await romance_stage1.sendMessage(message);
-          break;
+        case 'romance_main':
+            await libKakaoWork.sendMessage(romanceMain.getBlock(message));
+            break;
+            
+        case 'romance_stage1_conversation':
+            await libKakaoWork.sendMessage(romanceStage1Conversation.getBlock(message));
+            break;
+            
+        case 'romance_stage1_question':
+            await libKakaoWork.sendMessage(romanceStage1Question.getBlock(message));
+            break;
+            
+        case 'romance_stage1_result':
+            await libKakaoWork.sendMessage(romanceStage1Result.getBlock(message));
+            break;
             
         default:
     }
