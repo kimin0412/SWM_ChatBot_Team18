@@ -5,10 +5,6 @@ const survivalBlocks = require('./block'); // 미리 작성된 시나리오 블�
 const survivalModals = require('./modal'); // 미리 작성된 시나리오 모달 가져오기  (modal)
 const survivalChecks = require('./check'); // 미리 작성된 시나리오 채점 가져오기, (block)
 
-function conLog(){
-	console.log("test text!");
-}
-
 async function survivalGameProcessRequest(req, res){
 	const { message, value } = req.body;
 	
@@ -385,7 +381,6 @@ async function survivalGameProcessCallback(req, res){
 
 module.exports = {
 	router,
-	conLog,
 	survivalGameProcessCallback,
 	survivalGameProcessRequest
 }

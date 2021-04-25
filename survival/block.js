@@ -753,34 +753,3 @@ exports.quitFromShuttleFourBlock = [
       style: "default"
     }
 ];
-
-// 테스트용력
-const inputAnswer = '정답 입력하기';
-exports.test_template = [
-	{
-		type: 'header',
-		text: 'Page N',
-		style: 'blue',
-	},
-	{
-		type: 'divider',
-	},
-	{
-		type: 'image_link',
-		url: 'https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image4@3x.jpg',
-	},
-	{
-    	type: "image_link",
-     	url: "https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image5@3x.jpg"
-    },
-	{
-		type: 'text',
-		text: 'text sample',
-		markdown: true,
-	},
-	{
-		type: 'button',
-		text: inputAnswer,
-		style: 'default',
-	},
-];
