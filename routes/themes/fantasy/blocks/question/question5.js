@@ -16,7 +16,7 @@ module.exports = () => {
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/2WgKdSW/q5.jpg', 
+					'https://i.ibb.co/84X8dZq/q5.jpg', 
 			},
 			{
 				type: 'action',
