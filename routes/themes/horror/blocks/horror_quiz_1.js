@@ -23,7 +23,7 @@ module.exports = (data) => {
 				type: "context",
 				content: {
 					type: "text",
-					text: "[소마센터 안내문](https://drive.google.com/file/d/1zfd5SJ408L4gTWF74u4LzGxDzG86mhT7/view?usp=sharing)",
+					text: "[소마센터 안내문](https://drive.google.com/file/d/1Ir7SOdLglkqokUMRr84vHqE843F_BaG3/view?usp=sharing)",
 					markdown: true
 				},
 				image: {
