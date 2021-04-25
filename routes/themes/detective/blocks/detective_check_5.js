@@ -3,20 +3,20 @@
  * 정답 메세지의 경우 버튼이 다음 단계의 메세지를 호출하도록
  * 오답 메세지의 경우 버튼이 이번 단계의 메세지를 다시 호출하도록 설정
 */
+const Config = require('config');
+
 module.exports = (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data
 	
 	let correct = true;
 	
-	console.log(actions)
-	
-	if (actions.answer1 != '3') {
+	if (actions.answer1 != Config.detective.answers.ans5[0]) {
 		correct = false;
 	}
-	if (actions.answer2 != '2') {
+	if (actions.answer2 != Config.detective.answers.ans5[1]) {
 		correct = false;
 	}
-	if (actions.answer3 != '2') {
+	if (actions.answer3 != Config.detective.answers.ans5[2]) {
 		correct = false;
 	}
 	
@@ -84,7 +84,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						`"좀 더 푹 쉬도록 하세요. 보상은 천천히 드리도록 하겠습니다."`,
+						`"아무튼 좀 더 푹 쉬도록 하세요. 보상은 천천히 드리도록 하겠습니다."`,
 					markdown: true,
 				},
 				{
