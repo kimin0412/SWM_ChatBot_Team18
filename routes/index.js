@@ -113,6 +113,22 @@ router.post('/request', async (req, res, next) => {
 					view: require('./themes/detective').modalBuilder(req.body)
 
 				}) 
+			let [thema, context] = value.split('_');
+			console.log(thema);
+			console.log(context);
+			console.log(context.includes('answer'));
+			switch(thema){
+				case 'fantasy':
+					if (context.includes('answerModal')){
+						return res.json({
+							view: require('./themes/fantasy').answerBuilder(req.body)
+						});
+					}
+					else if (context.include('submission')){
+						return res.json({
+							view: require('./themes/fantasy').resultBuilder(req.body)
+						});
+					}
 			}
     }
 
@@ -123,7 +139,7 @@ router.post('/callback', async (req, res, next) => {
     console.log(req.body);
     const { message, actions, action_time, value, action_name } = req.body;
 
-    switch (value) {
+	switch (value) {
         case 'user_name':
             // 설문조사 응답 결과 메세지 전송 (3)
             await libKakaoWork.sendMessage({
@@ -195,6 +211,9 @@ router.post('/callback', async (req, res, next) => {
                         type: 'button',
                         text: '판타지',
                         style: 'default',
+						action_type: 'submit_action',
+						action_name: 'fantasy_msg',
+						value: 'intro'
                     },
                     {
                         type: 'button',
@@ -242,6 +261,24 @@ router.post('/callback', async (req, res, next) => {
 				// modal을 통해 제출한 값, react_user_id(답장을 보낸 사용자 고유 id)등 사용할 수 있음
 				await require('./themes/detective').messageBuilder(req.body);
       }
+			let thema, context;
+			if(action_name)
+				[thema, context] = action_name.split('_');
+			else if (value)
+				[thema, context] = value.split('_');
+			switch(thema) {
+				case 'fantasy':
+					switch(context){
+						case 'msg':
+							await require('./themes/fantasy').messageBuilder(req.body);
+							break;
+						case 'hint':
+							await require('./themes/fantasy').hintBuilder(req.body);
+							break;
+						default:
+							await require('./themes/fantasy').resultBuilder(req.body);
+							break;
+					}
 			}
     }
 
