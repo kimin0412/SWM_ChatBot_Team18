@@ -21,12 +21,11 @@ const answerModal3 = require('./blocks/answer/answer3');
 const answerModal4 = require('./blocks/answer/answer4');
 const answerModal5 = require('./blocks/answer/answer5');
 
-const wrong = require('./blocks/wrong');
-const correct1 = require('./blocks/correct/correct1');
-const correct2 = require('./blocks/correct/correct2');
-const correct3 = require('./blocks/correct/correct3');
-const correct4 = require('./blocks/correct/correct4');
-const correct5 = require('./blocks/correct/correct5');
+const check1 = require('./blocks/check/check1');
+const check2 = require('./blocks/check/check2');
+const check3 = require('./blocks/check/check3');
+const check4 = require('./blocks/check/check4');
+const check5 = require('./blocks/check/check5');
 
 module.exports = {
 	answerBuilder: (data) => {
@@ -137,74 +136,34 @@ module.exports = {
 		console.log(data);
 		switch(context) {
 			case 'submission1':
-				if (1){
-					await libKaKaoWork.sendMessage({
+				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...correct1()
+						...check1()
 					});
-				}
-				else{
-					await libKaKaoWork.sendMessage({
-						conversationId: message.conversation_id,
-						...wrong()
-					});
-				}
 				break;
 			case 'submission2':
-				if (1){
-					await libKaKaoWork.sendMessage({
+				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...correct2()
+						...check2()
 					});
-				}
-				else{
-					await libKaKaoWork.sendMessage({
-						conversationId: message.conversation_id,
-						...wrong()
-					});
-				}
 				break;
 			case 'submission3':
-				if (1){
-					await libKaKaoWork.sendMessage({
+				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...correct3()
+						...check3()
 					});
-				}
-				else{
-					await libKaKaoWork.sendMessage({
-						conversationId: message.conversation_id,
-						...wrong()
-					});
-				}
 				break;
 			case 'submission4':
-				if (1){
-					await libKaKaoWork.sendMessage({
+				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...correct4()
+						...check4()
 					});
-				}
-				else{
-					await libKaKaoWork.sendMessage({
-						conversationId: message.conversation_id,
-						...wrong()
-					});
-				}
 				break;
 			case 'submission5':
-				if (1){
-					await libKaKaoWork.sendMessage({
+				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...correct5()
+						...check5()
 					});
-				}
-				else{
-					await libKaKaoWork.sendMessage({
-						conversationId: message.conversation_id,
-						...wrong()
-					});
-				}
 				break;
 		}
 	}
