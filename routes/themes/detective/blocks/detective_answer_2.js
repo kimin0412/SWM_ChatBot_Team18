@@ -20,7 +20,7 @@ module.exports = (data) => {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '6글자, 영어, 소문자',
+                placeholder: '영어, 소문자',
             },
         ],
     };

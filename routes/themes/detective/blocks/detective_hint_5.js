@@ -5,6 +5,6 @@ module.exports = (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 	
     return {
-        text: `'배는 상해에서 출발해서 수에즈 운하를 거쳐가려 했겠지, 목적지는 유럽일 가능성이 커.'`
+        text: `'지금까지 보고 들은대로만 말하자.'`
     };
 };
