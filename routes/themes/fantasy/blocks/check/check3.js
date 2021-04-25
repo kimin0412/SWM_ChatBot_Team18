@@ -1,6 +1,5 @@
-const libKaKaoWork = require("../../../../libs/kakaoWork");
 const wrong = require('../wrong');
-const correct3 = require('../correct/correct1');
+const correct3 = require('../correct/correct3');
 
 module.exports = (data) => {
 	const {message, actions, action, value, action_name, react_user_id} = data;
