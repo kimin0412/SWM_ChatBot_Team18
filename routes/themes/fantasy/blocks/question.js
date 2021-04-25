@@ -1,12 +1,12 @@
 module.exports = (order) => {
 	const questions = [
-		require('./question/intro'),
-		require('./question/question1'),
-		require('./question/question2'),
-		require('./question/question3'),
-		require('./question/question4'),
-		require('./question/question5'),
-		require('./question/outtro')
+		'./question/intro',
+		'./question/question1',
+		'./question/question2',
+		'./question/question3',
+		'./question/question4',
+		'./question/question5',
+		'./question/outtro'
 	]
-	return questions[order]();
+	return require(questions[order])();
 };
