@@ -8,6 +8,12 @@ module.exports = () => {
 				style: 'blue',
 			},
 			{
+				type: 'text',
+				text:
+					'쉿!!!\n\n들키지 않도록 조용히 지나가자.....',
+				markdown: true,
+			},
+			{
 				type: 'button',
 				text: '다음 단계로',
 				style: 'default',

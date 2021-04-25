@@ -9,7 +9,7 @@ module.exports = () => {
 			},
 			{
 				type: 'button',
-				text: '다음 단계로',
+				text: '부탁드려요~~',
 				style: 'default',
 				action_type: 'submit_action',
 				action_name: 'fantasy_msg',

@@ -14,7 +14,7 @@ module.exports = () => {
 				type: 'input',
 				name: 'answer',
 				required: true,
-				placeholder: '(몇 글자인지 적음)',
+				placeholder: '(6글자)',
 			},
 		],
 	};

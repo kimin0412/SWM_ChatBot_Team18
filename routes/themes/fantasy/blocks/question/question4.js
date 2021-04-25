@@ -4,19 +4,19 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: '판타지 4:question name',
+				text: '판타지 꼭대기 층: Maestro',
 				style: 'blue',
+			},
+			{
+				type: 'text',
+				text:
+					'꼭대기에 올라오니, 마에스트로가 기다리고 있었다. 마에스트로를 물리칠 주문을 외자',
+				markdown: true,
 			},
 			{
 				type: 'image_link',
 				url:
 					'https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image3@3x.jpg',
-			},
-			{
-				type: 'text',
-				text:
-					'문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용',
-				markdown: true,
 			},
 			{
 				type: 'action',

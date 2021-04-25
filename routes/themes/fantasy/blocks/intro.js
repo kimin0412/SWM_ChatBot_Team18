@@ -4,7 +4,7 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: 'Fantasy Title',
+				text: 'Fantasy Thema - intro',
 				style: 'blue',
 			},
 			{
@@ -15,7 +15,7 @@ module.exports = () => {
 			{
 				type: 'text',
 				text:
-					'배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명배경설명',
+					'부, 명성, 힘 모든 것을 손에 넣은 사나이 마에스트로, 그가 남긴 한마디는 전세계 사람들을 흥분시켰다.\n\n _내 보물말인가 원한다면 주지 어디 찾아봐라, 이세상 모든 것을 그곳에 두고 왔다._ ',
 				markdown: true,
 			},
 			{

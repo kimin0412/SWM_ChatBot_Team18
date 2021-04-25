@@ -4,18 +4,24 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: '판타지 5:question name',
+				text: '판타지 5: rainbow',
 				style: 'blue',
 			},
 			{
 				type: 'image_link',
 				url:
-					'https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image3@3x.jpg',
+					'https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image3@3x.jpg', 
 			},
 			{
 				type: 'text',
 				text:
-					'문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용문제내용',
+					'메테오를 날리니 천장이 무너지고 하늘이 보인다....\n 하늘에는 무지개가 떠 있다...\n\n보물은 어디에 있는걸까',
+				markdown: true,
+			},
+			{
+				type: 'text',
+				text:
+					'A<span style="color:navy">d</span><span style="color:orange">i</span><span style="color:blue">o</span><span style="color:purple">s</span>, <span style="color:red">A</span><span style="color:green">p</span><span style="color:yellow">r</span>il',
 				markdown: true,
 			},
 			{
