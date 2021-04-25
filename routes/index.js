@@ -100,6 +100,14 @@ router.post('/request', async (req, res, next) => {
             });
             break;
         default:
+			// call_modal의 요청값 문자열(value)에 detective가 포함되도록 설계해서
+			// 추리 문제에 사용될 modal은 이 조건문 절에서 생성
+			if (value.includes('detective')) {
+				return res.json({
+					// modalBuilder 함수에 req.body를 전달에서 모듈에서 필요한 데이터를 사용할 수 있도록 함
+					view: require('./themes/detective').modalBuilder(req.body)
+				}) 
+			}
     }
 
     res.json({});
@@ -107,7 +115,7 @@ router.post('/request', async (req, res, next) => {
 
 router.post('/callback', async (req, res, next) => {
     console.log(req.body);
-    const { message, actions, action_time, value } = req.body;
+    const { message, actions, action_time, value, action_name } = req.body;
 
     switch (value) {
         case 'user_name':
@@ -207,10 +215,25 @@ router.post('/callback', async (req, res, next) => {
                         text: '연애',
                         style: 'default',
                     },
+                    {
+                        type: 'button',
+                        text: '추리',
+                        style: 'default',
+						action_type: 'submit_action',
+						action_name: 'detective_quiz_1',
+                        value: 'detective_quiz_1',
+                    },
                 ],
             });
             break;
         default:
+			// submit_aciton의 결과값 문자열(value)에 detective가 포함되도록 설계해서
+			// 추리 문제는 이 조건문 절에서 처리하도록 함
+			if (value.includes('detective')) {
+				// messageBuilder 함수에 req.body를 전달해서 모듈에서 필요한 데이터 사용.
+				// modal을 통해 제출한 값, react_user_id(답장을 보낸 사용자 고유 id)등 사용할 수 있음
+				await require('./themes/detective').messageBuilder(req.body);
+			}
     }
 
     res.json({ result: true });
