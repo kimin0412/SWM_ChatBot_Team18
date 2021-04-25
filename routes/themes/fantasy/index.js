@@ -133,36 +133,35 @@ module.exports = {
 	resultBuilder: async (data) => {
 		const {message, actions, action_time, value, action_name} = data;
 		let [thema, context] = value.split('_');
-		console.log(data);
 		switch(context) {
 			case 'submission1':
 				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...check1()
+						...check1(data)
 					});
 				break;
 			case 'submission2':
 				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...check2()
+						...check2(data)
 					});
 				break;
 			case 'submission3':
 				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...check3()
+						...check3(data)
 					});
 				break;
 			case 'submission4':
 				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...check4()
+						...check4(data)
 					});
 				break;
 			case 'submission5':
 				await libKaKaoWork.sendMessage({
 						conversationId: message.conversation_id,
-						...check5()
+						...check5(data)
 					});
 				break;
 		}
