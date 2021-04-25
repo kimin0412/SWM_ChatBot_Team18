@@ -3,13 +3,13 @@ exports.getBlock = (message, actions) => {
     const input_answer = actions.input_answer;
     let result = '';
     if(input_answer === '1'){
-        result = '왜 이래 부담스럽게;;';
+        result = '오키오키';
     }
     else if(input_answer === '2'){
-        result = 'ㅋㅋ 되겠냐';
+        result = '내가 너랑? 왜?';
     }
     else if(input_answer === '3'){
-        result = '여자는 딱 보면 알거든';
+        result = '덕후 자식 ㅋㅋ';
     }
     
     return {
@@ -31,8 +31,8 @@ exports.getBlock = (message, actions) => {
                 "text": '다음',
                 "style": 'default',
                 "action_type": 'submit_action',
-                "action_name": 'romance_stage2_question',
-                "value": 'romance_stage2_question',
+                "action_name": 'romance_ending',
+                "value": 'romance_ending',
             },
         ],
     };

@@ -1,17 +1,22 @@
 exports.getBlock = (message) => {
+
+    const score = 50;
+    let result = 'XX이는 모쏠에서 탈출했다';
+    if(score < 80){
+        result = 'XX이는 썸에서 탈출했다';
+    }
     
     const contents = [
-        '어느날 함께 알바를 하던 중 YY이가 말한다.',
-        '와 오빠 아까 그 손님 진짜 예쁘지 않아?',
+        result,
     ]
     
     return {
         conversationId: message.conversation_id,
-        text: 'YY',
+        text: '결과',
         blocks: [
             {
               "type": "header",
-              "text": 'YY',
+              "text": "결과",
               "style": "red"
             },
             {
@@ -25,11 +30,11 @@ exports.getBlock = (message) => {
             },
             {
                 "type": 'button',
-                "text": '정답 입력',
+                "text": '메인으로',
                 "style": 'default',
-                "action_type": 'call_modal',
-                "action_name": 'romance_stage1_answer',
-                "value": 'romance_stage1_answer',
+                "action_type": 'submit_action',
+                "action_name": 'game_start',
+                "value": 'game_start',    
             },
         ],
     };

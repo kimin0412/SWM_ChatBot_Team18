@@ -1,11 +1,19 @@
 exports.getBlock = (message) => {
+    
+    const contents = [
+        '지난달 막 전역한 XX',
+        '요즘 알바에서 알게 된 YY이와 썸을 타고 있다',
+        '이번에는 과연 모쏠에서 탈출할 수 있을까?',
+    ];
+
+    
     return {
         conversationId: message.conversation_id,
-        text: '연애 메인 페이지',
+        text: 'XX이의 모쏠 탈출',
         blocks: [
             {
               "type": "header",
-              "text": "연애 메인",
+              "text": "XX이의 모쏠 탈출",
               "style": "red"
             },
             {
@@ -14,17 +22,31 @@ exports.getBlock = (message) => {
             },
             {
                 "type": 'text',
-                "text": '방탈출 연애 테마, 컨셉 설명',
+                "text": contents.join('\n'),
                 "markdown": true,
             },
             {
-                "type": 'button',
-                "text": '시작',
-                "style": 'default',
-                "action_type": 'submit_action',
-                "action_name": 'romance_stage1_conversation',
-                "value": 'romance_stage1_conversation',
+                'type': 'action',
+                'elements': [
+                    {
+                        "type": 'button',
+                        "text": '뒤로가기',
+                        "style": 'default',
+                        "action_type": 'submit_action',
+                        "action_name": 'game_start',
+                        "value": 'game_start',
+                    },
+                    {
+                        "type": 'button',
+                        "text": '시작',
+                        "style": 'default',
+                        "action_type": 'submit_action',
+                        "action_name": 'romance_stage1_question',
+                        "value": 'romance_stage1_question',
+                    },
+                ],
             },
+            
         ],
     };
 };

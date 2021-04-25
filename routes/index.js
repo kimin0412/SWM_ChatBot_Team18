@@ -10,6 +10,12 @@ const romanceStage1Answer = require('./themes/romance/stage1/answer');
 const romanceStage1Result = require('./themes/romance/stage1/result');
 const romanceStage1Hint = require('./themes/romance/stage1/hint');
 
+const romanceStage2Question = require('./themes/romance/stage2/question');
+const romanceStage2Answer = require('./themes/romance/stage2/answer');
+const romanceStage2Result = require('./themes/romance/stage2/result');
+
+const romanceEnding = require('./themes/romance/ending');
+
 
 router.get('/', async (req, res, next) => {
     // 유저 목록 검색 (1)
@@ -111,6 +117,10 @@ router.post('/request', async (req, res, next) => {
             
         case 'romance_stage1_answer':
             return res.json(romanceStage1Answer.getBlock());
+            break;
+            
+        case 'romance_stage2_answer':
+            return res.json(romanceStage2Answer.getBlock());
             break;
             
         case 'romance_stage1_hint':
@@ -235,19 +245,25 @@ router.post('/callback', async (req, res, next) => {
         case 'romance_main':
             await libKakaoWork.sendMessage(romanceMain.getBlock(message));
             break;
-            
         case 'romance_stage1_conversation':
             await libKakaoWork.sendMessage(romanceStage1Conversation.getBlock(message));
             break;
-            
         case 'romance_stage1_question':
             await libKakaoWork.sendMessage(romanceStage1Question.getBlock(message));
             break;
-            
         case 'romance_stage1_result':
-            await libKakaoWork.sendMessage(romanceStage1Result.getBlock(message));
+            await libKakaoWork.sendMessage(romanceStage1Result.getBlock(message, actions));
             break;
-            
+        case 'romance_stage2_question':
+            await libKakaoWork.sendMessage(romanceStage2Question.getBlock(message));
+            break;
+        case 'romance_stage2_result':
+            await libKakaoWork.sendMessage(romanceStage2Result.getBlock(message, actions));
+            break;
+        case 'romance_ending':
+            await libKakaoWork.sendMessage(romanceEnding.getBlock(message, actions));
+            break;
+        
         default:
     }
     res.json({ result: true });

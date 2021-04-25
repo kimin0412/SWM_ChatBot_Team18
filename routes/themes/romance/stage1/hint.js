@@ -4,7 +4,7 @@ exports.getBlock = (message) => {
             title: '힌트',
             accept: '확인',
             decline: '취소',
-            value: 'romance_stage1_result',
+            value: 'romance_stage1_question',
             blocks: [
                 {
                   "type": "label",
