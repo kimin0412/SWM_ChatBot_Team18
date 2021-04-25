@@ -8,6 +8,7 @@ const romanceStage1Conversation = require('./themes/romance/stage1/conversation'
 const romanceStage1Question = require('./themes/romance/stage1/question');
 const romanceStage1Answer = require('./themes/romance/stage1/answer');
 const romanceStage1Result = require('./themes/romance/stage1/result');
+const romanceStage1Hint = require('./themes/romance/stage1/hint');
 
 
 router.get('/', async (req, res, next) => {
@@ -110,6 +111,10 @@ router.post('/request', async (req, res, next) => {
             
         case 'romance_stage1_answer':
             return res.json(romanceStage1Answer.getBlock());
+            break;
+            
+        case 'romance_stage1_hint':
+            return res.json(romanceStage1Hint.getBlock());
             break;
             
         default:
