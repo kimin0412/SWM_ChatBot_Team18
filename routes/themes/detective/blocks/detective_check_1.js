@@ -19,7 +19,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						`당신은 의아해하며 질문한다. 급한 일인가?`,
+						`급한 일인가? 당신은 의아해하며 질문한다.`,
 					markdown: true,
 				},
 				{
@@ -36,7 +36,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'button',
-					text: '중국 상해로 🛫',
+					text: '다음으로 🛫',
 					style: 'primary',
 					action_type: 'submit_action',
 					action_name: 'detective_quiz_2',

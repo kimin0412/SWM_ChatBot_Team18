@@ -9,7 +9,7 @@ module.exports = (data) => {
         title: '진실은 언제나 하나 !! ✨',
         accept: '확인',
         decline: '취소',
-        value: 'detective_check_2',
+        value: 'detective_check_5',
         blocks: [
             {
                 type: 'label',

@@ -36,7 +36,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'button',
-					text: '다음은?? 😫',
+					text: '다음으로..? 💀',
 					style: 'primary',
 					action_type: 'submit_action',
 					action_name: 'detective_quiz_4',
@@ -52,7 +52,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						`당신이 번호를 입력하자 잠금장치로부터 스파크가 튀어오른다.`,
+						`번호를 입력하자 잠금장치로부터 스파크가 튀어오른다. 장치는 더이상 작동하지 않는 것으로 보인다.`,
 					markdown: true,
 				},
 				{

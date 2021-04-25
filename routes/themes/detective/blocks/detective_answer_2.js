@@ -13,14 +13,14 @@ module.exports = (data) => {
         blocks: [
             {
                 type: 'label',
-                text: `이 사람들이 강조해서 말한 단어들은 뭐였지?`,
+                text: `'이 사람들이 강조해서 말한 단어들은 뭐였지?'`,
                 markdown: true,
             },
             {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '6글자, 영어단어, 소문자',
+                placeholder: '6글자, 영어, 소문자',
             },
         ],
     };

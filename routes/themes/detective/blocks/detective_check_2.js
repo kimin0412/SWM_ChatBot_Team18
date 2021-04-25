@@ -24,7 +24,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'button',
-					text: '그리스 아테네로 🛫',
+					text: '다음으로 🛫',
 					style: 'primary',
 					action_type: 'submit_action',
 					action_name: 'detective_quiz_3',

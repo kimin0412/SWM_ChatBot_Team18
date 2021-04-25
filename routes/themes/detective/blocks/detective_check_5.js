@@ -27,8 +27,8 @@ module.exports = (data) => {
 					text: '그리스 아테네로 🛫',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'detective_quiz_3',
-					value: 'detective_quiz_3'
+					action_name: 'detective_end',
+					value: 'detective_end'
 				},
 			],
 		};	
@@ -54,8 +54,8 @@ module.exports = (data) => {
 					text: '틀렸습니다... 💀',
 					style: 'danger',
 					action_type: 'submit_action',
-					action_name: 'detective_quiz_2',
-					value: 'detective_quiz_2'
+					action_name: 'detective_quiz_5',
+					value: 'detective_quiz_5'
 				},
 			],
 		};

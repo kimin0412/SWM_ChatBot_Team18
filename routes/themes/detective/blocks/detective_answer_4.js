@@ -9,18 +9,18 @@ module.exports = (data) => {
         title: '진실은 언제나 하나 !! ✨',
         accept: '확인',
         decline: '취소',
-        value: 'detective_check_2',
+        value: 'detective_check_4',
         blocks: [
             {
                 type: 'label',
-                text: `이 사람들이 강조해서 말한 단어들은 뭐였지?`,
+                text: `'죽을 때가 되니 해탈한건가, 격언같은 말을 하는군.'`,
                 markdown: true,
             },
             {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '6글자, 영어단어, 소문자',
+                placeholder: '영어, 소문자',
             },
         ],
     };

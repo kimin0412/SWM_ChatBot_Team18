@@ -10,7 +10,7 @@ module.exports = (data) => {
         blocks: [
             {
                 type: 'header',
-                text: '추리 테마🔍 - 문제 2',
+                text: '추리 테마🔍 - 문제 5',
                 style: 'yellow',
             },
             {
@@ -49,16 +49,16 @@ module.exports = (data) => {
                 text: '대답하기 🔍',
                 style: 'primary',
                 action_type: 'call_modal',
-                action_name: 'detective_answer_2',
-                value: 'detective_answer_2',
+                action_name: 'detective_answer_5',
+                value: 'detective_answer_5',
             },
             {
                 type: 'button',
                 text: '힌트보기 👀',
                 style: 'danger',
                 action_type: 'submit_action',
-                action_name: 'detective_hint_2',
-                value: 'detective_hint_2',
+                action_name: 'detective_hint_5',
+                value: 'detective_hint_5',
             },
         ],
     };

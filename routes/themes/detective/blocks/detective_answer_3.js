@@ -13,7 +13,7 @@ module.exports = (data) => {
         blocks: [
             {
                 type: 'label',
-                text: `숫자들 사이의 연관성을 찾아야 해.`,
+                text: `'숫자들 사이의 연관성을 찾아야 해.'`,
                 markdown: true,
             },
             {

@@ -5,6 +5,6 @@ module.exports = (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 	
     return {
-        text: `'음... 시작은 왼쪽 아래부터인가. 그리고 윗줄에 적힌 숫자들은 영향을 주기만 하는군...'`
+        text: `'음... 왼쪽 아래부터 시작인 것 같아. 그리고 윗줄에 적힌 숫자들은 영향을 주기만 하는군...'`
     };
 };
