@@ -24,7 +24,7 @@ module.exports = () => {
 				style: 'default',
 				action_type: 'submit_action',
 				action_name: 'fantasy_msg',
-				value: 'question1'
+				value: 'fantasy_question_1'
 			},
 		],
 	};

@@ -143,6 +143,11 @@ router.post('/request', async (req, res, next) => {
 					view: require('./themes/horror').modalBuilder(req.body),
 				});
 			}
+			else if (value.includes('fantasy')) {
+				return res.json({
+					view: require('./themes/fantasy').modalBuilder(req.body),
+				});
+			}
 	}
 
 	res.json({});
@@ -229,7 +234,7 @@ router.post('/callback', async (req, res, next) => {
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'fantasy_msg',
-						value: 'intro',
+						value: 'fantasy_question_0',
 					},
 					{
 						type: 'button',
@@ -293,6 +298,9 @@ router.post('/callback', async (req, res, next) => {
 				await require('./themes/detective').messageBuilder(req.body);
 			} else if (value.includes('horror')) {
 				await require('./themes/horror').messageBuilder(req.body);
+			}
+			else if (value.includes('fantasy')) {
+				await require('./themes/fantasy').messageBuilder(req.body);
 			}
 
 		// else
