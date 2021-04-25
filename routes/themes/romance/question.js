@@ -1,9 +1,9 @@
-exports.getBlock = (message) => {
+const data = require('./data')
+
+exports.getBlock = (message, stageNum) => {
     
-    const contents = [
-        '어느날 함께 알바를 하던 중 YY이가 말한다.',
-        '와 오빠 아까 그 손님 진짜 예쁘지 않아?',
-    ]
+    const nextStageName = 'romance_answer_' + String(stageNum)
+    const contents = data.getQuestionContents(stageNum)
     
     return {
         conversationId: message.conversation_id,
@@ -28,8 +28,8 @@ exports.getBlock = (message) => {
                 "text": '정답 입력',
                 "style": 'default',
                 "action_type": 'call_modal',
-                "action_name": 'romance_stage1_answer',
-                "value": 'romance_stage1_answer',
+                "action_name": nextStageName,
+                "value": nextStageName,
             },
         ],
     };

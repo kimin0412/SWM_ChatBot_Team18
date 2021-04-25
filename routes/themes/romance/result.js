@@ -1,17 +1,11 @@
-exports.getBlock = (message, actions) => {
+const data = require('./data')
+
+exports.getBlock = (message, stageNum, actions) => {
     
-    const input_answer = actions.input_answer;
-    let result = '';
-    if(input_answer === '1'){
-        result = '오키오키';
-    }
-    else if(input_answer === '2'){
-        result = '내가 너랑? 왜?';
-    }
-    else if(input_answer === '3'){
-        result = '덕후 자식 ㅋㅋ';
-    }
-    
+    const answer = actions.input_answer
+    const nextStageName = 'romance_question_' + String(stageNum+1)
+    let result = data.getResult(stageNum, answer)
+
     return {
         conversationId: message.conversation_id,
         text: 'YY',
@@ -31,8 +25,8 @@ exports.getBlock = (message, actions) => {
                 "text": '다음',
                 "style": 'default',
                 "action_type": 'submit_action',
-                "action_name": 'romance_ending',
-                "value": 'romance_ending',
+                "action_name": nextStageName,
+                "value": nextStageName,
             },
         ],
     };

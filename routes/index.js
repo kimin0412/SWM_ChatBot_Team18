@@ -3,18 +3,7 @@ const router = express.Router();
 
 const libKakaoWork = require('../libs/kakaoWork');
 
-const romanceMain = require('./themes/romance/main');
-const romanceStage1Conversation = require('./themes/romance/stage1/conversation');
-const romanceStage1Question = require('./themes/romance/stage1/question');
-const romanceStage1Answer = require('./themes/romance/stage1/answer');
-const romanceStage1Result = require('./themes/romance/stage1/result');
-const romanceStage1Hint = require('./themes/romance/stage1/hint');
-
-const romanceStage2Question = require('./themes/romance/stage2/question');
-const romanceStage2Answer = require('./themes/romance/stage2/answer');
-const romanceStage2Result = require('./themes/romance/stage2/result');
-
-const romanceEnding = require('./themes/romance/ending');
+const romance = require('./themes/romance/index');
 
 router.get('/', async (req, res, next) => {
 	// 유저 목록 검색 (1)
@@ -113,18 +102,6 @@ router.post('/request', async (req, res, next) => {
 			});
 			break;
 
-		case 'romance_stage1_answer':
-			return res.json(romanceStage1Answer.getBlock());
-			break;
-
-		case 'romance_stage2_answer':
-			return res.json(romanceStage2Answer.getBlock());
-			break;
-
-		case 'romance_stage1_hint':
-			return res.json(romanceStage1Hint.getBlock());
-			break;
-
 		default:
 			if (value.includes('nonsense')) {
 				return res.json({
@@ -143,6 +120,9 @@ router.post('/request', async (req, res, next) => {
 					view: require('./themes/horror').modalBuilder(req.body),
 				});
 			}
+            else if (value.includes('romance')){
+                return res.json(romance.getBlock(req.body));
+            }
 	}
 
 	res.json({});
@@ -259,28 +239,6 @@ router.post('/callback', async (req, res, next) => {
 			});
 			break;
 
-		case 'romance_main':
-			await libKakaoWork.sendMessage(romanceMain.getBlock(message));
-			break;
-		case 'romance_stage1_conversation':
-			await libKakaoWork.sendMessage(romanceStage1Conversation.getBlock(message));
-			break;
-		case 'romance_stage1_question':
-			await libKakaoWork.sendMessage(romanceStage1Question.getBlock(message));
-			break;
-		case 'romance_stage1_result':
-			await libKakaoWork.sendMessage(romanceStage1Result.getBlock(message, actions));
-			break;
-		case 'romance_stage2_question':
-			await libKakaoWork.sendMessage(romanceStage2Question.getBlock(message));
-			break;
-		case 'romance_stage2_result':
-			await libKakaoWork.sendMessage(romanceStage2Result.getBlock(message, actions));
-			break;
-		case 'romance_ending':
-			await libKakaoWork.sendMessage(romanceEnding.getBlock(message, actions));
-			break;
-
 		default:
 			if (value.includes('nonsense')) {
 				await require('./themes/nonsense').messageBuilder(req.body);
@@ -294,6 +252,9 @@ router.post('/callback', async (req, res, next) => {
 			} else if (value.includes('horror')) {
 				await require('./themes/horror').messageBuilder(req.body);
 			}
+            else if (value.includes('romance')){
+                await libKakaoWork.sendMessage(romance.getBlock(req.body));
+            }
 
 		// else
 	}
