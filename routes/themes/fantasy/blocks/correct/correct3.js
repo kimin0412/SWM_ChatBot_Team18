@@ -10,7 +10,7 @@ module.exports = () => {
 			{
 				type: 'text',
 				text:
-					'쉿!!!\n\n들키지 않도록 조용히 지나가자.....',
+					'쉿.....\n들키지 않도록 조용히 지나가자.....',
 				markdown: true,
 			},
 			{

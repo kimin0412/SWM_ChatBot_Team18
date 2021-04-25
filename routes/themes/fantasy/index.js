@@ -47,7 +47,8 @@ module.exports = {
 	},
 	messageBuilder: async (data) => {
 		const { message, actions, action_time, value, action_name } = data;
-		
+		console.log('messageBuilder');
+		console.log(value);
 		switch(value) {
 			case 'intro':
 				await libKaKaoWork.sendMessage({

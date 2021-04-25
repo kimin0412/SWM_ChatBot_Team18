@@ -9,7 +9,7 @@ module.exports = () => {
 			},
 			{
 				type: 'text',
-				text: '힌트내용힌트내용힌트내용힌트내용힌트내용힌트내용',
+				text: '왕, 여왕, 주교, 탑, ...',
 				markdown: true,
 			}
 		],

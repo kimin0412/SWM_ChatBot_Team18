@@ -4,7 +4,7 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: '판타지 꼭대기 층: Maestro',
+				text: '4층: Maestro',
 				style: 'blue',
 			},
 			{
@@ -16,7 +16,7 @@ module.exports = () => {
 			{
 				type: 'image_link',
 				url:
-					'https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image3@3x.jpg',
+					'https://i.ibb.co/m83g0xj/q4.png',
 			},
 			{
 				type: 'action',

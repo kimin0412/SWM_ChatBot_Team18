@@ -4,7 +4,7 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: '0층 : intro',
+				text: '1층 : 소마의 탑',
 				style: 'blue',
 			},
 			{
@@ -16,7 +16,7 @@ module.exports = () => {
 			{
 				type: 'text',
 				text:
-					'##Russia\n##Asia\n##____\n##Man\n##Bicycle\n##Spider',
+					'*Russia*\n*Asia*\n*_ _ _ _*\n*Man*\n*Bicycle*\n*Spider*',
 				markdown: true,
 			},
 			{

@@ -10,7 +10,7 @@ module.exports = () => {
 			{
 				type: 'text',
 				text:
-					'Meteor~ 거대 meteor 난 네게 처박힐 meteor야~',
+					'Meteor~♬ 거대 meteor~♪ 난 네게 처박힐 meteor야~♫',
 				markdown: true,
 			},
 			{

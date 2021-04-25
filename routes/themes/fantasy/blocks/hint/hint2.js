@@ -9,7 +9,7 @@ module.exports = () => {
 			},
 			{
 				type: 'text',
-				text: '힌트내용힌트내용힌트내용힌트내용힌트내용힌트내용',
+				text: '비석에 적힌 숫자는 무엇을 의미할까?',
 				markdown: true,
 			}
 		],

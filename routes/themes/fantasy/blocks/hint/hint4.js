@@ -9,7 +9,7 @@ module.exports = () => {
 			},
 			{
 				type: 'text',
-				text: '힌트내용힌트내용힌트내용힌트내용힌트내용힌트내용',
+				text: 'maestro는 7글자이다',
 				markdown: true,
 			}
 		],

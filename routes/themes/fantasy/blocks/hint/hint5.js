@@ -9,7 +9,7 @@ module.exports = () => {
 			},
 			{
 				type: 'text',
-				text: '힌트내용힌트내용힌트내용힌트내용힌트내용힌트내용',
+				text: '무지개는 빨주노초파남보이다',
 				markdown: true,
 			}
 		],

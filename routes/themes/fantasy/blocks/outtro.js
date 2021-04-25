@@ -4,7 +4,7 @@ module.exports = () => {
 		blocks: [
 			{
 				type: 'header',
-				text: 'Fantasy Thema - outtro',
+				text: 'Fantasy Thema-outtro',
 				style: 'blue',
 			},
 			{
