@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
         conversations.map((conversation) =>
             libKakaoWork.sendMessage({
                 conversationId: conversation.id,
-                text: '설문조사 이벤트',
+                text: '방탈출에 오신걸 환영합니다.',
                 blocks: [
                     {
                         type: 'header',
@@ -100,12 +100,18 @@ router.post('/request', async (req, res, next) => {
             });
             break;
         default:
+            if (value.includes('nonsense')) {
+				      return res.json({
+					    view: require('./themes/nonsense').modalBuilder(req.body)
+             })
+            }
 			// call_modal의 요청값 문자열(value)에 detective가 포함되도록 설계해서
 			// 추리 문제에 사용될 modal은 이 조건문 절에서 생성
-			if (value.includes('detective')) {
+			else if (value.includes('detective')) {
 				return res.json({
 					// modalBuilder 함수에 req.body를 전달에서 모듈에서 필요한 데이터를 사용할 수 있도록 함
 					view: require('./themes/detective').modalBuilder(req.body)
+
 				}) 
 			}
     }
@@ -144,16 +150,6 @@ router.post('/callback', async (req, res, next) => {
                         },
                         accent: true,
                     },
-                    // {
-                    // 	type: 'description',
-                    // 	term: '바라는 점',
-                    // 	content: {
-                    // 		type: 'text',
-                    // 		text: actions.wanted,
-                    // 		markdown: false,
-                    // 	},
-                    // 	accent: true,
-                    // },
                     {
                         type: 'description',
                         term: '시간',
@@ -217,22 +213,35 @@ router.post('/callback', async (req, res, next) => {
                     },
                     {
                         type: 'button',
+                        text: '넌센스',
+                        style: 'default',
+                        action_type:'submit_action',
+                        action_name:'nonsense_quiz_1',
+                        value:'nonsense_quiz_1',
+                    },
+                  {
+                        type: 'button',
                         text: '추리',
                         style: 'default',
-						action_type: 'submit_action',
-						action_name: 'detective_quiz_1',
+						            action_type: 'submit_action',
+						            action_name: 'detective_quiz_1',
                         value: 'detective_quiz_1',
                     },
                 ],
             });
             break;
         default:
+
+            if (value.includes('nonsense')) {
+				      await require('./themes/nonsense').messageBuilder(req.body);  
+            }
 			// submit_aciton의 결과값 문자열(value)에 detective가 포함되도록 설계해서
 			// 추리 문제는 이 조건문 절에서 처리하도록 함
-			if (value.includes('detective')) {
+			else if (value.includes('detective')) {
 				// messageBuilder 함수에 req.body를 전달해서 모듈에서 필요한 데이터 사용.
 				// modal을 통해 제출한 값, react_user_id(답장을 보낸 사용자 고유 id)등 사용할 수 있음
 				await require('./themes/detective').messageBuilder(req.body);
+      }
 			}
     }
 
