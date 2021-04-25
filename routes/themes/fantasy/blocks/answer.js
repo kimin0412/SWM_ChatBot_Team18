@@ -1,11 +1,28 @@
 module.exports = (order) => {
-	answers = [
-		require('./answer/answer1'),
-		require('./answer/answer2'),
-		require('./answer/answer3'),
-		require('./answer/answer4'),
-		require('./answer/answer5'),
+	placeholders = [
+		'영어 4글자',
+		'영어 5글자',
+		'영어 4글자',
+		'영어 6글자',
+		'영어 7글자'
 	];
-	console.log(order);
-	return answers[order - 1]();
-};
+	return {
+		title: '정답 제출',
+		accept: '확인',
+		decline: '취소',
+		value: `fantasy_result_${order}`,
+		blocks: [
+			{
+				type: 'label',
+				text: '정답',
+				markdown: true,
+			},
+			{
+				type: 'input',
+				name: 'answer',
+				required: true,
+				placeholder: `(${placeholders[order - 1]})`,
+			},
+		],
+	};
+}
