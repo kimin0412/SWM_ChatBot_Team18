@@ -1,6 +1,6 @@
 const Config = require('config');
-
 const axios = require('axios');
+
 const kakaoInstance = axios.create({
   baseURL: 'https://api.kakaowork.com',
   headers: {
