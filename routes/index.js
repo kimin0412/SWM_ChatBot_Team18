@@ -89,17 +89,7 @@ router.post('/request', async (req, res, next) => {
 				},
 			});
 			break;
-<<<<<<< HEAD
 
-		default:
-			if (value.includes('survival')){
-				console.log("request survival");
-				return res.json({
-					view: require('./themes/survival').modalBuilder(req.body)
-				})
-			}
-	}
-=======
 		case 'game_start':
 			return res.json({
 				view: {
@@ -149,24 +139,25 @@ router.post('/request', async (req, res, next) => {
 					// modalBuilder 함수에 req.body를 전달에서 모듈에서 필요한 데이터를 사용할 수 있도록 함
 					view: require('./themes/detective').modalBuilder(req.body),
 				});
-			} else if (value.includes('horror')) {
+			}
+			else if (value.includes('horror')) {
 				return res.json({
 					view: require('./themes/horror').modalBuilder(req.body),
 				});
 			}
+			else if (value.includes('survival')){
+				console.log("request survival");
+				return res.json({
+					view: require('./themes/survival').modalBuilder(req.body)
+				});
+			}
 	}
-
->>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 	res.json({});
 });
 
 router.post('/callback', async (req, res, next) => {
 	console.log(req.body);
-<<<<<<< HEAD
-	const { message, actions, action_time, value } = req.body;
-=======
 	const { message, actions, action_time, value, action_name } = req.body;
->>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 
 	switch (value) {
 		case 'user_name':
@@ -216,18 +207,10 @@ router.post('/callback', async (req, res, next) => {
 				],
 			});
 			break;
-<<<<<<< HEAD
-		// 이하 생존 게임 시나리오
-		case 'game_start':
-			await libKakaoWork.sendMessage({
-				conversationId: message.conversation_id,
-				text: '게임 선택!',
-=======
 		case 'game_start':
 			await libKakaoWork.sendMessage({
 				conversationId: message.conversation_id,
 				text: '입력 완료!',
->>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 				blocks: [
 					{
 						type: 'header',
@@ -243,33 +226,18 @@ router.post('/callback', async (req, res, next) => {
 						type: 'button',
 						text: '공포',
 						style: 'default',
-<<<<<<< HEAD
-					},
-					{
-						type: 'button',
-						text: '추리',
-						style: 'default',
-=======
 						action_type: 'submit_action',
 						action_name: 'horror_quiz_1',
 						value: 'horror_quiz_1',
->>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
+
 					},
 					{
 						type: 'button',
 						text: '판타지',
 						style: 'default',
-<<<<<<< HEAD
-					},
-					{
-						type: 'button',
-						text: '넌센스',
-						style: 'default',
-					},
-					{
-						type: 'button',
-						text: '연애',
-						style: 'default',
+						action_type: 'submit_action',
+						action_name: 'fantasy_msg',
+						value: 'intro',
 					},
 					{
 						type: 'button',
@@ -278,10 +246,6 @@ router.post('/callback', async (req, res, next) => {
 						action_type: 'submit_action',
 						action_name: 'survival',
 						value: 'survival',
-=======
-						action_type: 'submit_action',
-						action_name: 'fantasy_msg',
-						value: 'intro',
 					},
 					{
 						type: 'button',
@@ -306,20 +270,11 @@ router.post('/callback', async (req, res, next) => {
 						action_type: 'submit_action',
 						action_name: 'detective_quiz_1',
 						value: 'detective_quiz_1',
->>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 					},
 				],
 			});
 			break;
-
-<<<<<<< HEAD
-		default:
-			if(value.includes('survival')) {
-				console.log("call back survival");
-				await require('./themes/survival').messageBuilder(req.body);
-			}
 	
-=======
 		case 'romance_main':
 			await libKakaoWork.sendMessage(romanceMain.getBlock(message));
 			break;
@@ -355,9 +310,12 @@ router.post('/callback', async (req, res, next) => {
 			} else if (value.includes('horror')) {
 				await require('./themes/horror').messageBuilder(req.body);
 			}
+			else if(value.includes('survival')) {
+				console.log("call back survival");
+				await require('./themes/survival').messageBuilder(req.body);
+			}
 
 		// else
->>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 	}
 
 	res.json({ result: true });
