@@ -3,7 +3,7 @@ module.exports = () => {
 		title: '정답 제출',
 		accept: '확인',
 		decline: '취소',
-		value: 'fantasy_submission5',
+		value: 'fantasy_result_5',
 		blocks: [
 			{
 				type: 'label',

@@ -151,6 +151,11 @@ router.post('/request', async (req, res, next) => {
 					view: require('./themes/survival').modalBuilder(req.body)
 				});
 			}
+			else if (value.includes('fantasy')) {
+				return res.json({
+					view: require('./themes/fantasy').modalBuilder(req.body),
+				});
+			}
 	}
 	res.json({});
 });
@@ -237,7 +242,7 @@ router.post('/callback', async (req, res, next) => {
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'fantasy_msg',
-						value: 'intro',
+						value: 'fantasy_question_0',
 					},
 					{
 						type: 'button',
@@ -307,15 +312,17 @@ router.post('/callback', async (req, res, next) => {
 				// messageBuilder 함수에 req.body를 전달해서 모듈에서 필요한 데이터 사용.
 				// modal을 통해 제출한 값, react_user_id(답장을 보낸 사용자 고유 id)등 사용할 수 있음
 				await require('./themes/detective').messageBuilder(req.body);
-			} else if (value.includes('horror')) {
+			} 
+			else if (value.includes('horror')) {
 				await require('./themes/horror').messageBuilder(req.body);
 			}
 			else if(value.includes('survival')) {
 				console.log("call back survival");
 				await require('./themes/survival').messageBuilder(req.body);
 			}
-
-		// else
+			else if (value.includes('fantasy')) {
+				await require('./themes/fantasy').messageBuilder(req.body);
+			}
 	}
 
 	res.json({ result: true });

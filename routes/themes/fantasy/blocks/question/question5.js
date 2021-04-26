@@ -26,7 +26,7 @@ module.exports = () => {
 						text: '정답',
 						style: 'primary',
 						action_type: 'call_modal',
-						value: 'fantasy_answerModal5',
+						value: 'fantasy_answer_5',
 					},
 					{
 						type: 'button',
@@ -34,7 +34,7 @@ module.exports = () => {
 						style: 'danger',
 						action_type: 'submit_action',
 						action_name: 'fantasy_hint',
-						value: 'hint5',
+						value: 'fantasy_hint_5',
 					},
 				],
 			},
