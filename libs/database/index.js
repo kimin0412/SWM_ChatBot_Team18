@@ -1,0 +1,47 @@
+// mongoose MongoDB ODM
+const mongoose = require('mongoose');
+
+// User model object
+const users = require('./model/users');
+
+const Config = require('config');
+
+/** Mongoose Database 객체 */
+const database = {};
+
+/** MongoDB Database에 연결하는 메소드입니다. */
+database.connect = async () => {
+	
+	// deprecated error 표시 방지
+	mongoose.set('useNewUrlParser', true);
+	mongoose.set('useFindAndModify', false);
+	mongoose.set('useCreateIndex', true);
+	mongoose.set('useUnifiedTopology', true);
+	
+	const connURL = Config.database.URL
+	console.log(connURL)
+	
+	try {
+		await mongoose.connect(connURL) 
+		console.log('Database successfully connected')
+	
+		// Set DB events
+		const db = mongoose.connection;
+		db.on('reconnected', () => {
+			console.log('Database Reconnected');
+		});
+		db.on('disconnected', () => {
+			console.log('Database Disconnected');
+		});
+		db.on('error', (err) => {
+			console.log('DB Error : ', err);
+		})
+	}
+	catch (err) {
+		console.log('DB Connection Error : ', err);
+	}
+}
+
+database.users = users;
+
+module.exports = database;
