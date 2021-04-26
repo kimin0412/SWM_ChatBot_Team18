@@ -3,6 +3,19 @@ const router = express.Router();
 
 const libKakaoWork = require('../libs/kakaoWork');
 
+const romanceMain = require('./themes/romance/main');
+const romanceStage1Conversation = require('./themes/romance/stage1/conversation');
+const romanceStage1Question = require('./themes/romance/stage1/question');
+const romanceStage1Answer = require('./themes/romance/stage1/answer');
+const romanceStage1Result = require('./themes/romance/stage1/result');
+const romanceStage1Hint = require('./themes/romance/stage1/hint');
+
+const romanceStage2Question = require('./themes/romance/stage2/question');
+const romanceStage2Answer = require('./themes/romance/stage2/answer');
+const romanceStage2Result = require('./themes/romance/stage2/result');
+
+const romanceEnding = require('./themes/romance/ending');
+
 router.get('/', async (req, res, next) => {
 	// 유저 목록 검색 (1)
 	const users = await libKakaoWork.getUserList();
@@ -76,6 +89,7 @@ router.post('/request', async (req, res, next) => {
 				},
 			});
 			break;
+<<<<<<< HEAD
 
 		default:
 			if (value.includes('survival')){
@@ -85,12 +99,74 @@ router.post('/request', async (req, res, next) => {
 				})
 			}
 	}
+=======
+		case 'game_start':
+			return res.json({
+				view: {
+					title: '이름을 알려주세요.',
+					accept: '확인',
+					decline: '취소',
+					value: 'user_name',
+					blocks: [
+						{
+							type: 'label',
+							text: '내 이름',
+							markdown: true,
+						},
+						{
+							type: 'input',
+							name: 'input_name',
+							required: true,
+							placeholder: '이름을 입력해주세요.',
+						},
+					],
+				},
+			});
+			break;
+
+		case 'romance_stage1_answer':
+			return res.json(romanceStage1Answer.getBlock());
+			break;
+
+		case 'romance_stage2_answer':
+			return res.json(romanceStage2Answer.getBlock());
+			break;
+
+		case 'romance_stage1_hint':
+			return res.json(romanceStage1Hint.getBlock());
+			break;
+
+		default:
+			if (value.includes('nonsense')) {
+				return res.json({
+					view: require('./themes/nonsense').modalBuilder(req.body),
+				});
+			}
+			// call_modal의 요청값 문자열(value)에 detective가 포함되도록 설계해서
+			// 추리 문제에 사용될 modal은 이 조건문 절에서 생성
+			else if (value.includes('detective')) {
+				return res.json({
+					// modalBuilder 함수에 req.body를 전달에서 모듈에서 필요한 데이터를 사용할 수 있도록 함
+					view: require('./themes/detective').modalBuilder(req.body),
+				});
+			} else if (value.includes('horror')) {
+				return res.json({
+					view: require('./themes/horror').modalBuilder(req.body),
+				});
+			}
+	}
+
+>>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 	res.json({});
 });
 
 router.post('/callback', async (req, res, next) => {
 	console.log(req.body);
+<<<<<<< HEAD
 	const { message, actions, action_time, value } = req.body;
+=======
+	const { message, actions, action_time, value, action_name } = req.body;
+>>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 
 	switch (value) {
 		case 'user_name':
@@ -140,11 +216,18 @@ router.post('/callback', async (req, res, next) => {
 				],
 			});
 			break;
+<<<<<<< HEAD
 		// 이하 생존 게임 시나리오
 		case 'game_start':
 			await libKakaoWork.sendMessage({
 				conversationId: message.conversation_id,
 				text: '게임 선택!',
+=======
+		case 'game_start':
+			await libKakaoWork.sendMessage({
+				conversationId: message.conversation_id,
+				text: '입력 완료!',
+>>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 				blocks: [
 					{
 						type: 'header',
@@ -160,16 +243,23 @@ router.post('/callback', async (req, res, next) => {
 						type: 'button',
 						text: '공포',
 						style: 'default',
+<<<<<<< HEAD
 					},
 					{
 						type: 'button',
 						text: '추리',
 						style: 'default',
+=======
+						action_type: 'submit_action',
+						action_name: 'horror_quiz_1',
+						value: 'horror_quiz_1',
+>>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 					},
 					{
 						type: 'button',
 						text: '판타지',
 						style: 'default',
+<<<<<<< HEAD
 					},
 					{
 						type: 'button',
@@ -188,17 +278,86 @@ router.post('/callback', async (req, res, next) => {
 						action_type: 'submit_action',
 						action_name: 'survival',
 						value: 'survival',
+=======
+						action_type: 'submit_action',
+						action_name: 'fantasy_msg',
+						value: 'intro',
+					},
+					{
+						type: 'button',
+						text: '연애',
+						style: 'default',
+						action_type: 'submit_action',
+						action_name: 'romance_main',
+						value: 'romance_main',
+					},
+					{
+						type: 'button',
+						text: '넌센스',
+						style: 'default',
+						action_type: 'submit_action',
+						action_name: 'nonsense_quiz_1',
+						value: 'nonsense_quiz_1',
+					},
+					{
+						type: 'button',
+						text: '추리',
+						style: 'default',
+						action_type: 'submit_action',
+						action_name: 'detective_quiz_1',
+						value: 'detective_quiz_1',
+>>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 					},
 				],
 			});
 			break;
 
+<<<<<<< HEAD
 		default:
 			if(value.includes('survival')) {
 				console.log("call back survival");
 				await require('./themes/survival').messageBuilder(req.body);
 			}
 	
+=======
+		case 'romance_main':
+			await libKakaoWork.sendMessage(romanceMain.getBlock(message));
+			break;
+		case 'romance_stage1_conversation':
+			await libKakaoWork.sendMessage(romanceStage1Conversation.getBlock(message));
+			break;
+		case 'romance_stage1_question':
+			await libKakaoWork.sendMessage(romanceStage1Question.getBlock(message));
+			break;
+		case 'romance_stage1_result':
+			await libKakaoWork.sendMessage(romanceStage1Result.getBlock(message, actions));
+			break;
+		case 'romance_stage2_question':
+			await libKakaoWork.sendMessage(romanceStage2Question.getBlock(message));
+			break;
+		case 'romance_stage2_result':
+			await libKakaoWork.sendMessage(romanceStage2Result.getBlock(message, actions));
+			break;
+		case 'romance_ending':
+			await libKakaoWork.sendMessage(romanceEnding.getBlock(message, actions));
+			break;
+
+		default:
+			if (value.includes('nonsense')) {
+				await require('./themes/nonsense').messageBuilder(req.body);
+			}
+			// submit_aciton의 결과값 문자열(value)에 detective가 포함되도록 설계해서
+			// 추리 문제는 이 조건문 절에서 처리하도록 함
+			else if (value.includes('detective')) {
+				// messageBuilder 함수에 req.body를 전달해서 모듈에서 필요한 데이터 사용.
+				// modal을 통해 제출한 값, react_user_id(답장을 보낸 사용자 고유 id)등 사용할 수 있음
+				await require('./themes/detective').messageBuilder(req.body);
+			} else if (value.includes('horror')) {
+				await require('./themes/horror').messageBuilder(req.body);
+			}
+
+		// else
+>>>>>>> 547cf41af315fd037a61cace1d041c86611a4601
 	}
 
 	res.json({ result: true });
