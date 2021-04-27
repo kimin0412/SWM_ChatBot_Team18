@@ -9,8 +9,7 @@ module.exports = () => {
 			},
 			{
 				type: 'image_link',
-				url:
-					'https://i.ibb.co/Q9YKHKb/intro.png',
+				url: 'https://i.ibb.co/Q9YKHKb/intro.png',
 			},
 			{
 				type: 'text',
@@ -24,7 +23,16 @@ module.exports = () => {
 				style: 'default',
 				action_type: 'submit_action',
 				action_name: 'fantasy_msg',
-				value: 'fantasy_question_1'
+				value: 'fantasy_question_1',
+			},
+			{
+				type: 'divider',
+			},
+			{
+				type: 'text',
+				text:
+					'*정답형식*\n영어인 경우 띄어쓰기 없이 소문자로 입력하시면 됩니다.\n한글인 경우 띄어쓰기 없이 한글로만 입력하시면 됩니다.',
+				markdown: true,
 			},
 		],
 	};
