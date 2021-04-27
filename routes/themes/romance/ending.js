@@ -10,14 +10,15 @@ exports.getBlock = (body) => {
     const dataJson = dataBuffer.toString()
     const score = JSON.parse(dataJson)
 
-    console.log('최종 점수는 ')
-    console.log(score[react_user_id])
+    // console.log('최종 점수는 ')
+    // console.log(score[react_user_id])
     
-    // const score = 50;????
-    let result = 'XX이는 모쏠에서 탈출했다';
-    // if(score < 80){
-    //     result = 'XX이는 썸에서 탈출했다';
-    // }
+    let result = '현우는 모쏠에서 탈출했다';
+    let image_url = 'https://images.velog.io/images/leehj8896/post/8fdbb846-2e1d-4f8b-8ab4-c7e47bd56da4/image.png'
+    if(score[react_user_id] < 90){
+        result = '현우는 썸에서 탈출했다';
+        image_url = 'https://images.velog.io/images/leehj8896/post/c607b7ca-1aef-4901-80a0-096f4b15fcfd/image.png'
+    }
     
     const contents = [
         result,
@@ -34,7 +35,7 @@ exports.getBlock = (body) => {
             },
             {
               "type": "image_link",
-              "url": "https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image6@3x.jpg"
+              "url": image_url
             },
             {
                 "type": 'text',

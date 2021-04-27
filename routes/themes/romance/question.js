@@ -9,6 +9,8 @@ exports.getBlock = (body) => {
     const nextStageName = 'romance_answer_' + String(stageNum)
     const contents = data.getQuestionContents(stageNum)
     
+    const img_url = data.getImageUrl(stageNum)
+    
     return {
         conversationId: message.conversation_id,
         text: '문제',
@@ -20,7 +22,7 @@ exports.getBlock = (body) => {
             },
             {
               "type": "image_link",
-              "url": "https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image6@3x.jpg"
+              "url": img_url
             },
             {
                 "type": 'text',

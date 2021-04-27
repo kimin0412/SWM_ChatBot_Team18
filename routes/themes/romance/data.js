@@ -2,15 +2,27 @@ const stageLength = 5
 
 exports.getStageLength = () => stageLength
 
+exports.getImageUrl = (stageNum) => {
+    const img_urls = Array(stageLength + 1)
+    img_urls[1] = 'https://images.velog.io/images/leehj8896/post/03f50b2e-ea19-4e1d-926e-2fd4dd025b69/image.png'
+    img_urls[2] = 'https://images.velog.io/images/leehj8896/post/6e0aeeee-f39c-488e-bb15-dcdac0996954/image.png'
+    img_urls[3] = 'https://images.velog.io/images/leehj8896/post/ef2a81b9-103b-40f0-9baa-5f8033dc5350/image.png'
+    img_urls[4] = 'https://images.velog.io/images/leehj8896/post/2f0b78a9-f543-4d1b-b45a-1cfef11b838c/image.png'
+    img_urls[5] = 'https://images.velog.io/images/leehj8896/post/f521b327-f3b9-47c3-91d7-e41c32c5515c/image.png'
+    return img_urls[stageNum]
+}
+
 exports.getQuestionContents = (stageNum) => {
     const contents = Array(stageLength + 1)
     contents[1] = [
         '여느 때와 같이 함께 알바를 하던 중 유정이 말한다.',
+        '',
         '유정: 와 오빠 아까 그 손님 진짜 예쁘지 않아?',
     ]
     contents[2] = [
         '갖은 노력 끝에 유정과 카톡을 주고 받게 되었다.',
         '카톡을 하다가 영화 얘기가 나왔다.',
+        '',
         '유정: 이번에 귀멸의 칼날 영화 나온거 알아? 친구가 진짜 재밌대',
     ]
     contents[3] = [
@@ -22,12 +34,14 @@ exports.getQuestionContents = (stageNum) => {
     contents[4] = [
         '어제 밤새 과제를 한 현우는 영화를 보다가 그만 잠이 들어버렸다..',
         '시간 가는줄 모르고 영화를 본 유정은 영화가 끝난 후 현우에게 묻는다.',
+        '',
         '유정: 오빠 영화 어땠어??',
     ]
     contents[5] = [
         '맛있는 저녁까지 먹고 나온 현우와 유정.',
         '뭔가 더 하긴 시간이 애매하고 이대로 헤어지자니 현우는 너무 아쉽다.',
         '이때 유정이 폰 시계를 보고 묻는다.',
+        '',
         '유정: 이제 집에 갈까?',
     ]
     // contents[1] = [
@@ -220,39 +234,44 @@ exports.getResult = (stageNum, answer) =>{
     //     '무슨 소리야 별로 안 늦었잖아',
     // ]
     result[1] = [
-        '정답!',
-        '땡~',
-        '땡~',
-        '땡~',
-        '땡~',
+        '',
+        '이렇게 눈썰미가 없어서야;',
+        'ㅋㅋㅋ 되겠냐',
+        '너 스타일이면 어쩔껀데 ㅋㅋ',
+        '나에 대해 뭘 알아',
+        '나한테 뭐 바라는거 있어?',
     ]
     result[2] = [
-        '정답!',
-        '땡~',
-        '땡~',
-        '땡~',
-        '땡~',
+        '',
+        '그래? 애니메이션 되게 좋아할것 같은데..',
+        '뭐 잘못 먹었어?',
+        '내가 너랑? 왜?',
+        '그치 친구들 중에 나만 못봤어',
+        '하긴 오빠 완전 아싸잖아',
     ]
     result[3] = [
-        '정답!',
-        '땡~',
-        '땡~',
-        '땡~',
-        '땡~',
+        '',
+        '뭐 5분가지고 그러냐',
+        '왜 만나자마자 헛소리야',
+        '그만큼 신나시다는 거지~',
+        '왜 만나자마자 헛소리야 ㅋㅋ',
+        '뭐래 ㅋㅋ',
     ]
     result[4] = [
-        '정답!',
-        '땡~',
-        '땡~',
-        '땡~',
-        '땡~',
+        '',
+        '아까 보다가 잠든거 아니었어?',
+        '어젯밤에 안자고 뭐했어 ㅡㅡ',
+        '그치 완전 재밌었어',
+        '그래? 난 재밌던데..',
+        '나랑 완전 안맞아 ㅋㅋ 그래서 뭐 먹지?',
     ]
     result[5] = [
-        '정답!',
-        '땡~',
-        '땡~',
-        '땡~',
-        '땡~',
+        '',
+        '나 ㅇㅇ쪽 오빠는?',
+        '미안 나 내일 과제있어서 ㅠ',
+        '미안 나 술을 별로 안 좋아해 ㅠ',
+        '굳이? ㅋㅋ 그러든가',
+        '알겠어 잘가~',
     ]
     // result[6] = [
     //     '정답!',

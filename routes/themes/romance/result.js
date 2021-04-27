@@ -13,8 +13,8 @@ exports.getBlock = (body) => {
     const answer = actions.input_answer
     const nextStageName = 'romance_question_' + String(stageNum+1)
     const choices = data.getAnswerChoices(stageNum)
-    // let result = data.getResult(stageNum, answer)
-    let result = String(choices[answer][1]-1) + '점 감점!'
+    let result = data.getResult(stageNum, answer)
+    result += '\n(-' + String(choices[answer][1]-1) + '점)'
 
     
     const dataBuffer = fs.readFileSync(__dirname+'/score.json')

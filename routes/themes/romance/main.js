@@ -33,7 +33,7 @@ exports.getBlock = (body) => {
             },
             {
               "type": "image_link",
-              "url": "https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image6@3x.jpg"
+              "url": "https://images.velog.io/images/leehj8896/post/e512c923-02dc-490d-9a5f-b283cae3cf8c/image.png"
             },
             {
                 "type": 'text',
