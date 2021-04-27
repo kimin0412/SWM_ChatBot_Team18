@@ -7,8 +7,11 @@ module.exports = (order) => {
 		'question4',
 		'question5',
 		'question6',
+		'question7',
+		'question8',
 		'outtro',
 	][order];
+	console.log(questionPath);
 	if (questionPath.includes("tro")) 
 		return require(questionPath)();
 	

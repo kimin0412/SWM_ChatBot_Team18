@@ -4,19 +4,19 @@ module.exports = (order) => {
 		blocks: [
 			{
 				type: 'header',
-				text: `${order}층: Maestro`,
+				text: `${order}층: rainbow`,
 				style: 'blue',
 			},
 			{
 				type: 'text',
 				text:
-					'꼭대기에 올라오니, 마에스트로가 기다리고 있었다. 마에스트로를 물리칠 주문을 외자',
+					'메테오를 날리니 천장이 무너지고 하늘이 보인다....\n 하늘에는 무지개가 떠 있다...\n\n보물은 무엇일까?',
 				markdown: true,
 			},
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/m83g0xj/q4.png',
+					'https://i.ibb.co/84X8dZq/q5.jpg', 
 			},
 		],
 	};

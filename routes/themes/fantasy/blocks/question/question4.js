@@ -4,30 +4,13 @@ module.exports = (order) => {
 		blocks: [
 			{
 				type: 'header',
-				text: `${order}층: Shortcut?`,
+				text: `${order}층 : Races`,
 				style: 'blue',
 			},
 			{
 				type: 'text',
 				text:
-					"올라오니 샛길에 문이 보인다. 지름길인가?",
-				markdown: true,
-			},
-			{
-				type: 'image_link',
-				url:
-					'https://i.ibb.co/NLvRZcW/shortcut.png',
-			},
-			{
-				type: 'text',
-				text:
-					"●○○○○●○○○○●●\n●●●○●●○●●●●○\n●●●●○○○●●●●○\n●●●○○○○●●●●○",
-				markdown: true,
-			},
-			{
-				type: 'text',
-				text:
-					"암호를 잘 살펴보자...",
+					'*_드래곤에겐 있지만, 악마에겐 없는것..._*\n\n*_오크와 고블린이 함께 가지고 있는것..._*\n\n*_너에겐 있고, 나에겐 없는것은?_*',
 				markdown: true,
 			},
 		],

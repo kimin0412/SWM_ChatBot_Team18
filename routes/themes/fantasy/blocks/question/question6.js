@@ -4,19 +4,24 @@ module.exports = (order) => {
 		blocks: [
 			{
 				type: 'header',
-				text: `${order}층: Maestro`,
+				text: `${order}층: Knight`,
 				style: 'blue',
+			},
+			{
+				type: 'image_link',
+				url:
+					'https://i.ibb.co/Wf3zMkK/q3-1.png',
 			},
 			{
 				type: 'text',
 				text:
-					'꼭대기에 올라오니, 마에스트로가 기다리고 있었다. 마에스트로를 물리칠 주문을 외자',
+					"길을 따라 올라오니 기사들이 경계를 서고 있다.\n 기사들을 피해서 통과하자",
 				markdown: true,
 			},
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/m83g0xj/q4.png',
+					'https://i.ibb.co/j4kqd7X/q3-2.jpg',
 			},
 		],
 	};

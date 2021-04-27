@@ -20,10 +20,16 @@ module.exports = (order, content) => {
 			comment: '으악!!! 유령이다 빨리 도망치자!!!!',
 		},
 		{
+			placeholder: '영어 1글자',
+			solution: 'o',
+			hint: '번역해보자',
+			comment: '눈 앞에 기나긴 길이 보인다....'
+		},
+		{
 			placeholder: '영어 4글자',
 			solution: 'trap',
 			hint: '문제 2번과 3번을 생각해보자',
-			comment: '다른 길로 돌아가자...'
+			comment: '함정이다!!\n다른 길로 돌아가자...'
 		},
 		{
 			placeholder: '영어 4글자',
@@ -41,7 +47,7 @@ module.exports = (order, content) => {
 			placeholder: '영어 7글자',
 			solution: 'airpods',
 			hint: '무지개는 빨주노초파남보이다',
-			comment: '부탁드려요~~',
+			comment: '수고하셨습니다~~',
 		},
 	][order][content];
 };
