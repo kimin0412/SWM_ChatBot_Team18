@@ -1,10 +1,10 @@
 module.exports = (data) => {
 	return {
-		text: "Page 21",
+		text: "Page 23",
 		blocks: [
 			{
 			  type: "header",
-			  text: "Page 21",
+			  text: "Page 23",
 			  style: "red"
 			},
 			{

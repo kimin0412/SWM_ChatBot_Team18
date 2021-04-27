@@ -1,12 +1,12 @@
 module.exports = (data) => {
-	const answer = data.actions.survival_drivingTestOneModal;
-	if (answer == '3') {
+	const answer = data.actions.survival_drivingTestAddProblemTwoModal;
+	if (answer == '1') {
 		return {
-			text: '주행 시험 1번 문제 결과',
+			text: '주행 시험 3번 문제 결과',
 			blocks: [
 				{
 					type: 'header',
-					text: '주행 시험 1번 문제 결과',
+					text: '주행 시험 3번 문제 결과',
 					style: 'blue',
 				},
 				{
@@ -20,7 +20,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						'*정답입니다!*\n\n올바른 차선변경 순서는 방향지시등 켜기 - 차량 확인 - 차량 변경 - 방향지시등 끄기의 순서입니다.',
+						'*정답입니다!*\n\n가솔린 차에는 휘발유를 넣고, 디젤 차에는 경유를 넣습니다.\n',
 					markdown: true,
 				},
 				{
@@ -28,18 +28,18 @@ module.exports = (data) => {
 					text: '다음으로',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'survival_drivingTestAddProblemOneBlock',
-					value: 'survival_drivingTestAddProblemOneBlock',
+					action_name: 'survival_drivingTestEndBlock',
+					value: 'survival_drivingTestEndBlock',
 				},
 			],
 		};
 	} else {
 		return {
-			text: '주행 시험 1번 문제 결과',
+			text: '주행 시험 3번 문제 결과',
 			blocks: [
 				{
 					type: 'header',
-					text: '주행 시험 1번 문제 결과',
+					text: '주행 시험 3번 문제 결과',
 					style: 'blue',
 				},
 				{
@@ -52,7 +52,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						'*틀렸습니다!*\n\n음.. 먼저 내가 차선을 변경할 것이라고 방향 지시등을 통해 알리는 게 먼저겠지?',
+						'*틀렸습니다!*\n\n 가솔린.. 디젤..? 분명 어디서 많이 들어봤는데? *글자 수*로 외우면 편하다고 했던 것 같아.\n',
 					markdown: true,
 				},
 				{
@@ -60,8 +60,8 @@ module.exports = (data) => {
 					text: '다시 풀기',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'survival_drivingTestFourBlock',
-					value: 'survival_drivingTestFourBlock',
+					action_name: 'survival_drivingTestAddProblemTwoBlock',
+					value: 'survival_drivingTestAddProblemTwoBlock',
 				},
 			],
 		};
