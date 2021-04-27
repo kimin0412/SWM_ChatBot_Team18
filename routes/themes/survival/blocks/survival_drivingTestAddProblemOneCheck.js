@@ -1,12 +1,12 @@
 module.exports = (data) => {
-	const answer = data.actions.survival_functionTestTwoModal;
-	if (answer == '1') {
+	const answer = data.actions.survival_drivingTestAddProblemOneModal;
+	if (answer == '2') {
 		return {
-			text: '기능 시험 2번 문제 결과',
+			text: '주행 시험 2번 문제 결과',
 			blocks: [
 				{
 					type: 'header',
-					text: '기능 시험 2번 문제 결과',
+					text: '주행 시험 2번 문제 결과',
 					style: 'blue',
 				},
 				{
@@ -20,7 +20,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						'*정답입니다!*\n\n좌측 방향 지시등을 켜기 위해서는 좌측 레버를 내려야합니다.',
+						'*정답입니다!*\n\n 비상등을 잠시 켰다가 끄는 행위은 운전자들 사이에서 사과와 고마움의 표시로 여겨집니다.',
 					markdown: true,
 				},
 				{
@@ -28,19 +28,18 @@ module.exports = (data) => {
 					text: '다음 문제 풀기',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'survival_functionTestThreeBlock',
-					value: 'survival_functionTestThreeBlock',
+					action_name: 'survival_drivingTestAddProblemTwoBlock',
+					value: 'survival_drivingTestAddProblemTwoBlock',
 				},
 			],
 		};
-	}
-	else {
+	} else {
 		return {
-			text: '기능 시험 2번 문제 결과',
+			text: '주행 시험 2번 문제 결과',
 			blocks: [
 				{
 					type: 'header',
-					text: '기능 시험 2번 문제 결과',
+					text: '주행 시험 2번 문제 결과',
 					style: 'blue',
 				},
 				{
@@ -53,7 +52,7 @@ module.exports = (data) => {
 				{
 					type: 'text',
 					text:
-						'*틀렸습니다!*\n\n음.. 좌회전을 하려면 핸들을 좌측으로 돌려야겠지..? 이것과 레버 방향이 같다는건..',
+						'*틀렸습니다!*\n\n음.. 운전 중에는 몸이 아닌 자동차로 이야기하는 것이라고 들었는데.. 자동차로 미안함과 고마움을 표현할 방법이 뭐지..?',
 					markdown: true,
 				},
 				{
@@ -61,8 +60,8 @@ module.exports = (data) => {
 					text: '다시 풀기',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'survival_functionTestTwoBlock',
-					value: 'survival_functionTestTwoBlock',
+					action_name: 'survival_drivingTestAddProblemOneBlock',
+					value: 'survival_drivingTestAddProblemOneBlock',
 				},
 			],
 		};

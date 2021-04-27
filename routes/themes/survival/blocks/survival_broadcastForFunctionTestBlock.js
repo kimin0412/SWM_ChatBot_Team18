@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTpf2AX3utJfKMSp2Fql0faQFFER16lzkJFQ&usqp=CAU"
+			  url: "https://i.ibb.co/wcfT6gP/survival-broadcast-For-Function-Test-Block.jpg"
 			},
 			{
 			  type: "text",

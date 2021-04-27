@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "http://www.eplisvod.co.kr/shop/data/goods/1513216348t0.jpg"
+			  url: "https://i.ibb.co/RQ7jSxm/survival-driving-Test-Three-Block.jpg"
 			},
 			{
 			  type: "text",

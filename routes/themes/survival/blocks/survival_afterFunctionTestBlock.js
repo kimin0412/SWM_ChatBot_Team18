@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLq6I92CSpdmNKkWE-0Rm1zVgr98gvQk8ykg&usqp=CAU"
+			  url: "https://i.ibb.co/ZgRfsGy/survival-after-Function-Test-Block.jpg"
 			},
 			{
 			  type: "text",

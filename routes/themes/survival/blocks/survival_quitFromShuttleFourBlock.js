@@ -1,10 +1,10 @@
 module.exports = (data) => {
 	return {
-		text: "Page 26",
+		text: "Page 28",
 		blocks: [
 			{
 			  type: "header",
-			  text: "Page 26",
+			  text: "Page 28",
 			  style: "red"
 			},
 			{
@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://img1.daumcdn.net/thumb/S240x240/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99D3613C5C4471E01F"
+			  url: "https://i.ibb.co/HDDpgF5/survival-quit-From-Shuttle-Four-Block.jpg"
 			},
 			{
 			  type: "text",

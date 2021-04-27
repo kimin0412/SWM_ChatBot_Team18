@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "http://kaka0.net/data/file/humor/thumb-990113839_zTt0q2k1_2c2abf3bf66f3cc331d9e4203fbc5816d1ae2082c0c3eb792f6298364c4b0778_600x726.jpg"
+			  url: "https://i.ibb.co/n1yZfkF/survival-after-Written-Test-Block.jpg"
 			},
 			{
 			  type: "text",

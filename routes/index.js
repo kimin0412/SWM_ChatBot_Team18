@@ -146,7 +146,8 @@ router.post('/request', async (req, res, next) => {
 				});
 			}
 			else if (value.includes('survival')){
-				console.log("request survival");
+
+			if (value.includes('survival')){
 				return res.json({
 					view: require('./themes/survival').modalBuilder(req.body)
 				});
@@ -298,6 +299,7 @@ router.post('/callback', async (req, res, next) => {
 			break;
 
 		default:
+
 			if (value.includes('nonsense')) {
 				await require('./themes/nonsense').messageBuilder(req.body);
 			}
@@ -312,6 +314,9 @@ router.post('/callback', async (req, res, next) => {
 			}
 			else if(value.includes('survival')) {
 				console.log("call back survival");
+
+			if(value.includes('survival')) {
+
 				await require('./themes/survival').messageBuilder(req.body);
 			}
 

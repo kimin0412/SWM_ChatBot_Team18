@@ -25,4 +25,5 @@ module.exports = {
 			...require('./blocks/' + value)(data)
 		});
     },
+	
 };

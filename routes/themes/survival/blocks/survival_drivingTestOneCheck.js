@@ -15,7 +15,7 @@ module.exports = (data) => {
 				{
 					type: 'image_link',
 					url:
-						'https://data.ac-illust.com/data/thumbnails/0f/0fa598c7a25879520d8b8479add2b481_t.jpeg',
+						'https://i.ibb.co/wpn74sQ/survival-test-Right.jpg',
 				},
 				{
 					type: 'text',
@@ -28,8 +28,8 @@ module.exports = (data) => {
 					text: '다음으로',
 					style: 'primary',
 					action_type: 'submit_action',
-					action_name: 'survival_drivingTestEndBlock',
-					value: 'survival_drivingTestEndBlock',
+					action_name: 'survival_drivingTestAddProblemOneBlock',
+					value: 'survival_drivingTestAddProblemOneBlock',
 				},
 			],
 		};
@@ -47,7 +47,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'image_link',
-					url: 'https://thumb.ac-illust.com/69/69db2cf46c9eb7e40a207dd075c386f9_t.jpeg',
+					url: 'https://i.ibb.co/qJxsPBg/survival-test-Wrong.jpg',
 				},
 				{
 					type: 'text',

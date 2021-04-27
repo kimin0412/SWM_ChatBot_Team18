@@ -1,10 +1,10 @@
 module.exports = (data) => {
 	return {
-		text: "Page 22",
+		text: "Page 24",
 		blocks: [
 			{
 			  type: "header",
-			  text: "Page 22",
+			  text: "Page 24",
 			  style: "red"
 			},
 			{
@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://vfan-phinf.pstatic.net/a/32he9e/5_dcfUd018svckya4sqrjg19t_vhkudt.jpg?type=w1000"
+			  url: "https://i.ibb.co/Byxg1Tk/survival-shuttle-Four-Block.jpg"
 			},
 			{
 			  type: "text",

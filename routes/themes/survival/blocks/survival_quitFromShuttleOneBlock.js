@@ -1,10 +1,10 @@
 module.exports = (data) => {
 	return {
-		text: "Page 23",
+		text: "Page 25",
 		blocks: [
 			{
 			  type: "header",
-			  text: "Page 23",
+			  text: "Page 25",
 			  style: "red"
 			},
 			{
@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "http://www.yongin21.co.kr/news/photo/201009/31799_23901_5938.jpg"
+			  url: "https://i.ibb.co/wLz4nH5/survival-quit-From-Shuttle-One-Block.jpg"
 			},
 			{
 			  type: "text",
