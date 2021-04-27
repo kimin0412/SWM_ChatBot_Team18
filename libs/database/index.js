@@ -18,10 +18,11 @@ database.connect = async () => {
 	mongoose.set('useCreateIndex', true);
 	mongoose.set('useUnifiedTopology', true);
 	
+	// Database 서버 주소 (localhost)
 	const connURL = Config.database.URL
-	console.log(connURL)
 	
 	try {
+		// Database 연결
 		await mongoose.connect(connURL) 
 		console.log('Database successfully connected')
 	
@@ -43,5 +44,7 @@ database.connect = async () => {
 }
 
 database.users = users;
+
+database.service = require('./service');
 
 module.exports = database;
