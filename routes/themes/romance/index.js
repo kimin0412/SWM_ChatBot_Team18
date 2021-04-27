@@ -10,25 +10,24 @@ exports.getBlock = (body) => {
     const value = body['value']
     const message = body['message']
     const stageNum = Number(value.charAt(value.length-1))
-    const lastStageNum = data.getStageLength()
+    const stageLength = data.getStageLength()
     
     if (value.includes('main')){
-        return main.getBlock(message)
+        return main.getBlock(body)
     }
-    else if (value.includes('ending') || stageNum === lastStageNum+1){
-        return ending.getBlock(message)
+    else if (value.includes('ending') || stageNum === stageLength+1){
+        return ending.getBlock(body)
     }
     
     const actions = body['actions']
     
     if (value.includes('answer')){
-        return answer.getBlock(message, stageNum)
+        return answer.getBlock(body)
     }
     else if (value.includes('result')){
-        return result.getBlock(message, stageNum, actions)
+        return result.getBlock(body)
     }
     else if (value.includes('question')){
-        return question.getBlock(message, stageNum)
+        return question.getBlock(body)
     }
-
 }

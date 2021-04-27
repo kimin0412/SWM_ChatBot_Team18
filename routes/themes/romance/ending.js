@@ -1,10 +1,23 @@
-exports.getBlock = (message) => {
+const fs = require('fs')
 
-    const score = 50;
+
+exports.getBlock = (body) => {
+
+    const message = body['message']
+    const react_user_id = body['react_user_id']
+
+    const dataBuffer = fs.readFileSync(__dirname+'/score.json')
+    const dataJson = dataBuffer.toString()
+    const score = JSON.parse(dataJson)
+
+    console.log('최종 점수는 ')
+    console.log(score[react_user_id])
+    
+    // const score = 50;????
     let result = 'XX이는 모쏠에서 탈출했다';
-    if(score < 80){
-        result = 'XX이는 썸에서 탈출했다';
-    }
+    // if(score < 80){
+    //     result = 'XX이는 썸에서 탈출했다';
+    // }
     
     const contents = [
         result,

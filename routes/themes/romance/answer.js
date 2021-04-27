@@ -1,18 +1,21 @@
 const data = require('./data')
 
-exports.getBlock = (message, stageNum) => {
+exports.getBlock = (body) => {
+    
+    const message = body['message']
+    const value = body['value']
+    const stageNum = Number(value.charAt(value.length-1))
     
     const nextStageName = 'romance_result_' + String(stageNum)
     const choices = data.getAnswerChoices(stageNum)
     let options = []
     for(let i=1; i<choices.length; i++){
         const element = {
-            "text": choices[i],
+            "text": choices[i][0],
             "value": String(i),
         }
         options.push(element)
     }
-
     
     return {
         view: {
@@ -26,7 +29,7 @@ exports.getBlock = (message, stageNum) => {
                 "name": "input_answer",
                 "options": options,
                 "required": true,
-                "placeholder": "XX이의 대답은?"
+                "placeholder": "선택"
                 }
             ],
         },

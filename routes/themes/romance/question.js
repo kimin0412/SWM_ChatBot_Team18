@@ -1,17 +1,21 @@
 const data = require('./data')
 
-exports.getBlock = (message, stageNum) => {
+exports.getBlock = (body) => {
+    
+    const message = body['message']
+    const value = body['value']
+    const stageNum = Number(value.charAt(value.length-1))
     
     const nextStageName = 'romance_answer_' + String(stageNum)
     const contents = data.getQuestionContents(stageNum)
     
     return {
         conversationId: message.conversation_id,
-        text: 'YY',
+        text: '문제',
         blocks: [
             {
               "type": "header",
-              "text": 'YY',
+              "text": '문제',
               "style": "red"
             },
             {
