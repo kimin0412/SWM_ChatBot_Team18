@@ -13,7 +13,6 @@ const themeFields = {
 	/** 해당 테마 클리어 시각 */
 	dateCleared: {
 		type: Date,
-		immutable: true,
 		index: {unique: false}
 	}
 }

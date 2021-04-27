@@ -3,6 +3,9 @@ const router = express.Router();
 
 const libKakaoWork = require('../libs/kakaoWork');
 
+// Database 관련 라이브러리
+const libDatabase = require('../libs/database').service;
+
 const romanceMain = require('./themes/romance/main');
 const romanceStage1Conversation = require('./themes/romance/stage1/conversation');
 const romanceStage1Question = require('./themes/romance/stage1/question');
@@ -162,10 +165,13 @@ router.post('/request', async (req, res, next) => {
 
 router.post('/callback', async (req, res, next) => {
 	console.log(req.body);
-	const { message, actions, action_time, value, action_name } = req.body;
+	const { message, actions, action_time, value, action_name, react_user_id } = req.body;
 
 	switch (value) {
 		case 'user_name':
+			// Database에 [유저 아이디 - 유저 이름] 등록
+			await libDatabase.insertUser(react_user_id, actions.input_name);
+			
 			// 설문조사 응답 결과 메세지 전송 (3)
 			await libKakaoWork.sendMessage({
 				conversationId: message.conversation_id,
