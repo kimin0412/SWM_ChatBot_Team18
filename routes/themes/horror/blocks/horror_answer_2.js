@@ -1,10 +1,10 @@
 module.exports = (data) => {
     const { message, actions, action_time, value, action_name } = data;
     return {
-        title: '소마센터 비밀번호 입력',
+        title: '회의실 비밀번호 입력',
         accept: '문을 연다.',
 		decline: '다시 생각한다.',
-        value: 'horror_check_1',
+        value: 'horror_check_2',
         blocks: [
             {
                 type: 'label',
@@ -15,7 +15,7 @@ module.exports = (data) => {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '영어 3글자 (대문자로)',
+                placeholder: '영어 4글자 (대문자로)',
             },
         ],
     };

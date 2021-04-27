@@ -8,12 +8,17 @@ module.exports = (data) => {
 		blocks: [
             {
                 type: 'header',
-                text: '소마 센터 이용 안내문',
+                text: '데스크의 노트북 앞',
                 style: 'red',
             },
             {
                 type: 'text',
-                text: `환영합니다. ${userName} 연수생님`,
+                text: `"딸깍 딸깍"`,
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: "당신은 침을 한번 삼키고 문서를 열어 봅니다.",
                 markdown: true,
             },
 			{
@@ -23,7 +28,7 @@ module.exports = (data) => {
 				type: "context",
 				content: {
 					type: "text",
-					text: "[소마센터 안내문](https://drive.google.com/file/d/1Ir7SOdLglkqokUMRr84vHqE843F_BaG3/view?usp=sharing)",
+					text: "[분실물 장부](https://drive.google.com/file/d/1LGz5BRKbjGgf0ytKj-AxwDrCKI4-0Lsl/view?usp=sharing)",
 					markdown: true
 				},
 				image: {
@@ -36,36 +41,32 @@ module.exports = (data) => {
 			},
 			{
                 type: 'text',
-                text: "현재 시간은 자정이 지난 12시 15분",
+                text: `'흠... 12번 사물함 이라고..?'`,
                 markdown: true,
             },
 			{
                 type: 'text',
-                text: "멘토링이 끝난 후 집으로 돌아가려던 당신은 지갑을 회의실에 두고 온 것을 알아차렸습니다.",
+                text: "당신은 오티때 들었던 사물함의 위치를 머릿속으로 되새겨보곤 발걸음을 옮깁니다.",
                 markdown: true,
             },
 			{
                 type: 'text',
-                text: `'큰일이네... 지갑이 없으면 집에 못가는데... 아씨.. 안내문을 괜히 봐서...'`,
-                markdown: true,
-            },
-			{
-				type: "image_link",
-				url: "https://ifh.cc/g/vBe1QO.jpg"
-    		},
-			{
-                type: 'text',
-                text: "불이 꺼진 소마센터 앞에서 한참을 망설이던 당신은 이내 마음을 다잡습니다.",
+                text: "사물함 앞에 도착한 당신은 빼곡히 늘어선 사물함을 휴대폰 플래쉬를 켜고 하나하나 살펴봅니다.",
                 markdown: true,
             },
 			{
                 type: 'text',
-                text: `'그래 안내문이 진짜일리도 없고... 지갑만 찾고 얼른 나가자'`,
+                text: `'1... 2... 3.......... 11... 12.. 이거다!'`,
                 markdown: true,
             },
 			{
                 type: 'text',
-                text: "당신은 안내문에 있던 비밀번호를 생각해냅니다.",
+                text: "12번 사물함을 발견한 당신은 방금 전 봤던 문서를 기억해냅니다.",
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: `'아까 비고란에 비밀번호가 적혀있었지...?'`,
                 markdown: true,
             },
             {
@@ -73,19 +74,19 @@ module.exports = (data) => {
                 elements: [
                     {
                         type: 'button',
-                        text: '모르겠는데...?',
+                        text: '모르겠는데...',
                         style: 'danger',
                         action_type: 'submit_action',
-                        action_name: 'horror_hint_1',
-                        value: 'horror_hint_1',
+                        action_name: 'horror_hint_4',
+                        value: 'horror_hint_4',
                     },
                     {
                         type: 'button',
-                        text: '아! 알았다!',
+                        text: '규칙성을 알았어!',
                         style: 'primary',
                         action_type: 'call_modal',
-                        action_name: 'horror_answer_1',
-                        value: 'horror_answer_1',
+                        action_name: 'horror_answer_4',
+                        value: 'horror_answer_4',
                     },
                 ],
             },

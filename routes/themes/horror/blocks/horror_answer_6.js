@@ -1,21 +1,21 @@
 module.exports = (data) => {
     const { message, actions, action_time, value, action_name } = data;
     return {
-        title: '소마센터 비밀번호 입력',
-        accept: '문을 연다.',
-		decline: '다시 생각한다.',
-        value: 'horror_check_1',
+        title: '카드 정답 입력',
+        accept: '이거였어!',
+		decline: '다시 생각해보자',
+        value: 'horror_check_6',
         blocks: [
             {
                 type: 'label',
-                text: '비밀번호를 입력 해 주세요.',
+                text: '카드의 정답을 입력 해 주세요.',
                 markdown: true,
             },
             {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '영어 3글자 (대문자로)',
+                placeholder: '영어 10글자 (띄어쓰기 없이, 대문자)',
             },
         ],
     };

@@ -5,7 +5,17 @@ module.exports = (data) => {
 		blocks: [
 			{
 				type: 'text',
-				text: "당신은 작은 인기척에 놀라 서둘러 소마센터를 빠져나옵니다.",
+				text: "당신은 문서를 발견했지만 잠깐의 고민 후 노트북을 덮습니다.",
+				markdown: true,
+			},
+			{
+				type: 'text',
+				text: `'그래... 괜히 함부로 건드리지 말자...'`,
+				markdown: true,
+			},
+			{
+				type: 'text',
+				text: "당신은 아침에 다시 와야겠다고 생각하며 소마센터를 떠납니다.",
 				markdown: true,
 			},
 			{
@@ -23,8 +33,8 @@ module.exports = (data) => {
 				text: '돌아가기',
 				style: 'default',
 				action_type: 'submit_action',
-				action_name: 'horror_block_1',
-				value: 'horror_block_1'
+				action_name: 'horror_quiz_3',
+				value: 'horror_quiz_3'
 			},
 		],
 	};
