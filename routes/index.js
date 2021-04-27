@@ -3,18 +3,7 @@ const router = express.Router();
 
 const libKakaoWork = require('../libs/kakaoWork');
 
-const romanceMain = require('./themes/romance/main');
-const romanceStage1Conversation = require('./themes/romance/stage1/conversation');
-const romanceStage1Question = require('./themes/romance/stage1/question');
-const romanceStage1Answer = require('./themes/romance/stage1/answer');
-const romanceStage1Result = require('./themes/romance/stage1/result');
-const romanceStage1Hint = require('./themes/romance/stage1/hint');
-
-const romanceStage2Question = require('./themes/romance/stage2/question');
-const romanceStage2Answer = require('./themes/romance/stage2/answer');
-const romanceStage2Result = require('./themes/romance/stage2/result');
-
-const romanceEnding = require('./themes/romance/ending');
+const romance = require('./themes/romance/index');
 
 router.get('/', async (req, res, next) => {
 	// 유저 목록 검색 (1)
@@ -114,18 +103,6 @@ router.post('/request', async (req, res, next) => {
 			});
 			break;
 
-		case 'romance_stage1_answer':
-			return res.json(romanceStage1Answer.getBlock());
-			break;
-
-		case 'romance_stage2_answer':
-			return res.json(romanceStage2Answer.getBlock());
-			break;
-
-		case 'romance_stage1_hint':
-			return res.json(romanceStage1Hint.getBlock());
-			break;
-
 		default:
 			if (value.includes('nonsense')) {
 				return res.json({
@@ -152,6 +129,14 @@ router.post('/request', async (req, res, next) => {
 					view: require('./themes/survival').modalBuilder(req.body)
 				});
 			}
+			else if (value.includes('fantasy')) {
+				return res.json({
+					view: require('./themes/fantasy').modalBuilder(req.body),
+				});
+			}
+            else if (value.includes('romance')){
+                return res.json(romance.getBlock(req.body));
+            }
 	}
 	res.json({});
 });
@@ -238,7 +223,7 @@ router.post('/callback', async (req, res, next) => {
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'fantasy_msg',
-						value: 'intro',
+						value: 'fantasy_question_0',
 					},
 					{
 						type: 'button',
@@ -275,28 +260,6 @@ router.post('/callback', async (req, res, next) => {
 				],
 			});
 			break;
-	
-		case 'romance_main':
-			await libKakaoWork.sendMessage(romanceMain.getBlock(message));
-			break;
-		case 'romance_stage1_conversation':
-			await libKakaoWork.sendMessage(romanceStage1Conversation.getBlock(message));
-			break;
-		case 'romance_stage1_question':
-			await libKakaoWork.sendMessage(romanceStage1Question.getBlock(message));
-			break;
-		case 'romance_stage1_result':
-			await libKakaoWork.sendMessage(romanceStage1Result.getBlock(message, actions));
-			break;
-		case 'romance_stage2_question':
-			await libKakaoWork.sendMessage(romanceStage2Question.getBlock(message));
-			break;
-		case 'romance_stage2_result':
-			await libKakaoWork.sendMessage(romanceStage2Result.getBlock(message, actions));
-			break;
-		case 'romance_ending':
-			await libKakaoWork.sendMessage(romanceEnding.getBlock(message, actions));
-			break;
 
 		default:
 
@@ -309,7 +272,8 @@ router.post('/callback', async (req, res, next) => {
 				// messageBuilder 함수에 req.body를 전달해서 모듈에서 필요한 데이터 사용.
 				// modal을 통해 제출한 값, react_user_id(답장을 보낸 사용자 고유 id)등 사용할 수 있음
 				await require('./themes/detective').messageBuilder(req.body);
-			} else if (value.includes('horror')) {
+			} 
+			else if (value.includes('horror')) {
 				await require('./themes/horror').messageBuilder(req.body);
 			}
 			else if(value.includes('survival')) {
@@ -319,8 +283,13 @@ router.post('/callback', async (req, res, next) => {
 
 				await require('./themes/survival').messageBuilder(req.body);
 			}
+			else if (value.includes('fantasy')) {
+				await require('./themes/fantasy').messageBuilder(req.body);
+			}
+            else if (value.includes('romance')){
+                await libKakaoWork.sendMessage(romance.getBlock(req.body));
+            }
 
-		// else
 	}
 
 	res.json({ result: true });
