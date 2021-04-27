@@ -9,6 +9,12 @@ module.exports = (order, content) => {
 			comment: '서울특별시 강남구 테헤란로 311로 가자',
 		},
 		{
+			placeholder: "영어 1글자",
+			solution: "i",
+			hint: "약도 옆에 적힌 값들을 잘 보자",
+			comment: "너무 늦지 않게 빨리 출발하자!!"
+		},
+		{
 			placeholder: '영어 5글자',
 			solution: 'ghost',
 			hint: '비석에 적힌 숫자는 무엇을 의미할까?',

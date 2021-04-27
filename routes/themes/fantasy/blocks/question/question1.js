@@ -1,10 +1,10 @@
-module.exports = () => {
+module.exports = (order) => {
 	return {
-		text: 'Push alarm message',
+		text: 'Question',
 		blocks: [
 			{
 				type: 'header',
-				text: '1층 : 소마의 탑',
+				text: `${order}층 : 소마의 탑`,
 				style: 'blue',
 			},
 			{
@@ -18,26 +18,6 @@ module.exports = () => {
 				text:
 					'*Russia*\n*Asia*\n*_ _ _ _*\n*Man*\n*Bicycle*\n*Spider*',
 				markdown: true,
-			},
-			{
-				type: 'action',
-				elements: [
-					{
-						type: 'button',
-						text: '정답',
-						style: 'primary',
-						action_type: 'call_modal',
-						value: 'fantasy_answer_1',
-					},
-					{
-						type: 'button',
-						text: '힌트',
-						style: 'danger',
-						action_type: 'submit_action',
-						action_name: 'fantasy_hint',
-						value: 'fantasy_hint_1',
-					},
-				],
 			},
 		],
 	};
