@@ -123,8 +123,6 @@ router.post('/request', async (req, res, next) => {
 				});
 			}
 			else if (value.includes('survival')){
-
-			if (value.includes('survival')){
 				return res.json({
 					view: require('./themes/survival').modalBuilder(req.body)
 				});
