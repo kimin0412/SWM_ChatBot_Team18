@@ -2,7 +2,7 @@ module.exports = (data) => {
 	const { message, actions, action_time, value, action_name } = data;
 	let userName = '';
 	const global_module = require('../../../global.js');
-	userName = global_module.userName;
+	userName = global_module.userName
 	return {
 		text: '방탈출 - 공포 테마',
 		blocks: [

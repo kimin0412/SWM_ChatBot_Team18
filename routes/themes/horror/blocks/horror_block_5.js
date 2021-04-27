@@ -18,7 +18,7 @@ module.exports = (data) => {
 						type: 'button',
 						text: '기호를 해석해본다.',
 						style: 'primary',
-						action_type: 'call_modal',
+						action_type: 'submit_action',
 						action_name: 'horror_quiz_6',
 						value: 'horror_quiz_6',
 					},
