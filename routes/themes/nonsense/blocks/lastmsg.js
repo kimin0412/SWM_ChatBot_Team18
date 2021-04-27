@@ -5,7 +5,7 @@ module.exports = () => {
             {
                 type: 'header',
                 text: '동아리 등록 완료',
-                style: 'blue',
+                style: 'yellow',
             },
             {
                 type: 'text',

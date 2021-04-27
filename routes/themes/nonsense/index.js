@@ -11,6 +11,7 @@ const quizMessage2 = require('./blocks/nonsense_quiz_2');
 const quizMessage3 = require('./blocks/nonsense_quiz_3');
 const quizMessage4 = require('./blocks/nonsense_quiz_4');
 const quizMessage5 = require('./blocks/nonsense_quiz_5');
+const nonsense_move = require('/blocks/nonsense_move');
 // 힌트 블록
 const hint1 = require('./blocks/nonsense_hint_1');
 const hint2 = require('./blocks/nonsense_hint_2');
@@ -159,6 +160,12 @@ module.exports = {
                 });
                 break;
             case 'nonsense_hint_5':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...hint5()
+                });
+                break;
+            case 'nonsense_move':
                  await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
                     ...hint5()
