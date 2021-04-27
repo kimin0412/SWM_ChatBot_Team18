@@ -19,6 +19,9 @@ module.exports = () => {
 						type: 'button',
 						text: '랭킹 보기',
 						style: 'default',
+                        action_type: 'submit_action',
+						action_name: 'fantasy_ranking',
+                        value: 'fantasy_ranking',
 					},
 					{
 						type: 'button',
