@@ -1,5 +1,4 @@
 module.exports = (order, content) => {
-	console.log(order, content);
 	return [
 		{},
 		{
@@ -19,6 +18,12 @@ module.exports = (order, content) => {
 			solution: 'ghost',
 			hint: '비석에 적힌 숫자는 무엇을 의미할까?',
 			comment: '으악!!! 유령이다 빨리 도망치자!!!!',
+		},
+		{
+			placeholder: '영어 4글자',
+			solution: 'trap',
+			hint: '문제 2번과 3번을 생각해보자',
+			comment: '다른 길로 돌아가자...'
 		},
 		{
 			placeholder: '영어 4글자',
