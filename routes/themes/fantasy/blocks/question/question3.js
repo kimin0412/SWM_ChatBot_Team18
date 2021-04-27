@@ -1,47 +1,29 @@
-module.exports = () => {
+module.exports = (order) => {
+	console.log(order);
 	return {
-		text: 'Push alarm message',
+		text: 'Question',
 		blocks: [
 			{
 				type: 'header',
-				text: '3층: Knight',
+				text: `${order}층: TombStone`,
 				style: 'blue',
-			},
-			{
-				type: 'image_link',
-				url:
-					'https://i.ibb.co/Wf3zMkK/q3-1.png',
 			},
 			{
 				type: 'text',
 				text:
-					'얼떨결에 3층으로 도망쳐 왔다.\n 소마의 탑에 들어오니 기사들이 경계를 서고 있다.\n 기사들을 피해서 통과하자',
+					'약도를 찾아가니 으스스한 분위기의 건물이 있었다.\n탑 근처로 다가가니 비석이 하나 있다.\n비석에는 문양이 새겨져 있다. 무엇을 의미하는 것일까?',
 				markdown: true,
 			},
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/j4kqd7X/q3-2.jpg',
+					'https://i.ibb.co/NCqC3Pk/q2.png',
 			},
 			{
-				type: 'action',
-				elements: [
-					{
-						type: 'button',
-						text: '정답',
-						style: 'primary',
-						action_type: 'call_modal',
-						value: 'fantasy_answer_3',
-					},
-					{
-						type: 'button',
-						text: '힌트',
-						style: 'danger',
-						action_type: 'submit_action',
-						action_name: 'fantasy_hint',
-						value: 'fantasy_hint_3',
-					},
-				],
+				type: 'text',
+				text:
+					'*(1, 2, 4, 5, 6, 7, 8, 10)\n(3, 4, 7, 8, 10, 12)\n(1, 2, 3, 4, 5, 6, 7, 8)\n(1, 2, 4, 5, 6, 8, 10, 12)\n(1, 2, 9, 11)*',
+				markdown: true,
 			},
 		],
 	};

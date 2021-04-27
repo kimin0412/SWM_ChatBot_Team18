@@ -1,42 +1,17 @@
-module.exports = () => {
+module.exports = (order) => {
 	return {
-		text: 'Push alarm message',
+		text: 'Question',
 		blocks: [
 			{
 				type: 'header',
-				text: '4층: Maestro',
+				text: `${order}층 : Races`,
 				style: 'blue',
 			},
 			{
 				type: 'text',
 				text:
-					'꼭대기에 올라오니, 마에스트로가 기다리고 있었다. 마에스트로를 물리칠 주문을 외자',
+					'*_드래곤에겐 있지만, 악마에겐 없는것..._*\n\n*_오크와 고블린이 함께 가지고 있는것..._*\n\n*_너에겐 있고, 나에겐 없는것은?_*',
 				markdown: true,
-			},
-			{
-				type: 'image_link',
-				url:
-					'https://i.ibb.co/m83g0xj/q4.png',
-			},
-			{
-				type: 'action',
-				elements: [
-					{
-						type: 'button',
-						text: '정답',
-						style: 'primary',
-						action_type: 'call_modal',
-						value: 'fantasy_answer_4',
-					},
-					{
-						type: 'button',
-						text: '힌트',
-						style: 'danger',
-						action_type: 'submit_action',
-						action_name: 'fantasy_hint',
-						value: 'fantasy_hint_4',
-					},
-				],
 			},
 		],
 	};
