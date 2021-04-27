@@ -277,10 +277,6 @@ router.post('/callback', async (req, res, next) => {
 				await require('./themes/horror').messageBuilder(req.body);
 			}
 			else if(value.includes('survival')) {
-				console.log("call back survival");
-
-			if(value.includes('survival')) {
-
 				await require('./themes/survival').messageBuilder(req.body);
 			}
 			else if (value.includes('fantasy')) {
