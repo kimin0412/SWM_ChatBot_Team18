@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://cdn.cvinfo.com/news/photo/201509/3771_5944_2248.jpg",
+			  url: "https://i.ibb.co/h2qWHDf/survival.jpg",
 			},
 			{
 			  type: "text",

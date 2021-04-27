@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://m1.daumcdn.net/cfile262/image/2566AA4F54E0477813BA46"
+			  url: "https://i.ibb.co/jWVZVqb/survival-shuttle-Three-Block.gif"
 			},
 			{
 			  type: "text",

@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFqF9xs-j7g1oQ5ig5ot0SLv7muOhdwl1qMA&usqp=CAU"
+			  url: "https://i.ibb.co/F79pf6F/survival-quiz.jpg"
 			},
 			{
 			  type: "text",

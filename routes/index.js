@@ -79,7 +79,6 @@ router.post('/request', async (req, res, next) => {
 
 		default:
 			if (value.includes('survival')){
-				console.log("request survival");
 				return res.json({
 					view: require('./themes/survival').modalBuilder(req.body)
 				})
@@ -195,7 +194,6 @@ router.post('/callback', async (req, res, next) => {
 
 		default:
 			if(value.includes('survival')) {
-				console.log("call back survival");
 				await require('./themes/survival').messageBuilder(req.body);
 			}
 	

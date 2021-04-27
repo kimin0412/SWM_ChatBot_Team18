@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://t1.daumcdn.net/cfile/tistory/222AB938581AD28830"
+			  url: "https://i.ibb.co/WsrsSHy/survival-driving-Test-Two-Block.gif"
 			},
 			{
 			  type: "text",

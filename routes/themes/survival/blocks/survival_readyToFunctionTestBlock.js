@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/653/0c1e92110f11b7f16b2395752c1f6e45.jpeg"
+			  url: "https://i.ibb.co/cyccgdC/survival-ready-To-Function-Test-Block.jpg"
 			},
 			{
 			  type: "text",

@@ -12,7 +12,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "image_link",
-			  url: "https://upload3.inven.co.kr/upload/2020/04/26/bbs/i014587113558.gif"
+			  url: "https://i.ibb.co/K9XscBJ/survival-shuttle-Two-Block.gif"
 			},
 			{
 			  type: "text",
