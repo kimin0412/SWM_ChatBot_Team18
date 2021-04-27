@@ -1,22 +1,28 @@
-exports.getBlock = (message) => {
+const data = require('./data')
+
+exports.getBlock = (body) => {
     
-    const contents = [
-        '어느날 함께 알바를 하던 중 YY이가 말한다.',
-        '와 오빠 아까 그 손님 진짜 예쁘지 않아?',
-    ]
+    const message = body['message']
+    const value = body['value']
+    const stageNum = Number(value.charAt(value.length-1))
+    
+    const nextStageName = 'romance_answer_' + String(stageNum)
+    const contents = data.getQuestionContents(stageNum)
+    
+    const img_url = data.getImageUrl(stageNum)
     
     return {
         conversationId: message.conversation_id,
-        text: 'YY',
+        text: '문제',
         blocks: [
             {
               "type": "header",
-              "text": 'YY',
+              "text": '문제',
               "style": "red"
             },
             {
               "type": "image_link",
-              "url": "https://t1.kakaocdn.net/kakaowork/resources/block-kit/imagelink/image6@3x.jpg"
+              "url": img_url
             },
             {
                 "type": 'text',
@@ -28,8 +34,8 @@ exports.getBlock = (message) => {
                 "text": '정답 입력',
                 "style": 'default',
                 "action_type": 'call_modal',
-                "action_name": 'romance_stage1_answer',
-                "value": 'romance_stage1_answer',
+                "action_name": nextStageName,
+                "value": nextStageName,
             },
         ],
     };
