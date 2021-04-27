@@ -4,43 +4,28 @@ module.exports = () => {
         blocks: [
             {
                 type: 'header',
-                text: '문제 2',
+                text: '여긴 어디 나는 누구?',
                 style: 'blue',
             },
             {
                 type: 'text',
                 text:
-                    '"환영합니다. 이곳으로 찾아오세요"\n 라는 메시지와 함께 또 하나의 문제가 보인다.',
+                    '정답을 맞추니 곧이어 다음 화면으로 바뀌었다. /n "이 동아리는 무슨동아리 인걸까..?" /n 의문점들만 남긴체 화면을 바라보았다.',
                 markdown: true,
-            },
-            {
-                type: 'divider',
             },
             {
                 type: 'text',
-                text: '"사내 도서관에서 책을 빌리고 3일이나 늦게 반납했다. 나는 무엇인가?"',
+                text:
+                    '"환영합니다."/n "저희 동아리는 국내 최대 규모의 인원수와 전국 각지의 회원들로 구성되어있습니다."\n "함께 하고싶으신 분은 아래를 클릭 해 주세요."',
                 markdown: true,
             },
             {
-                type: 'action',
-                elements: [
-                    {
-                        type: 'button',
-                        text: '힌트 보기',
-                        style: 'danger',
-                        action_type: 'submit_action',
-                        action_name: 'nonsense_hint_2',
-                        value: 'nonsense_hint_2',
-                    },
-                    {
-                        type: 'button',
-                        text: '정답 입력',
-                        style: 'primary',
-                        action_type: 'call_modal',
-                        action_name: 'nonsense_answer_2',
-                        value: 'nonsense_answer_2',
-                    },
-                ],
+                type: 'button',
+                text: 'button',
+                style: 'primary',
+                action_type: 'submit_action',
+                action_name: 'nonsense_move',
+                value: 'nonsense_move',
             },
         ],
     };
