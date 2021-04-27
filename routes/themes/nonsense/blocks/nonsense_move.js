@@ -1,4 +1,3 @@
-
 module.exports = () => {
     return {
         text: '방탈출 - 넌센스 테마',
@@ -10,8 +9,14 @@ module.exports = () => {
             },
             {
                 type: 'text',
-                text: '등록 절차를 위해 도서관으로 찾아 시기 바랍니다. \n 아 참! \n 누군지는 모르겟지만 책을 빌릴때 마다 항상 늦게 반납하는 사람이 있는것 같더라구요.\n김솜아님은 안그러시겟죠?',
+                text:
+                    '등록 절차를 위해 도서관으로 와주시기 바랍니다. \n 아 참! \n 누군지는 모르겟지만 책을 빌릴때 마다 항상 늦게 반납하는 사람이 있는것 같더라구요.\n김솜아님은 안그러시겟죠?',
                 markdown: true,
+            },
+            {
+                type: 'image_link',
+                url:
+                    'https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2053&q=80',
             },
             {
                 type: 'text',
