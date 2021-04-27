@@ -1,9 +1,6 @@
 // mongoose MongoDB ODM
 const mongoose = require('mongoose');
 
-// User model object
-const users = require('./model/users');
-
 const Config = require('config');
 
 /** Mongoose Database 객체 */
@@ -43,8 +40,10 @@ database.connect = async () => {
 	}
 }
 
-database.users = users;
+/** 사용자 모델 객체 */
+database.users = require('./model/users');
 
+/** Database 관련 서비스들 */
 database.service = require('./service');
 
 module.exports = database;
