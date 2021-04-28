@@ -1,7 +1,5 @@
 module.exports = (order) => {
-	return {
-		text: 'Push alarm message',
-		blocks: [
+	let blocks = [
 			{
 				type: 'header',
 				text: '정답입니다!!!',
@@ -20,6 +18,12 @@ module.exports = (order) => {
 				action_name: 'fantasy_msg',
 				value: `fantasy_question_${order + 1}`,
 			},
-		],
+		];
+	if (require('../questionData')(order, 'comment_extra')){
+		blocks.push(require('../questionData')(order, 'comment_extra'))
+	}
+	return {
+		text: 'Push alarm message',
+		blocks: blocks,
 	};
 };

@@ -17,12 +17,12 @@ module.exports = (order) => {
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/NCqC3Pk/q2.png',
+					'https://i.ibb.co/3WWbtNh/tombstone-final.jpg',
 			},
 			{
 				type: 'text',
 				text:
-					'*(1, 2, 4, 5, 6, 7, 8, 10)\n(3, 4, 7, 8, 10, 12)\n(1, 2, 3, 4, 5, 6, 7, 8)\n(1, 2, 4, 5, 6, 8, 10, 12)\n(1, 2, 9, 11)*',
+					'*(a, c, d, e, g, h, j, k)\n(b, c, d, h, i, j)\n(a, b, d, e, g, h, j, k)\n(a, c, d, e, g, i, j, k)\n(a, f, k, l)*',
 				markdown: true,
 			},
 		],
