@@ -276,7 +276,8 @@ router.post('/callback', async (req, res, next) => {
 			} else if (value.includes('fantasy')) {
 				await require('./themes/fantasy').messageBuilder(req.body);
 			} else if (value.includes('romance')) {
-				await libKakaoWork.sendMessage(romance.getBlock(req.body));
+                const romanceBlock = await romance.getBlock(req.body);
+				await libKakaoWork.sendMessage(romanceBlock);
 			}
 	}
 

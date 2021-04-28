@@ -49,7 +49,11 @@ const userSchema = new mongoose.Schema({
 				type: Number,
 				default: 0,
 				index: { unique: false }
-			}
+			},
+            romance_passed: {
+                type: Number,
+                default: 0
+            }
 		},
 		survival: {
 			...themeFields

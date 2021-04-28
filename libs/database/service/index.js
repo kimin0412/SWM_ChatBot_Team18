@@ -120,7 +120,33 @@ module.exports = {
             const user = await Users.findOne({
                 userId: reactUserId
             });
+            
+            
+            /*
+            로맨스 테마일 때 최신 점수만 반영함
+            */
+            if ('romance_passed' in newData){
+                console.log('로맨스 테마일 때')
+                if (reactUserId == '2607851' && !increase){
+                    console.log('관리자 점수 초기화')
+                    user['themes']['romance']['romance_passed'] = newData['romance_passed']
+                    user['themes']['romance']['score'] = newData['score']
+                    user.markModified('themes.' + theme)
+                    await user.save()
+                    return user.toObject()
+                }
+                if (newData['romance_passed'] > user['themes']['romance']['romance_passed']){
+                    console.log('사용자 점수 수정')
+                    user['themes']['romance']['romance_passed'] = newData['romance_passed']
+                    user['themes']['romance']['score'] += newData['score']
+                    user.markModified('themes.' + theme)
+                    await user.save()
+                }
+                console.log('종료')
+                return user.toObject()
+            }
 
+            
             // 데이터 업데이트
             if (increase) {
                 // 데이터 increasement

@@ -5,10 +5,12 @@ exports.getBlock = (body) => {
 
     const message = body['message']
     const react_user_id = body['react_user_id']
+    
+    console.log('로맨스 엔딩 페이지')
 
-    const dataBuffer = fs.readFileSync(__dirname+'/score.json')
-    const dataJson = dataBuffer.toString()
-    const score = JSON.parse(dataJson)
+    // const dataBuffer = fs.readFileSync(__dirname+'/score.json')
+    // const dataJson = dataBuffer.toString()
+    // const score = JSON.parse(dataJson)
 
     // console.log('최종 점수는 ')
     // console.log(score[react_user_id])

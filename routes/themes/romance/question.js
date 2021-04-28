@@ -11,6 +11,8 @@ exports.getBlock = (body) => {
     
     const img_url = data.getImageUrl(stageNum)
     
+    console.log('로맨스 스테이지' + String(stageNum) + ' 여자 질문')
+    
     return {
         conversationId: message.conversation_id,
         text: '문제',
