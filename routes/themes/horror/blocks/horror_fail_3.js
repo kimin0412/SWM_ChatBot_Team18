@@ -1,5 +1,12 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
 	return {
 		text: '방탈출 - 공포 테마',
 		blocks: [
@@ -33,8 +40,8 @@ module.exports = (data) => {
 				text: '돌아가기',
 				style: 'default',
 				action_type: 'submit_action',
-				action_name: 'horror_quiz_3',
-				value: 'horror_quiz_3'
+				action_name: 'horror_block_3',
+				value: 'horror_block_3'
 			},
 		],
 	};

@@ -1,5 +1,6 @@
 module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
     return {
         title: '사물함 비밀번호 입력',
         accept: '잘그락 잘그락',

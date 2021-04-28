@@ -1,6 +1,12 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	console.log(actions.answer);
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
 	if (actions.answer == "run" || actions.answer == "RUN") {
 		return {
 			text: '방탈출 - 공포 테마',

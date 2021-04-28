@@ -1,6 +1,12 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	console.log(actions.answer);
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
 	if (actions.answer == "068") {
 		return {
 			text: '방탈출 - 공포 테마',
@@ -92,22 +98,22 @@ module.exports = (data) => {
 			blocks: [
 				{
 					type: 'text',
-					text: `"삐빅"`,
+					text: `"덜걱"`,
 					markdown: true,
 				},
 				{
 					type: 'text',
-					text: "비밀번호가 틀렸던 건지 노트북에서 날카로운 경고음이 들립니다.",
+					text: "비밀번호가 맞지 않았던 건지 아무리 힘껏 잡아당겨도 자물쇠는 열리지 않습니다.",
 					markdown: true,
 				},
 				{
 					type: 'text',
-					text: "인상을 찌푸리며 노트북 화면의 카드를 노려보던 당신은 이내 단념한 듯 발걸음을 돌립니다.",
+					text: "몇번을 더 자물쇠를 잡아당겨보던 당신은 이내 단념한 듯 돌아섭니다.",
 					markdown: true,
 				},
 				{
 					type: 'text',
-					text: `'그래... 괜히 함부로 건드리지 말자...'`,
+					text: `'내일 다시오자....'`,
 					markdown: true,
 				},
 				{
@@ -117,7 +123,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'text',
-					text: "홀로 남겨진 지갑이 어른거리지만 어쩔 수 없었습니다.",
+					text: "코앞에 있는 지갑이 어른거리지만 어쩔 수 없었습니다.",
 					markdown: true,
 				},
 				{

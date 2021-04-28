@@ -212,8 +212,8 @@ router.post('/callback', async (req, res, next) => {
 						text: '공포',
 						style: 'default',
 						action_type: 'submit_action',
-						action_name: 'horror_quiz_1',
-						value: 'horror_quiz_1',
+						action_name: 'horror_enter_1',
+						value: 'horror_enter_1',
 					},
 					{
 						type: 'button',
