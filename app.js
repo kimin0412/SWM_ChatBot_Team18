@@ -12,7 +12,7 @@ const app = express();
 // Database Module
 const database = require('./libs/database');
 
-const PORT = 3000;
+const PORT = 8080;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
