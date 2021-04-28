@@ -1,11 +1,14 @@
+const libDatabase = require('../../../../libs/database/').service
+
 /**
  * 함수 형식으로 구현해서 사용자가 보낸 데이터에 따라 동적으로 블록의 텍스트 등을 변경할 수 있도록 만듬
 */
-module.exports = (data) => {
+module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 	
-	// DB에서 react_user_id를 통해 초기에 등록한 userName을 얻어와야할듯 합니다.
-	const userName = 'placeholder'
+	const user = await libDatabase.findUser(react_user_id);
+	
+	const userName = user.userName;
 	
     return {
         text: '방탈출 - 추리 테마',

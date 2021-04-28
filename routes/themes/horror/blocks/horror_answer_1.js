@@ -3,8 +3,7 @@ module.exports = (data) => {
     return {
         title: '소마센터 비밀번호 입력',
         accept: '문을 연다.',
-        // decline: `'무서워... 해뜰때까지 버티자..'`,
-		decline: '그냥 돌아간다.',
+		decline: '다시 생각한다.',
         value: 'horror_check_1',
         blocks: [
             {
@@ -16,7 +15,7 @@ module.exports = (data) => {
                 type: 'input',
                 name: 'answer',
                 required: true,
-                placeholder: '영어 3글자',
+                placeholder: '영어 3글자 (대문자로)',
             },
         ],
     };

@@ -17,12 +17,22 @@ module.exports = (data) => {
 				},
 				{
 					type: 'text',
+					text: `'키보드 였구나.. Q에서 오른쪽으로 3번, P에서 왼쪽으로 3번, Z에서 오른쪽으로 5번이었어!'`,
+					markdown: true,
+				},
+				{
+					type: 'text',
+					text: `'RUN...? 뛰라는 건가...?'`,
+					markdown: true,
+				},
+				{
+					type: 'text',
 					text: "활기찼던 오전과 다르게 숨막히도록 적막한 센터.",
 					markdown: true,
 				},
 				{
 					type: 'text',
-					text: "빛 한점 없는 곳에서 어둠이 몸을 타고 올라오듯 쎄한 느낌이 발목을 감는다.",
+					text: "빛 한점 없는 곳에서 어둠이 몸을 타고 올라오듯 쎄한 느낌이 발목을 감아옵니다.",
 					markdown: true,
 				},
 				{
@@ -36,34 +46,13 @@ module.exports = (data) => {
 					markdown: true,
 				},
 				{
-                type: 'action',
-					elements: [
-						{
-							type: 'button',
-							text: '돌아본다.',
-							style: 'primary',
-							action_type: 'submit_action',
-							action_name: 'horror_event_1',
-							value: 'horror_event_1',
-						},
-						{
-							type: 'button',
-							text: '뭔지 모르겠고 일단 튀쳐나간다.',
-							style: 'danger',
-							action_type: 'submit_action',
-							action_name: 'horror_fail_1',
-							value: 'horror_fail_1',
-						},
-					],
+					type: 'button',
+					text: '어떻게 하지...?',
+					style: 'default',
+					action_type: 'submit_action',
+					action_name: 'horror_block_1',
+					value: 'horror_block_1',
 				},
-				// {
-				// 	type: 'button',
-				// 	text: '다음으로 🛫',
-				// 	style: 'primary',
-				// 	action_type: 'submit_action',
-				// 	action_name: 'detective_quiz_2',
-				// 	value: 'detective_quiz_2'
-				// },
 			],
 		};	
 	}
@@ -102,13 +91,19 @@ module.exports = (data) => {
 					markdown: true,
 				},
 				{
+					type: "divider"
+				},
+				{
 					type: 'text',
 					text: "지갑찾기 실패...",
 					markdown: true,
 				},
 				{
+					type: "divider"
+				},
+				{
 					type: 'button',
-					text: '돌아가기',
+					text: '다시 풀어보기',
 					style: 'default',
 					action_type: 'submit_action',
 					action_name: 'horror_quiz_1',

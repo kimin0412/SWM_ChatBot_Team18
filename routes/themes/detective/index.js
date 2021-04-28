@@ -10,7 +10,6 @@ module.exports = {
 		const { value } = data;
 		
 		return require('./blocks/' + value)(data)
-
 	},
 	/**
 	 * detective 테마에 해당하는 메세지를 생성,
@@ -22,7 +21,7 @@ module.exports = {
 		
 		await libKakaoWork.sendMessage({
 			conversationId: message.conversation_id,
-			...require('./blocks/' + value)(data)
+			...await require('./blocks/' + value)(data)
 		});
     },
 };

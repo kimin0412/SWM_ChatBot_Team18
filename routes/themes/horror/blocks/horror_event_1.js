@@ -16,25 +16,16 @@ module.exports = (data) => {
 				text: `'아 뭐야... 종이네... ${userName}, 이 쫄보...!'`,
 				markdown: true,
 			},
-			// {
-			// type: 'image_link',
-			// url: 'https://ibb.co/xYMfm3g',
-			// },
 			{
 				type: 'divider',
 			},
 			{
-				type: 'text',
-				text: '(대충 쪽지에 퀴즈 있는 사진)',
-				markdown: true,
-			},
+				type: "image_link",
+				url: "https://ifh.cc/g/IIH6Tu.jpg"
+    		},
 			{
 				type: 'divider',
 			},
-			// {
-			// 	type: 'image_link',
-			// 	url: 'https://ibb.co/xYMfm3g',
-			// },
 			{
 				type: 'text',
 				text: `'회의실 비밀번호...? 비밀번호 투성이네...'`,

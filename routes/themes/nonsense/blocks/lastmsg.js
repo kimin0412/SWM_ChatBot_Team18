@@ -5,7 +5,7 @@ module.exports = () => {
             {
                 type: 'header',
                 text: '동아리 등록 완료',
-                style: 'blue',
+                style: 'yellow',
             },
             {
                 type: 'text',
@@ -24,7 +24,7 @@ module.exports = () => {
             },
             {
                 type: 'text',
-                text: '앞으로 많은 활동 부탁드립니다. 메일로 활동 가이드를 보내드렷습니다!',
+                text: '"메일로 활동 가이드를 보내드렷습니다!\n 확인 하시고 앞으로 많은 활동 부탁드립니다!"',
                 markdown: true,
             },
             {
@@ -41,7 +41,7 @@ module.exports = () => {
             },
             {
                 type: 'text',
-                text: '"아재개그 동아리엿다고...? 탈퇴는 어디서하지..."',
+                text: '"아재개그 동아리엿다고...? 회원이 많다는건 전국의 부장님들을 말하는거엿나? \n 탈퇴는 어디서하지..."',
                 markdown: true,
             },
             {

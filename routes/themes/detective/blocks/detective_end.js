@@ -1,9 +1,15 @@
-/** * Ending Message */ module.exports = (data) => {
+const libDatabase = require('../../../../libs/database/').service
+
+/** * Ending Message */
+module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
-
-    const userName = 'placeholder';
-    const rank = '000' + '등';
-
+	
+	const user = await libDatabase.findUser(react_user_id);
+	
+    const userName = user.userName;
+	const clearTime = user.themes.detective.dateCleared;
+    const rank = await libDatabase.getThemeUserRank(react_user_id, 'detective') + '등';
+	
     return {
         text: '방탈출 - 추리 테마',
         blocks: [
@@ -11,7 +17,7 @@
             {
                 type: 'description',
                 term: '이름',
-                content: { type: 'text', text: 'userName', markdown: false },
+                content: { type: 'text', text: userName, markdown: false },
                 accent: true,
             },
             {
@@ -23,7 +29,7 @@
             {
                 type: 'description',
                 term: '클리어 시각',
-                content: { type: 'text', text: action_time, markdown: false },
+                content: { type: 'text', text: clearTime, markdown: false },
                 accent: true,
             },
             {

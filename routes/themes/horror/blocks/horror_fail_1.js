@@ -23,8 +23,8 @@ module.exports = (data) => {
 				text: '돌아가기',
 				style: 'default',
 				action_type: 'submit_action',
-				action_name: 'horror_quiz_1',
-				value: 'horror_quiz_1'
+				action_name: 'horror_block_1',
+				value: 'horror_block_1'
 			},
 		],
 	};

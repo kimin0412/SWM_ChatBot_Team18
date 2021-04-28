@@ -1,3 +1,5 @@
+const libDatabase = require('../../../../libs/database/').service
+
 /**
  * 매개변수를 통해 정답 체크 후 정답 여부에 따라 다른 블록 생성
  * 정답 메세지의 경우 버튼이 다음 단계의 메세지를 호출하도록
@@ -5,7 +7,7 @@
 */
 const Config = require('config');
 
-module.exports = (data) => {
+module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data
 	
 	let correct = true;
@@ -21,6 +23,9 @@ module.exports = (data) => {
 	}
 	
 	if (correct) {
+		// 테마 클리어 처리
+		await libDatabase.clearTheme(react_user_id, 'detective')
+		
 		return {
 			text: '방탈출 - 추리 테마',
 			blocks: [

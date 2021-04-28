@@ -9,6 +9,11 @@ const index = require('./routes/index');
 
 const app = express();
 
+// Database Module
+const database = require('./libs/database');
+
+const PORT = 3000;
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,6 +40,9 @@ app.use(function(err, req, res, next) {
   res.json({ err });
 });
 
-app.listen(process.env.PORT || 3000, () => console.log('Example app listening on port 3000!'));
+// set database connection
+database.connect();
+
+app.listen(process.env.PORT || PORT, () => console.log('Example app listening on port 3000!'));
 
 module.exports = app;

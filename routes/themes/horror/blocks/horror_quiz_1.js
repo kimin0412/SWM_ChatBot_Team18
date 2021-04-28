@@ -36,12 +36,12 @@ module.exports = (data) => {
 			},
 			{
                 type: 'text',
-                text: "현재 시간은 자정이 지난 12시 15분...",
+                text: "현재 시간은 자정이 지난 12시 15분",
                 markdown: true,
             },
 			{
                 type: 'text',
-                text: "멘토링이 끝난 후 집으로 돌아가려던 나는 지갑을 회의실에 두고 온 것을 알아차렸다.",
+                text: "멘토링이 끝난 후 집으로 돌아가려던 당신은 지갑을 회의실에 두고 온 것을 알아차렸습니다.",
                 markdown: true,
             },
 			{
@@ -50,8 +50,12 @@ module.exports = (data) => {
                 markdown: true,
             },
 			{
+				type: "image_link",
+				url: "https://ifh.cc/g/vBe1QO.jpg"
+    		},
+			{
                 type: 'text',
-                text: "불이 꺼진 소마센터 앞에서 한참을 망설이던 나는 이내 마음을 다잡는다.",
+                text: "불이 꺼진 소마센터 앞에서 한참을 망설이던 당신은 이내 마음을 다잡습니다.",
                 markdown: true,
             },
 			{
