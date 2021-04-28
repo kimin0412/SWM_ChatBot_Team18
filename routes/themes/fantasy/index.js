@@ -4,17 +4,15 @@ module.exports = {
     modalBuilder: (data) => {
 		const { message, value } = data;
 		let [thema, context, order] = value.split('_');
-		console.log(context);
-		return require(`./blocks/${context}`)(order);
+		return require(`./blocks/${context}`)(data);
 
 	},
     messageBuilder: async (data) => {
         const { message, actions, action_time, value, action_name } = data;
 		let [thema, context, order] = value.split('_');
-		const f = require(`./blocks/${context}`);
 		await libKakaoWork.sendMessage({
 			conversationId: message.conversation_id,
-			... (actions) ? f(parseInt(order), actions.answer) : f(parseInt(order))
+			... await require(`./blocks/${context}`)(data)
 		});
     },
 };

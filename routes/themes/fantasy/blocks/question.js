@@ -1,4 +1,7 @@
-module.exports = (order) => {
+module.exports = (data) => {
+	const { message, actions, action_time, value, action_name } = data;
+	let [thema, context, ord] = value.split('_');
+	let order = parseInt(ord);
 	const questionPath = './question/' + [
 		'intro',
 		'question1',
@@ -11,7 +14,6 @@ module.exports = (order) => {
 		'question8',
 		'outtro',
 	][order];
-	console.log(questionPath);
 	if (questionPath.includes("tro")) 
 		return require(questionPath)();
 	
