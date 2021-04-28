@@ -1,8 +1,8 @@
 module.exports = () => {
     return {
         title: '문제 4번 정답입력',
-        accept: '제출',
-        decline: '취소',
+        accept: '알겟다!',
+        decline: '아닌가..?',
         value: 'nonsense_check_answer_4',
         blocks: [
             {
