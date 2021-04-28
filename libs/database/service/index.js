@@ -145,6 +145,7 @@ module.exports = {
     },
 	/** 
 	 * 테마별 랭킹 리스트를 가져옵니다.
+     * @param {String} theme 테마 `'detective'` || `'fantasy'` || `'horror'` || `'nonsense'` || `'romance'` || `'survival'` 
 	 */
 	getThemeRank: async function (theme) {
 		if (!checkThemeParameter(theme)) {
@@ -168,6 +169,8 @@ module.exports = {
 	},
 	/** 
 	 * 유저의 해당 테마 랭킹을 얻어옵니다.
+     * @param {String} reactUserId 유저 아이디
+     * @param {String} theme 테마 `'detective'` || `'fantasy'` || `'horror'` || `'nonsense'` || `'romance'` || `'survival'` 
 	 */
 	getThemeUserRank: async function (reactUserId, theme) {
 		if (!checkThemeParameter(theme)) {
@@ -175,8 +178,7 @@ module.exports = {
         }
 		
 		try {
-			const queryFilter = "themes." + theme + ".isCleared"
-			const sortFilter = "themes." + theme + ".dateCleared"
+			const queryFilter = "themes." + theme + ".dateCleared"
 			
 			// 해당 유저를 찾아 해당 테마의 dateCleared 값 구한 뒤,
 			// 유저의 dateCleared보다 빠른 유저의 수 구한 다음 + 1 리턴
@@ -188,9 +190,9 @@ module.exports = {
 				return dbServiceError('해당 유저가 테마를 클리어하지 않았습니다.')
 			}
 			
-			const rank = await Users.countDocuments({
-				[sortFilter]: { $gt: user['themes'][theme].dateCleared }
-			})
+            const rank = await Users.find({
+                [queryFilter]: { $gt: user['themes'][theme].dateCleared }
+            }).count();
 			
 			return rank + 1
 		}
