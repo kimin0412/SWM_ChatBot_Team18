@@ -145,6 +145,7 @@ module.exports = {
     },
 	/** 
 	 * 테마별 랭킹 리스트를 가져옵니다.
+     * @param {String} theme 테마 `'detective'` || `'fantasy'` || `'horror'` || `'nonsense'` || `'romance'` || `'survival'` 
 	 */
 	getThemeRank: async function (theme) {
 		if (!checkThemeParameter(theme)) {
@@ -168,6 +169,8 @@ module.exports = {
 	},
 	/** 
 	 * 유저의 해당 테마 랭킹을 얻어옵니다.
+     * @param {String} reactUserId 유저 아이디
+     * @param {String} theme 테마 `'detective'` || `'fantasy'` || `'horror'` || `'nonsense'` || `'romance'` || `'survival'` 
 	 */
 	getThemeUserRank: async function (reactUserId, theme) {
 		if (!checkThemeParameter(theme)) {

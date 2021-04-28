@@ -31,7 +31,7 @@ module.exports = (data) => {
 			},
 			{
 			  "type": "image_link",
-			  "url": "https://i.ibb.co/3cPT2qx/majac.png"
+			  "url": "https://i.ibb.co/SQWpRZK/majac.png"
 			},
 			{
 				type: 'text',

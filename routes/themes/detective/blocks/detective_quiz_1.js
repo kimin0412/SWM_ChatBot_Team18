@@ -56,7 +56,7 @@ module.exports = async (data) => {
             },
             {
                 type: 'image_link',
-                url: 'https://i.ibb.co/2NPCf0Z/badge.png',
+                url: 'https://i.ibb.co/x1p0V2x/badge.png',
             },
 			{
                 type: 'text',
