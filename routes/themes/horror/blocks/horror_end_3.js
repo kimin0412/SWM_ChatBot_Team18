@@ -40,8 +40,8 @@ module.exports = async (data) => {
 				text: '...',
 				style: 'default',
 				action_type: 'submit_action',
-				action_name: 'horror_epilogue_1',
-				value: 'horror_epilogue_1',
+				action_name: 'horror_surprise',
+				value: 'horror_surprise',
 			},
         ],
     };
