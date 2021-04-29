@@ -18,7 +18,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: 'text',
-					text: "비밀번호가 맞았던 건지 경쾌한 소리와 함께 문이 열렸다.",
+					text: "비밀번호가 맞았던 건지 경쾌한 소리와 함께 문이 열립니다.",
 					markdown: true,
 				},
 				{
@@ -48,7 +48,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: 'text',
-					text: `안쪽으로 걸음을 옮기려던 당신의 뒤로 '툭' 하는 인기척이 들린다.`,
+					text: `안쪽으로 걸음을 옮기려던 당신의 뒤로 '툭' 하는 인기척이 들립니다.`,
 					markdown: true,
 				},
 				{

@@ -45,7 +45,7 @@ module.exports = async (data) => {
     }
 
     // 내 등수 표시
-    // term = rank + '등'
+    term = rank;
     id = user.userId.substr(user.userId.length - 4);
     text = `${userName} (${id})\n${clearTime}`
 	
@@ -70,14 +70,25 @@ module.exports = async (data) => {
 			},
 			{
 				type: "description",
-				term: "내 등수",
+				term: rank,
 				content: {
 					type: "text",
 					text: text,
 					markdown: true
 				},
 				accent: true
-			}
+			},
+			{
+				type: 'divider',
+			},
+			{
+				type: 'button',
+				text: '테마 선택으로',
+				style: 'primary',
+				action_type: 'submit_action',
+				action_name: 'game_start',
+				value: 'game_start',
+			},
         ],
     };
 };

@@ -31,7 +31,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: "image_link",
-					url: "https://ibb.co/vjPz5yG.jpg"
+					url: "https://ifh.cc/g/GsYAXA.jpg"
 				},
 				{
 					type: "divider"
@@ -61,7 +61,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: 'text',
-					text: `"흐히"`,
+					text: `"키킥"`,
 					markdown: true,
 				},
 				{

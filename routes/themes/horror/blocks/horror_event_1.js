@@ -12,7 +12,7 @@ module.exports = async (data) => {
 		blocks: [
 			{
 				type: 'text',
-				text: '인기척에 놀라 돌아보니 데스크 앞쪽에 종이가 한 장 떨어져있다.',
+				text: '인기척에 놀라 돌아보니 데스크 앞쪽에 종이가 한 장 떨어져있습니다.',
 				markdown: true,
 			},
 			{
