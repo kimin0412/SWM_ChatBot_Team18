@@ -16,7 +16,7 @@ module.exports = (order) => {
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/NLvRZcW/shortcut.png',
+					'https://i.ibb.co/Z6BFrJS/shortcut.png',
 			},
 			{
 				type: 'text',

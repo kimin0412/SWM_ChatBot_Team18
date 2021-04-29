@@ -19,6 +19,9 @@ module.exports = (data) => {
 	
 	const question = require(questionPath)(order);
 	question.blocks.push({
+			type: "divider",
+		},
+		{
 		type: 'action',
 		elements: [
 			{

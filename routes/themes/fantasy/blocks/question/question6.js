@@ -10,7 +10,7 @@ module.exports = (order) => {
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/Wf3zMkK/q3-1.png',
+					'https://i.ibb.co/F8YSLMY/knight-1.png',
 			},
 			{
 				type: 'text',
@@ -21,7 +21,7 @@ module.exports = (order) => {
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/j4kqd7X/q3-2.jpg',
+					'https://i.ibb.co/rZphszT/knight-2.jpg',
 			},
 		],
 	};

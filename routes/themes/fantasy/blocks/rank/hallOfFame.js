@@ -6,26 +6,32 @@ module.exports = async (data) => {
 	const rankList = await libDatabase.getThemeRank('fantasy');
 	const rankListBlocks = [];
 	const imgs = [
-		'https://png.pngtree.com/png-clipart/20210311/original/pngtree-golden-metal-first-place-honor-png-image_5981033.jpg',
-		'https://png.pngtree.com/png-clipart/20210310/original/pngtree-number-2-golden-font-png-image_5963413.jpg',
-		'https://png.pngtree.com/png-clipart/20210411/original/pngtree-number-3-png-image_6212590.jpg',
-		'https://png.pngtree.com/png-clipart/20210314/original/pngtree-gold-number-4-four-png-image_6083886.jpg',
-		'https://png.pngtree.com/png-clipart/20210311/original/pngtree-3d-number-5-wood-png-image_6002999.jpg',
+		'https://i.ibb.co/F8L41P3/first.png',
+		'https://i.ibb.co/dDwnNJ6/second.png',
+		'https://i.ibb.co/WWtdMBx/third.png',
+		'https://i.ibb.co/CKTk2Vz/fourth.png',
+		'https://i.ibb.co/Nmm6TgD/fifth.png',
+		'https://i.ibb.co/xJhgL8R/not-yet.png'
 	];
 	let ranker, text, img; // id, term
-	console.log(rankList);
-	for (let i = 0; (i < 5) & (i < rankList.length); i++) {
+	for (let i = 0; (i < 5); i++) {
 		ranker = rankList[i];
-
-		text = `*${i + 1} 등*\n${ranker.userName}`;
-		img = imgs[i];
-		// id = ranker.userId.substr(ranker.userId.length - 4);
+		
+		if ( i >= rankList.length){
+			img = imgs[imgs.length - 1];
+			text = '*NOT YET*\nnot yet';
+			if(i == 3) break;
+		}
+		else {
+			img = imgs[i];
+			text = `*${i + 1} 등*\n${ranker.userName}`; //+ clearTime;
+		}
 
 		rankListBlocks.push({
 			type: 'section',
 			content: {
 				type: 'text',
-				text: `*${i + 1} 등*\n${ranker.userName}`,
+				text: text,
 				markdown: true,
 			},
 			accessory: {
@@ -34,8 +40,7 @@ module.exports = async (data) => {
 			},
 		});
 	}
-	console.log(rankListBlocks);
-	let x = {
+	return {
 		text: '방탈출 - Fantasy Thema',
 		blocks: [
 			{
@@ -67,6 +72,4 @@ module.exports = async (data) => {
 			},
 		],
 	};
-	console.log(x);
-	return x;
 };
