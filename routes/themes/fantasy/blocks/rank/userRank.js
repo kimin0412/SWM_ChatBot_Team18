@@ -4,10 +4,13 @@ module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 
 	const user = await libDatabase.findUser(react_user_id);
-
+	const rank = await libDatabase.getThemeUserRank(react_user_id, 'fantasy') + '등';
+	
     const userName = user.userName;
-	const clearTime = user.themes.fantasy.dateCleared;
-    const rank = await libDatabase.getThemeUserRank(react_user_id, 'fantasy') + '등';
+	let timeStr = String(user.themes.fantasy.dateCleared);
+	let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+	let clearTime = `${day} ${month} ${date} ${year} ${time}`;
+    
 
     return {
         text: '방탈출 - Fantasy Thema',
