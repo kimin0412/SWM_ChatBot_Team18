@@ -25,12 +25,7 @@ module.exports = async (data) => {
 			},
 			{
 				type: "image_link",
-				url: "https://ifh.cc/g/rpPqD4.png"
-			},
-			{
-				type: 'text',
-				text: '(서있는 여자 사진... 아직 못구함...)',
-				markdown: true,
+				url: "https://ifh.cc/g/yN9OHj.jpg"
 			},
 			{
 				type: "divider"
