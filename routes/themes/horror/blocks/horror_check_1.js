@@ -1,7 +1,14 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	console.log(actions.answer);
-	if (actions.answer == "run" || actions.answer == "RUN") {
+const libDatabase = require('../../../../libs/database/').service
+const Config = require('config');
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
+	if (actions.answer == Config.horror.answers.ans1) {
 		return {
 			text: '방탈출 - 공포 테마',
 			blocks: [
@@ -12,7 +19,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'text',
-					text: "비밀번호가 맞았던 건지 경쾌한 소리와 함께 문이 열렸다.",
+					text: "비밀번호가 맞았던 건지 경쾌한 소리와 함께 문이 열립니다.",
 					markdown: true,
 				},
 				{
@@ -42,7 +49,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'text',
-					text: `안쪽으로 걸음을 옮기려던 당신의 뒤로 '툭' 하는 인기척이 들린다.`,
+					text: `안쪽으로 걸음을 옮기려던 당신의 뒤로 '툭' 하는 인기척이 들립니다.`,
 					markdown: true,
 				},
 				{

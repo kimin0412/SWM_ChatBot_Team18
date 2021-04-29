@@ -17,6 +17,8 @@ exports.getBlock = (body) => {
         options.push(element)
     }
     
+    console.log('로맨스 스테이지' + String(stageNum) + ' 남자 대답')
+    
     return {
         view: {
             title: '정답 입력',

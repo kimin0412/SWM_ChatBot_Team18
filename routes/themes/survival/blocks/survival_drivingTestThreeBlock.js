@@ -1,4 +1,10 @@
-module.exports = (data) => {
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+	const {react_user_id} = data;
+	const user = await libDatabase.findUser(react_user_id);
+    const userName = user.userName
+	
 	return {
 		text: "Page 16",
 		blocks: [
@@ -16,7 +22,7 @@ module.exports = (data) => {
 			},
 			{
 			  type: "text",
-			  text: "*감독관*: 하.. 간신히 돌아왔네.. 소마씨 앞에 타세요. 폰머슬씨는 뒤에 타시고요. 지금부터 시험 시작입니다.\n\n\n와...진짜 죽을뻔 했다..\n빨리 시험보고 집에나 가자..",
+			  text: `*감독관*: 하.. 간신히 돌아왔네.. ${userName}씨 앞에 타세요. 폰머슬씨는 뒤에 타시고요. 지금부터 시험 시작입니다.\n\n\n와...진짜 죽을뻔 했다..\n빨리 시험보고 집에나 가자..`,
 			  markdown: true
 			},
 			{

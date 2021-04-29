@@ -1,20 +1,19 @@
-// thanks detective!!!
 const libDatabase = require('../../../../libs/database/').service
 
+/** * Ending Message */
 module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
-	await libDatabase.clearTheme(react_user_id, 'survival');
 	
 	const user = await libDatabase.findUser(react_user_id);
-    const userName = user.userName;
 	
-	const clearTime = user.themes.survival.dateCleared;
-	const rank = await libDatabase.getThemeUserRank(react_user_id, 'survival') + '등';
+    const userName = user.userName;
+	const clearTime = user.themes.nonsense.dateCleared;
+    const rank = await libDatabase.getThemeUserRank(react_user_id, 'nonsense') + '등';
 	
     return {
-        text: '방탈출 - 생존 테마',
+        text: '방탈출 - 넌센스 테마',
         blocks: [
-            { type: 'header', text: '게임 클리어 !! 🎉', style: 'yellow' },
+            { type: 'header', text: '현재 내 순위', style: 'yellow' },
             {
                 type: 'description',
                 term: '이름',
@@ -24,7 +23,7 @@ module.exports = async (data) => {
             {
                 type: 'description',
                 term: '테마',
-                content: { type: 'text', text: '생존', markdown: false },
+                content: { type: 'text', text: '넌센스', markdown: false },
                 accent: true,
             },
             {

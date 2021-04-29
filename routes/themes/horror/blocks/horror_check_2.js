@@ -1,7 +1,14 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	console.log(actions.answer);
-	if (actions.answer == "here" || actions.answer == "HERE") {
+const libDatabase = require('../../../../libs/database/').service
+const Config = require('config');
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
+	if (actions.answer == Config.horror.answers.ans2) {
 		return {
 			text: '방탈출 - 공포 테마',
 			blocks: [
@@ -25,7 +32,7 @@ module.exports = (data) => {
 				},
 				{
 					type: "image_link",
-					url: "https://ibb.co/vjPz5yG.jpg"
+					url: "https://ifh.cc/g/GsYAXA.jpg"
 				},
 				{
 					type: "divider"
@@ -55,7 +62,7 @@ module.exports = (data) => {
 				},
 				{
 					type: 'text',
-					text: `"흐히"`,
+					text: `"키킥"`,
 					markdown: true,
 				},
 				{

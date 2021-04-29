@@ -1,5 +1,6 @@
 module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
     return {
         title: '카드 정답 입력',
         accept: '이거였어!',

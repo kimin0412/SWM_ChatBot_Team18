@@ -1,8 +1,7 @@
-const fs = require('fs')
 const data = require('./data')
-// const score = require('./score')
+const db = require('../../../libs/database/service/index')
 
-exports.getBlock = (body) => {
+exports.getBlock = async (body) => {
     
     const message = body['message']
     const value = body['value']
@@ -14,20 +13,18 @@ exports.getBlock = (body) => {
     const nextStageName = 'romance_question_' + String(stageNum+1)
     const choices = data.getAnswerChoices(stageNum)
     let result = data.getResult(stageNum, answer)
-    result += '\n(-' + String(choices[answer][1]-1) + '점)'
 
-    
-    const dataBuffer = fs.readFileSync(__dirname+'/score.json')
-    const dataJson = dataBuffer.toString()
-    const score = JSON.parse(dataJson)
+    console.log('로맨스 스테이지' + String(stageNum) + ' 여자 대답')
 
-    if (!(react_user_id in score)){
-        score[react_user_id] = 100
-    }
-    score[react_user_id] -= choices[answer][1]-1
-    
-    const scoreJson = JSON.stringify(score)
-    fs.writeFileSync(__dirname+'/score.json', scoreJson)
+    // 순서대로 20점, 16점, 12점, 8점, 4점
+    const dbUser = await db.updateThemeInfo(
+        react_user_id, 
+        'romance', {
+            'score': (6-choices[answer][1]) * 4, 
+            'romance_passed':stageNum,
+        }, 
+        true)
+    console.log(dbUser)
     
     
     return {

@@ -1,8 +1,12 @@
-module.exports = (data) => {
-	const { message, actions, action_time, value, action_name } = data;
-	let userName = '';
-	const global_module = require('../../../global.js');
-	userName = global_module.userName;
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
 	return {
 		text: '방탈출 - 공포 테마',
 		blocks: [
@@ -21,12 +25,7 @@ module.exports = (data) => {
 			},
 			{
 				type: "image_link",
-				url: "https://ifh.cc/g/rpPqD4.png"
-			},
-			{
-				type: 'text',
-				text: '(서있는 여자 사진... 아직 못구함...)',
-				markdown: true,
+				url: "https://ifh.cc/g/yN9OHj.jpg"
 			},
 			{
 				type: "divider"

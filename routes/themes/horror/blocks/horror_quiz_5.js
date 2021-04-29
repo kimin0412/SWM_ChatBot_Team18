@@ -1,8 +1,12 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	let userName = "";
-	const global_module = require('../../../global.js');
-	userName = global_module.userName;
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+	
+	const userName = user.userName;
+	
     return {
         text: '방탈출 - 공포 테마',
 		blocks: [
@@ -75,7 +79,7 @@ module.exports = (data) => {
 			},
 			{
                 type: 'text',
-                text: "잔뜩 쉬어벌린 여자의 목소리가 들리더니 경고음이 멈춥니다.",
+                text: "잔뜩 쉬어버린 여자의 목소리가 들리더니 경고음이 멈춥니다.",
                 markdown: true,
             },
 			{

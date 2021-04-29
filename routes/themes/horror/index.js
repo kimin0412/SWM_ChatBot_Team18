@@ -26,7 +26,7 @@ module.exports = {
 		
 		await libKakaoWork.sendMessage({
 			conversationId: message.conversation_id,
-			...require('./blocks/' + value)(data)
+			...await require('./blocks/' + value)(data)
 		});
     },
 };

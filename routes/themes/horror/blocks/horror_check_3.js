@@ -1,7 +1,14 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	console.log(actions.answer);
-	if (actions.answer == "LISTEN" || actions.answer == "listen") {
+const libDatabase = require('../../../../libs/database/').service
+const Config = require('config');
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+
+	const userName = user.userName;
+	
+	if (actions.answer == Config.horror.answers.ans3) {
 		return {
 			text: '방탈출 - 공포 테마',
 			blocks: [

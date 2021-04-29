@@ -1,9 +1,13 @@
-module.exports = (data) => {
-    const { message, actions, action_time, value, action_name } = data;
-	let userName = "";
-	const global_module = require('../../../global.js');
-	userName = global_module.userName;
-    return {
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async (data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+	
+	const userName = user.userName;
+    
+	return {
         text: '방탈출 - 공포 테마',
 		blocks: [
 			{
@@ -59,11 +63,11 @@ module.exports = (data) => {
 			},
 			{
 				type: 'button',
-				text: '랭킹 확인하기',
-				style: 'default',
+				text: '기호가 궁금한데...',
+				style: 'danger',
 				action_type: 'submit_action',
-				action_name: 'horror_ranking_1',
-				value: 'horror_ranking_1',
+				action_name: 'horror_block_5',
+				value: 'horror_block_5',
 			},
         ],
     };

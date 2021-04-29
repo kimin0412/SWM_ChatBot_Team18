@@ -9,7 +9,7 @@ module.exports = () => {
             },
             {
                 type: 'text',
-                text: '하!,,하하.. 문제들이 다 왜이러지? 어쨋든 USB에 뭐가 있는걸까?',
+                text: '하!,,하하.. 문제들이 다 왜이러지? \n 어쨋든 USB에 뭐가 있는걸까?',
                 markdown: true,
             },
             {

@@ -50,6 +50,14 @@ module.exports = async (data) => {
                 action_name: 'game_start',
                 value: 'game_start',
             },
+            {
+                type: 'button',
+                text: '랭킹 확인 🏆',
+                style: 'default',
+                action_type: 'submit_action',
+                action_name: 'detective_ranking',
+                value: 'detective_ranking'
+            }
         ],
     };
 };
