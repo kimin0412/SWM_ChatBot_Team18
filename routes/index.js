@@ -252,8 +252,8 @@ router.post('/callback', async (req, res, next) => {
 						text: '추리',
 						style: 'default',
 						action_type: 'submit_action',
-						action_name: 'detective_quiz_1',
-						value: 'detective_quiz_1',
+						action_name: 'detective_start',
+						value: 'detective_start',
 					},
 				],
 			});
