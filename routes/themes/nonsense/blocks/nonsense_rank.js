@@ -44,7 +44,7 @@ module.exports = async (data) => {
             },
             {
                 type: 'button',
-                text: '테마 선택으로',
+                text: '테마 선택하기',
                 style: 'primary',
                 action_type: 'submit_action',
                 action_name: 'game_start',

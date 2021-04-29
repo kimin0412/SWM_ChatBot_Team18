@@ -3,7 +3,7 @@ const libDatabase = require('../../../../libs/database/').service;
 module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
     await libDatabase.clearTheme(react_user_id, 'nonsense');
-	const user = await libDatabase.findUser(react_user_id);
+    const user = await libDatabase.findUser(react_user_id);
     const userName = user.userName;
     return {
         text: '방탈출 - 넌센스 테마',
@@ -58,12 +58,25 @@ module.exports = async (data) => {
                 markdown: true,
             },
             {
-                type: 'button',
-                text: '현재 등수 확인',
-                style: 'primary',
-                action_type: 'submit_action',
-                action_name: 'nonsense_rank',
-                value: 'nonsense_rank',
+                type: 'action',
+                elements: [
+                    {
+                        type: 'button',
+                        text: '명예의 전당',
+                        style: 'default',
+                        action_type: 'submit_action',
+                        action_name: 'nonsense_rank_all',
+                        value: 'nonsense_rank_all',
+                    },
+                    {
+                        type: 'button',
+                        text: '현재 등수 확인',
+                        style: 'primary',
+                        action_type: 'submit_action',
+                        action_name: 'nonsense_rank',
+                        value: 'nonsense_rank',
+                    },
+                ],
             },
         ],
     };
