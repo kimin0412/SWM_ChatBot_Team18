@@ -16,7 +16,7 @@ module.exports = (order) => {
 			{
 				type: 'image_link',
 				url:
-					'https://i.ibb.co/m83g0xj/q4.png',
+					'https://i.ibb.co/9gfxg4R/maestro.png',
 			},
 		],
 	};
