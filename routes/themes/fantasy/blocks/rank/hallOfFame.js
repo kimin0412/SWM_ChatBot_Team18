@@ -11,43 +11,47 @@ module.exports = async (data) => {
 		'https://i.ibb.co/WWtdMBx/third.png',
 		'https://i.ibb.co/CKTk2Vz/fourth.png',
 		'https://i.ibb.co/Nmm6TgD/fifth.png',
-		'https://i.ibb.co/xJhgL8R/not-yet.png'
+		'https://i.ibb.co/xJhgL8R/not-yet.png',
 	];
-	let ranker, text, img; // id, term
-	for (let i = 0;(i < 5); i++) {
+	let ranker, text, img, clearTime; // id, term
+	for (let i = 0; i < 5; i++) {
 		ranker = rankList[i];
-		
-		if (i < rankList.length){
+		console.log(ranker);
+		if (i < rankList.length) {
 			img = imgs[i];
-			text = `*${i + 1} 등*\n${ranker.userName}`; //+ clearTime;
-		}
-		else if (i == rankList.length){
+			let timeStr = String(ranker.themes.fantasy.dateCleared);
+			let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+			clearTime = `${day} ${month} ${date} ${year} ${time}`;
+			text = `*${i + 1}등 ${ranker.userName}*\n클리어 시간\n${clearTime}`; //+ clearTime;
+		} else if (i == rankList.length) {
 			img = imgs[imgs.length - 1];
 			text = '*NOT YET*\nnot yet';
-		}
-		else {
+		} else {
 			break;
 		}
 
-		rankListBlocks.push({
-			type: 'section',
-			content: {
-				type: 'text',
-				text: text,
-				markdown: true,
+		rankListBlocks.push(
+			{
+				type: 'section',
+				content: {
+					type: 'text',
+					text: text,
+					markdown: true,
+				},
+				accessory: {
+					type: 'image_link',
+					url: img,
+				},
 			},
-			accessory: {
-				type: 'image_link',
-				url: img,
-			},
-		});
+			{ type: 'divider' }
+		);
 	}
 	return {
 		text: '방탈출 - Fantasy Thema',
 		blocks: [
 			{
 				type: 'header',
-				text: 'Hall of Fame',
+				text: '명예의 전당 - Fantasy',
 				style: 'yellow',
 			},
 			...rankListBlocks,
