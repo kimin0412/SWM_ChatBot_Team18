@@ -1,12 +1,11 @@
 
 ## SWM_ChatBot_Team18
 
-# 환영합니다!
+
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkimin0412%2FSWM_ChatBot_Team18&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+# 환영합니다!
+<img src = "https://user-images.githubusercontent.com/24457164/116533462-5da1df00-a91c-11eb-8656-f25cc603eb59.PNG" width="600"><br>
 
-
-
-![IMG_1822](https://user-images.githubusercontent.com/24457164/116533462-5da1df00-a91c-11eb-8656-f25cc603eb59.PNG)
 
 ## 방탈출 테마 소개
 
@@ -17,6 +16,7 @@
 오전에 확인한 소마센터 안내문에 적혀진 비밀번호를 풀고 지갑을 찾아와야 한다. <br>
 어딘가 꺼림찍한 안내문과 정체모를 웃음소리... <br>
 당신은 무사히 지갑을 찾아올 수 있을까? <br>
+<img src = "https://user-images.githubusercontent.com/24457164/116550410-b465e380-a931-11eb-80a3-4addc8ff674a.png" width="400"><br>
 <br><br>
 
 ### 판타지 테마
@@ -24,6 +24,7 @@
 전설 속의 마에스트로, 그가 남긴 보물을 찾기 위해 수 많은 사람들이 모여들었다. <br>
 보물이 잠들어 있는 소마의 탑. <br>
 그 곳에 있는 함정과 퀴즈를 무사히 통과하고 보물을 얻을 수 있을 것인가. <br>
+<img src = "https://i.ibb.co/spffVfk/intro.png" width="400"><br>
 <br><br>
 
 ### 생존 테마
@@ -31,6 +32,7 @@
 운전면허 시험장에 도착한 당신. <br>
 긴장 속에 시작된 시험은 당신의 생각보다 어려운 문제 투성이다. <br>
 필기, 기능 시험을 넘어 도로주행까지 무사히 통과할 수 있을까? <br>
+<img src = "https://i.ibb.co/h2qWHDf/survival.jpg" width="400"><br>
 <br><br>
 
 ### 연애 테마
@@ -45,11 +47,13 @@
 사내 동아리를 찾아보던 중 관심이 가는 동아리를 발견한다. <br>
 동아리에 가입하기 위해서는 테스트를 거쳐야 하는데... <br>
 솜아는 무사히 동아리에 가입할 수 있을까? <br>
+<img src = "https://ibb.co/v3B4d3R" width="400"><br>
 <br><br>
 
 ### 추리 테마
 ` "안녕하십니까, 탐정님. 명성이 자자하시더군요. 거절할 수 없는 제안을 하나 하려합니다." ` <br>
 <br>
+<img src = "https://i.ibb.co/TwbsyC2/detective.png" width="400"><br>
 <br><br>
 
 <br>
