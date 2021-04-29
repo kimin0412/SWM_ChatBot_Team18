@@ -30,6 +30,7 @@ const lastmsg = require('./blocks/lastmsg');
 const ans= require('./answer.js');
 //랭킹
 const rank = require('./blocks/nonsense_rank');
+const rank_all = require('./blocks/nonsense_rank_all');
 
 //db 연결
 const libDatabase = require('../../../libs/database/').service
@@ -185,6 +186,12 @@ module.exports = {
                     ...await rank(data)
                 });
                 break;
+            case 'nonsense_rank_all':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...await rank_all(data)
+                });
+                break;  
             default:
         }
     },
