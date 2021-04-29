@@ -20,13 +20,21 @@ module.exports = (data) => {
 			  markdown: true
 			},
 			{
-			  type: "button",
-			  text: "시작하기",
-			  style: "primary",
-			  action_type: 'submit_action',
-			  action_name: 'survival_enterWrittenTestBlock',
-			  value: 'survival_enterWrittenTestBlock',    
-			}
+                type: 'button',
+                text: '시작하기 🚕',
+                style: 'primary',
+                action_type: 'submit_action',
+                action_name: 'survival_enterWrittenTestBlock',
+                value: 'survival_enterWrittenTestBlock',
+            },
+            {
+                type: 'button',
+                text: '랭킹 확인 🏆',
+                style: 'default',
+                action_type: 'submit_action',
+                action_name: 'survival_hallOfFameBlock',
+                value: 'survival_hallOfFameBlock',
+            },
   		],
 	};
 };

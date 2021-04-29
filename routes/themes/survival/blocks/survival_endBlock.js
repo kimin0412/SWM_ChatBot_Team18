@@ -29,13 +29,13 @@ module.exports = async (data) => {
             },
             {
                 type: 'description',
-                term: '클리어 시각',
+                term: '시각',
                 content: { type: 'text', text: clearTime, markdown: false },
                 accent: true,
             },
             {
                 type: 'description',
-                term: '현재 순위',
+                term: '순위',
                 content: {
                     type: 'text',
                     text: rank,
@@ -51,6 +51,14 @@ module.exports = async (data) => {
                 action_name: 'game_start',
                 value: 'game_start',
             },
+			{
+                type: 'button',
+                text: '명예의 전당',
+                style: 'default',
+                action_type: 'submit_action',
+                action_name: 'survival_hallOfFameBlock',
+                value: 'survival_hallOfFameBlock',
+            }
         ],
     };
 };
