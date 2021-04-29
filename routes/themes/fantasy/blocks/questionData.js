@@ -41,12 +41,12 @@ module.exports = (order, content) => {
 			placeholder: '영어 6글자',
 			solution: 'meteor',
 			hint: 'maestro는 7글자이다',
-			comment: 'Meteor~♬ 거대 meteor 난 네게 처박힐 meteor야~~♪♫',
+			comment: 'Meteor♬ 거대 meteor 난 네게 처박힐 meteor야~♪♫',
 			comment_extra: {
 				type: 'context',
 				content: {
 					type: 'text',
-					text: '[메테오](https://www.youtube.com/watch?v=lOrU0MH0bMk)',
+					text: '[Meteor - Youtube Link](https://www.youtube.com/watch?v=lOrU0MH0bMk)',
 					markdown: true,
 				},
 				image: {

@@ -14,17 +14,19 @@ module.exports = async (data) => {
 		'https://i.ibb.co/xJhgL8R/not-yet.png'
 	];
 	let ranker, text, img; // id, term
-	for (let i = 0; (i < 5); i++) {
+	for (let i = 0;(i < 5); i++) {
 		ranker = rankList[i];
 		
-		if ( i >= rankList.length){
-			img = imgs[imgs.length - 1];
-			text = '*NOT YET*\nnot yet';
-			if(i == 3) break;
-		}
-		else {
+		if (i < rankList.length){
 			img = imgs[i];
 			text = `*${i + 1} 등*\n${ranker.userName}`; //+ clearTime;
+		}
+		else if (i == rankList.length){
+			img = imgs[imgs.length - 1];
+			text = '*NOT YET*\nnot yet';
+		}
+		else {
+			break;
 		}
 
 		rankListBlocks.push({
