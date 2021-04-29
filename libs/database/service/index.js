@@ -131,6 +131,7 @@ module.exports = {
                     console.log('관리자 점수 초기화')
                     user['themes']['romance']['romance_passed'] = newData['romance_passed']
                     user['themes']['romance']['score'] = newData['score']
+                    user['themes']['romance']['dateCleared'] = Date.now()
                     user.markModified('themes.' + theme)
                     await user.save()
                     return user.toObject()
@@ -139,6 +140,7 @@ module.exports = {
                     console.log('사용자 점수 수정')
                     user['themes']['romance']['romance_passed'] = newData['romance_passed']
                     user['themes']['romance']['score'] += newData['score']
+                    user['themes']['romance']['dateCleared'] = Date.now()
                     user.markModified('themes.' + theme)
                     await user.save()
                 }

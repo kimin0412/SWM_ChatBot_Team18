@@ -21,7 +21,8 @@ exports.getBlock = async (body) => {
         react_user_id, 
         'romance', {
             'score': (6-choices[answer][1]) * 4, 
-            'romance_passed':stageNum}, 
+            'romance_passed':stageNum,
+        }, 
         true)
     console.log(dbUser)
     
