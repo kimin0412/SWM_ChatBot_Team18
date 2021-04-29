@@ -21,10 +21,12 @@ module.exports = (data) => {
             {
                 type: 'text',
                 text: `"아 왔구만. 한 판 같이 하자구."`,
+				markdown: true,
             },
             {
                 type: 'text',
                 text: `그중 한 사람이 당신을 향해 손짓하며 말한다. 당신은 그의 넉살좋은 말투에 홀린듯이 자리에 앉는다. `,
+				markdown: true,
             },
             {
                 type: 'image_link',
@@ -33,6 +35,7 @@ module.exports = (data) => {
             {
                 type: 'text',
                 text: `당신은 나눠받은 패가 이상함을 눈치챈다. 그리고 이내 마작패에 당신이 원하는 정보가 숨겨져있음을 알아차린다.`,
+				markdown: true,
             },
             {
                 type: 'text',

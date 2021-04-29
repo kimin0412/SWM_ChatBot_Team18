@@ -23,19 +23,151 @@ router.get('/', async (req, res, next) => {
 				conversationId: conversation.id,
 				text: '방탈출에 오신걸 환영합니다.',
 				blocks: [
+					// {
+					// 	type: 'header',
+					// 	text: '☕️ 방 탈 출 ☕',
+					// 	style: 'red',
+					// },
 					{
-						type: 'header',
-						text: '온라인 방탈출에 오신 것을 환영',
-						style: 'red',
+						type: "image_link",
+						url: "https://i.ibb.co/GnLfBhF/exitthebang.png"
 					},
 					{
 						type: 'text',
-						text: '이름을 입력해주세요.',
+						text: '정신이 드나? 🔨🤡🔪',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '자넨 평소에 카카오톡을 소중히 여기지 않았지.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '지금까지 소홀히 대했던 카톡방에서 나가지 못하는 기분을 느껴보길 바라네.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '모든 방을 탈출하려면 머리를 꽤 많이 써야할거야.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '자네랑 같은 죄를 지은 180명의 사람이 다른 방에도 갇혀 있지.. 👥👥👥',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '각 테마에서 첫 번째로 나오는 사람은 살려주겠다.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '따..딱히 널 위해 준비한 건 아니지만 커피도 가져가라구..! ☕',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '큼큼...',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '지금부터 게임을 시작하지. 🤡',
 						markdown: true,
 					},
 					{
 						type: 'button',
-						text: '입력하기',
+						text: '시작하기',
+						style: 'default',
+						action_type: 'call_modal',
+						value: 'set_name',
+					},
+				],
+			})
+		),
+	]);
+
+	// 응답값은 자유롭게 작성하셔도 됩니다.
+	res.json({
+		result: true,
+	});
+});
+
+router.post('/', async (req, res, next) => {
+	// 유저 목록 검색 (1)
+	const users = await libKakaoWork.getUserList();
+
+	// 검색된 모든 유저에게 각각 채팅방 생성 (2)
+	const conversations = await Promise.all(
+		users.map((user) => libKakaoWork.openConversations({ userId: user.id }))
+	);
+
+	// 생성된 채팅방에 메세지 전송 (3)
+	const messages = await Promise.all([
+		conversations.map((conversation) =>
+			libKakaoWork.sendMessage({
+				conversationId: conversation.id,
+				text: '방탈출에 오신걸 환영합니다.',
+				blocks: [
+					// {
+					// 	type: 'header',
+					// 	text: '☕️ 방 탈 출 ☕',
+					// 	style: 'red',
+					// },
+					{
+						type: "image_link",
+						url: "https://i.ibb.co/GnLfBhF/exitthebang.png"
+					},
+					{
+						type: 'text',
+						text: '정신이 드나? 🔨🤡🔪',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '자넨 평소에 카카오톡을 소중히 여기지 않았지.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '지금까지 소홀히 대했던 카톡방에서 나가지 못하는 기분을 느껴보길 바라네.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '모든 방을 탈출하려면 머리를 꽤 많이 써야할거야.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '자네랑 같은 죄를 지은 180명의 사람이 다른 방에도 갇혀 있지.. 👥👥👥',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '각 테마에서 첫 번째로 나오는 사람은 살려주겠다.',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '따..딱히 널 위해 준비한 건 아니지만 커피도 가져가라구..! ☕',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '큼큼...',
+						markdown: true,
+					},
+					{
+						type: 'text',
+						text: '지금부터 게임을 시작하지. 🤡',
+						markdown: true,
+					},
+					{
+						type: 'button',
+						text: '시작하기',
 						style: 'default',
 						action_type: 'call_modal',
 						value: 'set_name',
@@ -60,45 +192,21 @@ router.post('/request', async (req, res, next) => {
 			// 설문조사용 모달 전송 (3)
 			return res.json({
 				view: {
-					title: '이름을 알려주세요.',
+					title: '너의 이름은?',
 					accept: '확인',
 					decline: '취소',
 					value: 'user_name',
 					blocks: [
 						{
 							type: 'label',
-							text: '내 이름',
+							text: '커피를 받고 싶다면 똑바로 쓰는게 좋을 거야.',
 							markdown: true,
 						},
 						{
 							type: 'input',
 							name: 'input_name',
 							required: true,
-							placeholder: '이름을 입력해주세요.',
-						},
-					],
-				},
-			});
-			break;
-
-		case 'game_start':
-			return res.json({
-				view: {
-					title: '이름을 알려주세요.',
-					accept: '확인',
-					decline: '취소',
-					value: 'user_name',
-					blocks: [
-						{
-							type: 'label',
-							text: '내 이름',
-							markdown: true,
-						},
-						{
-							type: 'input',
-							name: 'input_name',
-							required: true,
-							placeholder: '이름을 입력해주세요.',
+							placeholder: '저는...',
 						},
 					],
 				},
@@ -153,33 +261,13 @@ router.post('/callback', async (req, res, next) => {
 				blocks: [
 					{
 						type: 'text',
-						text: '이름을 저장했습니다! 🎁',
+						text: '*' + actions.input_name + '*' + '...?',
 						markdown: true,
 					},
 					{
 						type: 'text',
-						text: '*답변 내용*',
+						text: '좋아. 기억해두겠다.',
 						markdown: true,
-					},
-					{
-						type: 'description',
-						term: '이름',
-						content: {
-							type: 'text',
-							text: actions.input_name,
-							markdown: false,
-						},
-						accent: true,
-					},
-					{
-						type: 'description',
-						term: '시간',
-						content: {
-							type: 'text',
-							text: action_time,
-							markdown: false,
-						},
-						accent: true,
 					},
 					{
 						type: 'button',
@@ -199,17 +287,17 @@ router.post('/callback', async (req, res, next) => {
 				blocks: [
 					{
 						type: 'header',
-						text: '테마 종류',
+						text: '테마 종류 🎲',
 						style: 'blue',
 					},
 					{
 						type: 'text',
-						text: '방탈출 테마를 선택해주세요.',
+						text: '어디에서 죽고 싶나?',
 						markdown: true,
 					},
 					{
 						type: 'button',
-						text: '공포',
+						text: '공포 👻',
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'horror_enter_1',
@@ -217,7 +305,7 @@ router.post('/callback', async (req, res, next) => {
 					},
 					{
 						type: 'button',
-						text: '판타지',
+						text: '판타지 🧙‍',
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'fantasy_msg',
@@ -225,7 +313,7 @@ router.post('/callback', async (req, res, next) => {
 					},
 					{
 						type: 'button',
-						text: '생존',
+						text: '생존 🚗',
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'survival',
@@ -233,7 +321,7 @@ router.post('/callback', async (req, res, next) => {
 					},
 					{
 						type: 'button',
-						text: '연애',
+						text: '연애 💘',
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'romance_main',
@@ -241,7 +329,7 @@ router.post('/callback', async (req, res, next) => {
 					},
 					{
 						type: 'button',
-						text: '넌센스',
+						text: '넌센스 💡',
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'nonsense_quiz_1',
@@ -249,7 +337,7 @@ router.post('/callback', async (req, res, next) => {
 					},
 					{
 						type: 'button',
-						text: '추리',
+						text: '추리 🔍',
 						style: 'default',
 						action_type: 'submit_action',
 						action_name: 'detective_start',

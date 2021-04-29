@@ -79,7 +79,7 @@ module.exports = async (data) => {
 			},
 			{
                 type: 'text',
-                text: "잔뜩 쉬어벌린 여자의 목소리가 들리더니 경고음이 멈춥니다.",
+                text: "잔뜩 쉬어버린 여자의 목소리가 들리더니 경고음이 멈춥니다.",
                 markdown: true,
             },
 			{

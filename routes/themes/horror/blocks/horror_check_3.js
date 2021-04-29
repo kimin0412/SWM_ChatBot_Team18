@@ -1,4 +1,5 @@
 const libDatabase = require('../../../../libs/database/').service
+const Config = require('config');
 
 module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
@@ -7,7 +8,7 @@ module.exports = async (data) => {
 
 	const userName = user.userName;
 	
-	if (actions.answer == "LISTEN" || actions.answer == "listen") {
+	if (actions.answer == Config.horror.answers.ans3) {
 		return {
 			text: '방탈출 - 공포 테마',
 			blocks: [
