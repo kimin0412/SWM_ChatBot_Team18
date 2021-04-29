@@ -12,7 +12,6 @@ module.exports = async (data) => {
     let rank = await libDatabase.getThemeUserRank(react_user_id, 'detective');
 	
 	if (rank) {
-		rank += '등'
 		clearTime = user.themes.detective.dateCleared;
 	} else {
 		rank = 'XX'
@@ -46,7 +45,7 @@ module.exports = async (data) => {
     }
 
     // 내 등수 표시
-    term = rank + '등'
+    term = rank + ' 등'
     id = user.userId.substr(user.userId.length - 4);
     text = `${userName} (${id})\n${clearTime}`
     rankListBlocks.push({
