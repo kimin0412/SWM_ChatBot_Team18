@@ -6,7 +6,7 @@
 # 환영합니다!
 <img src = "https://user-images.githubusercontent.com/24457164/116533462-5da1df00-a91c-11eb-8656-f25cc603eb59.PNG" width="600"><br>
 
-
+<br><br>
 ## 방탈출 테마 소개
 
 ### 공포 테마
