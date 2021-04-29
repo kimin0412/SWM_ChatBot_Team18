@@ -1,69 +1,87 @@
-const libDatabase = require('../../../../libs/database/').service
+const libDatabase = require('../../../../libs/database/').service;
 
 /** * Ending Message */
 module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
-	
-	const user = await libDatabase.findUser(react_user_id);
-	
+
+    const user = await libDatabase.findUser(react_user_id);
+
     const userName = user.userName;
-    
-    const rankList = await libDatabase.getThemeRank('detective')
+
+    const rankList = await libDatabase.getThemeRank('detective');
     let rank = await libDatabase.getThemeUserRank(react_user_id, 'detective');
-	
-	if (rank) {
-		clearTime = user.themes.detective.dateCleared;
-	} else {
-		rank = 'XX'
-		clearTime = 'TBD'
-	}
-	
+    const rankImgs = [
+        'https://i.ibb.co/F8L41P3/first.png',
+        'https://i.ibb.co/dDwnNJ6/second.png',
+        'https://i.ibb.co/WWtdMBx/third.png',
+        'https://i.ibb.co/CKTk2Vz/fourth.png',
+        'https://i.ibb.co/Nmm6TgD/fifth.png',
+    ];
+
+    if (rank) {
+        clearTime = user.themes.detective.dateCleared;
+    } else {
+        rank = 'XX';
+        clearTime = 'TBD';
+    }
+
     /** 랭킹 블록 */
     const rankListBlocks = [];
-    let term, id, text;
+    let term, id, text, img;
     for (let i = 0; i < 5; i++) {
-        term = (i + 1) + ' 등'
-
-        if (i >= rankList.length) { // 랭킹에 사람이 적을 때 (5명 이하)
-            text = 'TBD\nTBD'
-        }
-        else {
+        if (i >= rankList.length) {
+            // 랭킹에 사람이 적을 때 (5명 이하)
+            text = '*NOT YET*\nnot yet';
+        } else {
             id = rankList[i].userId.substr(rankList[i].userId.length - 4);
-            text = `${rankList[i].userName} (${id})\n${rankList[i].themes.detective.dateCleared}`
+            text = `${rankList[i].userName} (${id})\n${rankList[i].themes.detective.dateCleared}`;
         }
 
-        rankListBlocks.push({
-            type: "description",
-            term: term,
-            content: {
-                type: "text",
-                text: text,
-                markdown: true
+        rankListBlocks.push(
+            {
+                type: 'section',
+                content: {
+                    type: 'text',
+                    text: text,
+                    markdown: true,
+                },
+                accessory: {
+                    type: 'image_link',
+                    url: rankImgs[i],
+                },
             },
-            accent: true
-        });
+            { type: 'divider' }
+        );
     }
 
     // 내 등수 표시
-    term = rank + ' 등'
     id = user.userId.substr(user.userId.length - 4);
-    text = `${userName} (${id})\n${clearTime}`
+    text = `${userName} (${id})\n${clearTime}`;
     rankListBlocks.push({
-        type: "description",
-        term: term,
+        type: 'description',
+        term: rank + ' 등',
         content: {
-            type: "text",
+            type: 'text',
             text: text,
-            markdown: true
+            markdown: true,
         },
-        accent: true
+        accent: true,
     });
-	
+
     return {
         text: '방탈출 - 추리 테마',
         blocks: [
             { type: 'header', text: '명예의 전당 🏆', style: 'yellow' },
-            ...rankListBlocks
+            ...rankListBlocks,
+
+            {
+                type: 'button',
+                text: '테마 선택으로',
+                style: 'primary',
+                action_type: 'submit_action',
+                action_name: 'game_start',
+                value: 'game_start',
+            },
         ],
     };
 };
