@@ -47,7 +47,7 @@
 사내 동아리를 찾아보던 중 관심이 가는 동아리를 발견한다. <br>
 동아리에 가입하기 위해서는 테스트를 거쳐야 하는데... <br>
 솜아는 무사히 동아리에 가입할 수 있을까? <br>
-<img src = "https://ibb.co/v3B4d3R" width="400"><br>
+<img src = "https://user-images.githubusercontent.com/24457164/116551485-f17ea580-a932-11eb-8817-74260930e67f.png" width="400"><br>
 <br><br>
 
 ### 추리 테마
