@@ -39,6 +39,7 @@
 #### ` 지난달 막 전역한 모태솔로 현우. 현우는 과연 모태솔로에서 탈출할 수 있을까? ` <br>
 살면서 단 한번도 연애에 성공해본 적 없는 현우는 카페 알바에서 친해진 유정에게 호감이 간다. <br>
 유정이와 무사히 데이트를 마치고 솔로에서 탈출할 수 있을까? <br>
+<img src = "https://images.velog.io/images/leehj8896/post/6e0aeeee-f39c-488e-bb15-dcdac0996954/image.png" width="400"><br>
 <br><br>
 
 ### 넌센스 테마
