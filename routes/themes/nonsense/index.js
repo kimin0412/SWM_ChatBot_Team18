@@ -28,6 +28,12 @@ const wrong_answer = require('./blocks/wrong_answer');
 const lastmsg = require('./blocks/lastmsg');
 //정답 체크
 const ans= require('./answer.js');
+//랭킹
+const rank = require('./blocks/nonsense_rank');
+
+//db 연결
+const libDatabase = require('../../../libs/database/').service
+
 
 module.exports = {
     modalBuilder: (data) => {
@@ -60,7 +66,7 @@ module.exports = {
             case 'nonsense_quiz_start':
                 await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
-                    ...quizMessage1()
+                    ...await quizMessage1(data)
                 });
                 break;
             case 'nonsense_check_answer_1': // 정답은 answer파일에 따로 관리 (git ignore 추가)
@@ -124,7 +130,7 @@ module.exports = {
                 if (actions.answer_word == ans(5)){
                      await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
-                    ...lastmsg()
+                    ...await lastmsg(data)
                 });
                     
                 }
@@ -170,7 +176,13 @@ module.exports = {
             case 'nonsense_move':
                  await libKakaoWork.sendMessage({
                     conversationId: message.conversation_id,
-                    ...nonsense_move()
+                    ...await nonsense_move(data)
+                });
+                break;
+            case 'nonsense_rank':
+                 await libKakaoWork.sendMessage({
+                    conversationId: message.conversation_id,
+                    ...await rank(data)
                 });
                 break;
             default:

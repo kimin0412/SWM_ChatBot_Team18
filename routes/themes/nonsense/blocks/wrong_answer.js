@@ -4,7 +4,7 @@ module.exports = () => {
         blocks: [
             {
                 type: 'text',
-                text: '오답입니다.',
+                text: '틀렸습니다!',
                 markdown: false,
             },
         ],

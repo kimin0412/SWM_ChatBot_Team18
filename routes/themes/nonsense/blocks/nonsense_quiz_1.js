@@ -1,4 +1,9 @@
-module.exports = () => {
+const libDatabase = require('../../../../libs/database/').service;
+
+module.exports = async(data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	const user = await libDatabase.findUser(react_user_id);
+    const userName = user.userName;
     return {
         text: '방탈출 - 넌센스 테마',
         blocks: [
@@ -10,7 +15,7 @@ module.exports = () => {
             {
                 type: 'text',
                 text:
-                    '소프트웨어 마에스트로를 성공적으로 마치고 취업에 성공한 김솜아는 \n 사내 동아리활동을 하기위해 게시판을 살펴 보았다.',
+                    `소프트웨어 마에스트로를 성공적으로 마치고 취업에 성공한 ${userName}는 \n 사내 동아리활동을 하기위해 게시판을 살펴 보았다.`,
                 markdown: true,
             },
             {

@@ -1,4 +1,10 @@
-module.exports = () => {
+const libDatabase = require('../../../../libs/database/').service
+
+module.exports = async(data) => {
+    const { message, actions, action_time, value, action_name, react_user_id } = data;
+	
+	const user = await libDatabase.findUser(react_user_id);
+    const userName = user.userName;
     return {
         text: '방탈출 - 넌센스 테마',
         blocks: [
@@ -10,7 +16,7 @@ module.exports = () => {
             {
                 type: 'text',
                 text:
-                    '등록 절차를 위해 도서관으로 와주시기 바랍니다. \n 아 참! \n 누군지는 모르겟지만 책을 빌릴때 마다 항상 늦게 반납하는 사람이 있는것 같더라구요.\n김솜아님은 안그러시겟죠?',
+                    `등록 절차를 위해 도서관으로 와주시기 바랍니다. \n 아 참! \n 누군지는 모르겟지만 책을 빌릴때 마다 항상 늦게 반납하는 사람이 있는것 같더라구요.\n ${userName}님은 안그러시겟죠?`,
                 markdown: true,
             },
             {
