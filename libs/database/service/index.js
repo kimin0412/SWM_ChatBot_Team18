@@ -219,7 +219,7 @@ module.exports = {
 			}
 			
             const rank = await Users.find({
-                [queryFilter]: { $gt: user['themes'][theme].dateCleared }
+                [queryFilter]: { $lt: user['themes'][theme].dateCleared }
             }).count();
 			
 			return rank + 1
