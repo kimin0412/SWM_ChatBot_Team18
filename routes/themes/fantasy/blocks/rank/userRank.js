@@ -2,21 +2,24 @@ const libDatabase = require('../../../../../libs/database/').service;
 
 module.exports = async (data) => {
 	const { message, actions, action_time, value, action_name, react_user_id } = data;
-
 	const user = await libDatabase.findUser(react_user_id);
-	const rank = (await libDatabase.getThemeUserRank(react_user_id, 'fantasy')) + '등';
-
+	let rank = await libDatabase.getThemeUserRank(react_user_id, 'fantasy');
 	const userName = user.userName;
-	let timeStr = String(user.themes.fantasy.dateCleared);
-	let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
-	let clearTime = `${day} ${month} ${date} ${year} ${time}`;
-
+	let clearTime;
+	if (rank) {
+		let timeStr = String(user.themes.fantasy.dateCleared);
+		let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+		clearTime = `${day} ${month} ${date} ${year} ${time}`;
+	} else {
+		clearTime = 'Not Yet';
+		rank = 'XXX';
+	}
 	return {
 		text: '방탈출 - Fantasy Thema',
 		blocks: [
 			{
 				type: 'header',
-				text: '내 순위',
+				text: '내 순위 - Fantasy',
 				style: 'yellow',
 			},
 			{
@@ -51,10 +54,10 @@ module.exports = async (data) => {
 			},
 			{
 				type: 'description',
-				term: '현재 순위',
+				term: '순위',
 				content: {
 					type: 'text',
-					text: rank,
+					text: rank + ' 등',
 					markdown: false,
 				},
 				accent: true,
