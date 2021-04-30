@@ -5,7 +5,7 @@ module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 
 	const user = await libDatabase.findUser(react_user_id);
-	let rank = await libDatabase.getThemeUserRank(react_user_id, 'survival') + '등';
+	let rank = await libDatabase.getThemeUserRank(react_user_id, 'survival');
 	
     const userName = user.userName;
 	
@@ -16,6 +16,7 @@ module.exports = async (data) => {
 	let clearTime;
 
 	if (rank) {
+		rank += '등'
 		clearTime = user.themes.survival.dateCleared;
 	}
 	else {
