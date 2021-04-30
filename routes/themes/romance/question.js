@@ -19,7 +19,7 @@ exports.getBlock = (body) => {
         blocks: [
             {
               "type": "header",
-              "text": '문제',
+              "text": '문제'+String(stageNum),
               "style": "red"
             },
             {
@@ -33,7 +33,7 @@ exports.getBlock = (body) => {
             },
             {
                 "type": 'button',
-                "text": '정답 입력',
+                "text": '너의 멘트는?',
                 "style": 'default',
                 "action_type": 'call_modal',
                 "action_name": nextStageName,

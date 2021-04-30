@@ -13,7 +13,7 @@ exports.getBlock = async (body) => {
         '지금까지 고백할때마다 차였던 현우는 이번에야말로 잘해보고 싶다.',
         '현우는 과연 모태솔로에서 탈출할 수 있을까?',
         '',
-        '- 참고 -',
+        '<참고>',
         '현재 호감이 있는듯 없는듯 알듯말듯한 관계입니다.',
         '선택지 멘트 중 가장 적절한 멘트를 고르세요.',
         '각 문제는 객관식이며 선택지마다 점수가 차등적으로 부여됩니다.',
@@ -38,7 +38,7 @@ exports.getBlock = async (body) => {
         blocks: [
             {
               type: "header",
-              text: "현우의 모쏠 탈출",
+              text: "현우의 솔로 탈출",
               style: "red"
             },
             {
@@ -60,6 +60,14 @@ exports.getBlock = async (body) => {
                         action_type: 'submit_action',
                         action_name: 'game_start',
                         value: 'game_start',
+                    },
+                    {
+                        type: 'button',
+                        text: '랭킹보기',
+                        style: 'default',
+                        action_type: 'submit_action',
+                        action_name: 'romance_hallOfFame',
+                        value: 'romance_hallOfFame',
                     },
                     {
                         type: 'button',

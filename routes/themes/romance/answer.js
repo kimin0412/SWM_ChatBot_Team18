@@ -21,7 +21,7 @@ exports.getBlock = (body) => {
     
     return {
         view: {
-            title: '정답 입력',
+            title: '너의 멘트는?',
             accept: '확인',
             decline: '취소',
             value: nextStageName,
