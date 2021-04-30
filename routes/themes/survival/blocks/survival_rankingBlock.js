@@ -5,13 +5,23 @@ module.exports = async (data) => {
     const { message, actions, action_time, value, action_name, react_user_id } = data;
 
 	const user = await libDatabase.findUser(react_user_id);
-	const rank = await libDatabase.getThemeUserRank(react_user_id, 'survival') + '등';
+	let rank = await libDatabase.getThemeUserRank(react_user_id, 'survival') + '등';
 	
     const userName = user.userName;
-	let timeStr = String(user.themes.survival.dateCleared);
-	let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
-	let clearTime = `${day} ${month} ${date} ${year} ${time}`;
+	
+	// let timeStr = String(user.themes.survival.dateCleared);
+	// let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+	// let clearTime = `${day} ${month} ${date} ${year} ${time}`;
     
+	let clearTime;
+
+	if (rank) {
+		clearTime = user.themes.survival.dateCleared;
+	}
+	else {
+		rank = 'XX';
+		clearTime = 'TBD'
+	}
 
     return {
         text: '방탈출 - Survival Thema',
@@ -43,7 +53,7 @@ module.exports = async (data) => {
             },
             {
                 type: 'description',
-                term: '클리어 시각',
+                term: '시각',
                 content: { 
 					type: 'text', 
 					text: clearTime, 
@@ -53,7 +63,7 @@ module.exports = async (data) => {
             },
             {
                 type: 'description',
-                term: '현재 순위',
+                term: '순위',
                 content: {
                     type: 'text',
                     text: rank,
