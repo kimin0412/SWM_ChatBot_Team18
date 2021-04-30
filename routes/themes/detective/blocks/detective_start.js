@@ -9,7 +9,7 @@ module.exports = async (data) => {
         blocks: [
             {
                 type: 'header',
-                text: '환영합니다 🔍',
+                text: '추리 테마! 🔍',
                 style: 'yellow',
             },
             {
@@ -18,22 +18,17 @@ module.exports = async (data) => {
             },
             {
                 type: 'text',
-                text: '탐정 테마에 오신 것을 환영합니다!',
+                text: '추리 테마에 온 것을 환영한다!',
                 markdown: true,
             },
             {
                 type: 'text',
-                text: '탐정 테마는 총 5개의 문제로 이루어져 있습니다.',
+                text: '추리 테마는 총 5개의 문제로 이루어져 있다. 🤡',
                 markdown: true,
             },
             {
                 type: 'text',
-                text: '가장 먼저 테마를 클리어하시는 분에게는 소정의 상품을 드립니다. \n(클리어 시각은 최초 1회만 저장됩니다.)',
-                markdown: true,
-            },
-            {
-                type: 'text',
-                text: '*문제를 잘 읽고* 답을 찾아주세요.',
+                text: '*문제를 잘 읽어봐야 할거야.* ',
                 markdown: true,
             },
             {
