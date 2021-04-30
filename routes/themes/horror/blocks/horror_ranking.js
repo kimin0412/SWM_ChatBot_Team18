@@ -45,7 +45,7 @@ module.exports = async (data) => {
 			let clearTime = `${day} ${month} ${date} ${year} ${time}`;
 			
             id = rankList[i].userId.substr(rankList[i].userId.length - 4);
-            text = `${rankList[i].userName} (${id})\n${clearTime}`;
+            text = `*${i + 1}등 ${rankList[i].userName}* (${id})\n${clearTime}`;
 			img = rankImgs[i];
         }
 
@@ -69,7 +69,7 @@ module.exports = async (data) => {
     // 내 등수 표시
     term = rank;
     id = user.userId.substr(user.userId.length - 4);
-    text = `${userName} (${id})\n${clearTime}`;
+    text = `*${rank}등 ${userName}* (${id})\n${clearTime}`;
 	
 	if (rank != 'XX') {
 		img = rankImgs[rank-1];

@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
 		conversations.map((conversation) =>
 			libKakaoWork.sendMessage({
 				conversationId: conversation.id,
-				text: '방탈출에 오신걸 환영합니다.',
+				text: `소마 18팀 - '지금부터 게임을 시작하지.'`,
 				blocks: [
 					// {
 					// 	type: 'header',
@@ -184,7 +184,7 @@ router.post('/', async (req, res, next) => {
 });
 
 router.post('/request', async (req, res, next) => {
-	console.log(req.body);
+	// console.log(req.body);
 	const { message, value } = req.body;
 
 	switch (value) {
@@ -246,7 +246,7 @@ router.post('/request', async (req, res, next) => {
 });
 
 router.post('/callback', async (req, res, next) => {
-	console.log(req.body);
+	// console.log(req.body);
 	const { message, actions, action_time, value, action_name, react_user_id } = req.body;
 
 	switch (value) {

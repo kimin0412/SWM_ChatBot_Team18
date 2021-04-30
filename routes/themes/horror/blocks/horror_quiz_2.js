@@ -90,7 +90,7 @@ module.exports = async (data) => {
                     },
                     {
                         type: 'button',
-                        text: '회의실 비밀번호는...!',
+                        text: '비밀번호는...!',
                         style: 'primary',
                         action_type: 'call_modal',
                         action_name: 'horror_answer_2',

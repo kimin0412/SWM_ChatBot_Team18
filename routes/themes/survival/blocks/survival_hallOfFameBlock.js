@@ -17,7 +17,7 @@ module.exports = async (data) => {
 	let ranker, text, img, clearTime; // id, term
 	for (let i = 0; i < 5; i++) {
 		ranker = rankList[i];
-		console.log(ranker);
+		// console.log(ranker);
 		if (i < rankList.length) {
 			img = imgs[i];
 			let timeStr = String(ranker.themes.survival.dateCleared);
