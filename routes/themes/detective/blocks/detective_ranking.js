@@ -16,11 +16,14 @@ module.exports = async (data) => {
         'https://i.ibb.co/WWtdMBx/third.png',
         'https://i.ibb.co/CKTk2Vz/fourth.png',
         'https://i.ibb.co/Nmm6TgD/fifth.png',
-		'https://i.ibb.co/xJhgL8R/not-yet.png'
+        'https://i.ibb.co/xJhgL8R/not-yet.png',
     ];
 
+    let clearTime = '';
     if (rank) {
-        clearTime = user.themes.detective.dateCleared;
+        let timeStr = String(user.themes.detective.dateCleared);
+        let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+		clearTime = `${day} ${month} ${date} ${year} ${time}`;
     } else {
         rank = 'XX';
         clearTime = 'TBD';
@@ -33,11 +36,15 @@ module.exports = async (data) => {
         if (i >= rankList.length) {
             // 랭킹에 사람이 적을 때 (5명 이하)
             text = '*NOT YET*\nnot yet';
-			img = rankImgs[5];
+            img = rankImgs[5];
         } else {
+            let timeStr = String(rankList[i].themes.detective.dateCleared);
+            let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+            let rankClearTime = `${day} ${month} ${date} ${year} ${time}`;
+
             id = rankList[i].userId.substr(rankList[i].userId.length - 4);
-            text = `${rankList[i].userName} (${id})\n${rankList[i].themes.detective.dateCleared}`;
-			img = rankImgs[i];
+            text = `*${i + 1}등 ${rankList[i].userName}* (${id})\n클리어 시간\n${rankClearTime}`;
+            img = rankImgs[i];
         }
 
         rankListBlocks.push(

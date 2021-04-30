@@ -9,6 +9,7 @@ module.exports = async (data) => {
 
 	const rankList = await libDatabase.getThemeRank('horror');
 	let rank = await libDatabase.getThemeUserRank(react_user_id, 'horror');
+	// console.log(rank);
 	const rankImgs = [
         'https://i.ibb.co/F8L41P3/first.png',
         'https://i.ibb.co/dDwnNJ6/second.png',
@@ -18,8 +19,11 @@ module.exports = async (data) => {
 		'https://i.ibb.co/xJhgL8R/not-yet.png'
     ];
 	
-	if (rank) {
-		clearTime = user.themes.horror.dateCleared;
+	let clearTime;
+	if (rank) { 
+		let timeStr = String(user.themes.horror.dateCleared);
+		let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+		clearTime = `${day} ${month} ${date} ${year} ${time}`;
 	} else {
 		rank = 'XX';
 		clearTime = 'Not Yet';
@@ -29,14 +33,19 @@ module.exports = async (data) => {
     const rankListBlocks = [];
     let term, id, text, img;
     for (let i = 0; i < 5; i++) {
+		ranker = rankList[i];
         term = (i + 1) + ' 등'
         if (i >= rankList.length) { // 랭킹에 사람이 적을 때 (5명 이하)
 			text = '*NOT YET*\nnot yet';
 			img = rankImgs[5];
         }
         else {
+			let timeStr = String(rankList[i].themes.horror.dateCleared);
+			let [day, month, date, year, time, timedelta, timezone] = timeStr.split(' ');
+			let clearTime = `${day} ${month} ${date} ${year} ${time}`;
+			
             id = rankList[i].userId.substr(rankList[i].userId.length - 4);
-            text = `${rankList[i].userName} (${id})\n${rankList[i].themes.horror.dateCleared}`;
+            text = `${rankList[i].userName} (${id})\n${clearTime}`;
 			img = rankImgs[i];
         }
 
@@ -61,7 +70,15 @@ module.exports = async (data) => {
     term = rank;
     id = user.userId.substr(user.userId.length - 4);
     text = `${userName} (${id})\n${clearTime}`;
-	img = rankImgs[rank-1];
+	
+	if (rank != 'XX') {
+		img = rankImgs[rank-1];
+	} else if(rank > 5) {
+		img = '';
+	} else {
+		img = rankImgs[5];
+	}
+	// img = rankImgs[rank-1];
     return {
         text: '방탈출 - 공포 테마',
         blocks: [

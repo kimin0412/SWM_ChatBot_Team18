@@ -75,6 +75,10 @@ module.exports = async (data) => {
                 markdown: true,
             },
 			{
+				type: "image_link",
+				url: "https://ifh.cc/g/QKH1yl.jpg"
+			},
+			{
 				type: "divider"
 			},
 			{
