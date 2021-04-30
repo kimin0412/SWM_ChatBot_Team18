@@ -15,7 +15,7 @@ module.exports = (data) => {
 				type: 'text',
 				text: hint,
 				markdown: true,
-			}
+			},
 		],
 	};
 };

@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		text: 'Push alarm message',
+		text: 'Fantasy outtro',
 		blocks: [
 			{
 				type: 'header',

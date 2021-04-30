@@ -110,3 +110,4 @@ configs/
 # Quiz answer DIR 
 routes/themes/nonsense/answer.js
 routes/themes/fantasy/blocks/solutions.js
+routes/themes/fantasy/blocks/questionData.js

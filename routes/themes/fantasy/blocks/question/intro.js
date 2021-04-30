@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		text: 'Push alarm message',
+		text: 'Fantasy Intro',
 		blocks: [
 			{
 				type: 'header',
@@ -26,13 +26,13 @@ module.exports = () => {
 				value: 'fantasy_question_1',
 			},
 			{
-                type: 'button',
-                text: '랭킹 확인',
-                style: 'default',
+				type: 'button',
+				text: '랭킹 확인',
+				style: 'default',
 				action_type: 'submit_action',
 				action_name: 'fantasy_ranking',
 				value: 'fantasy_ranking_hof',
-            },
+			},
 			{
 				type: 'divider',
 			},

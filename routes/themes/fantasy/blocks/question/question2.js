@@ -1,6 +1,6 @@
 module.exports = (order) => {
 	return {
-		text: 'Question',
+		text: 'Question2',
 		blocks: [
 			{
 				type: 'header',
@@ -15,13 +15,11 @@ module.exports = (order) => {
 			},
 			{
 				type: 'image_link',
-				url:
-					'https://i.ibb.co/qCjY6sP/map.png',
+				url: 'https://i.ibb.co/qCjY6sP/map.png',
 			},
 			{
 				type: 'text',
-				text:
-					'아남 타워의 위치를 찾았다면, 위치를 나타내는 알파벳을 제출하자',
+				text: '아남 타워의 위치를 찾았다면, 위치를 나타내는 알파벳을 제출하자',
 				markdown: true,
 			},
 		],

@@ -9,11 +9,10 @@ module.exports = async (data) => {
 	let [thema, context, ord] = value.split('_');
 	let order = parseInt(ord);
 	let answer = actions.answer;
-	if (check(order, answer)){
+	if (check(order, answer)) {
 		if (order === LAST) await libDatabase.clearTheme(react_user_id, 'fantasy');
 		return correct(order);
-	}
-	else{
+	} else {
 		return wrong(order);
 	}
-}
+};
