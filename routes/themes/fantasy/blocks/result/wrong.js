@@ -1,6 +1,6 @@
 module.exports = (order) => {
 	return {
-		text: 'Push alarm message',
+		text: 'wrong answer',
 		blocks: [
 			{
 				type: 'header',
