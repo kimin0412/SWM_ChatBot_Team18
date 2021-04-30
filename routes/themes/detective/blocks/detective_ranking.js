@@ -16,6 +16,7 @@ module.exports = async (data) => {
         'https://i.ibb.co/WWtdMBx/third.png',
         'https://i.ibb.co/CKTk2Vz/fourth.png',
         'https://i.ibb.co/Nmm6TgD/fifth.png',
+		'https://i.ibb.co/xJhgL8R/not-yet.png'
     ];
 
     if (rank) {
@@ -32,9 +33,11 @@ module.exports = async (data) => {
         if (i >= rankList.length) {
             // 랭킹에 사람이 적을 때 (5명 이하)
             text = '*NOT YET*\nnot yet';
+			img = rankImgs[5];
         } else {
             id = rankList[i].userId.substr(rankList[i].userId.length - 4);
             text = `${rankList[i].userName} (${id})\n${rankList[i].themes.detective.dateCleared}`;
+			img = rankImgs[i];
         }
 
         rankListBlocks.push(
@@ -47,7 +50,7 @@ module.exports = async (data) => {
                 },
                 accessory: {
                     type: 'image_link',
-                    url: rankImgs[i],
+                    url: img,
                 },
             },
             { type: 'divider' }
