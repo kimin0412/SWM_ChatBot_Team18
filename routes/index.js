@@ -109,7 +109,7 @@ router.post('/', async (req, res, next) => {
 		conversations.map((conversation) =>
 			libKakaoWork.sendMessage({
 				conversationId: conversation.id,
-				text: '방탈출에 오신걸 환영합니다.',
+				text: `소마 18팀 - '지금부터 게임을 시작하지.'`,
 				blocks: [
 					// {
 					// 	type: 'header',
