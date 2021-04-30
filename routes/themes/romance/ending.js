@@ -60,8 +60,9 @@ exports.getBlock = async (body) => {
     }
     const contents1 = [
         '',
+        '',
         result,
-        '\n\n\n\n\n\n\n\n\n\n\n\n\n',
+        '',
     ];
     
     // 랭킹
@@ -104,20 +105,38 @@ exports.getBlock = async (body) => {
                 markdown: true,
             },
             {
-                type: 'divider',
-            },
-            {
                 type: 'text',
-                text: contents2.join('\n'),
+                text: '',
                 markdown: true,
             },
             {
-                type: 'button',
-                text: '메인으로',
-                style: 'default',
-                action_type: 'submit_action',
-                action_name: 'game_start',
-                value: 'game_start',
+                type: 'action',
+                elements: [
+                    {
+                        type: 'button',
+                        text: '내 점수',
+                        style: 'default',
+                        action_type: 'submit_action',
+                        action_name: 'romance_userRank',
+                        value: 'romance_userRank',
+                    },
+                    {
+                        type: 'button',
+                        text: '랭킹보기',
+                        style: 'default',
+                        action_type: 'submit_action',
+                        action_name: 'romance_hallOfFame',
+                        value: 'romance_hallOfFame',
+                    },
+                    {
+                        type: 'button',
+                        text: '메인으로',
+                        style: 'default',
+                        action_type: 'submit_action',
+                        action_name: 'game_start',
+                        value: 'game_start',
+                    },
+                ],
             },
         ],
     };
