@@ -128,9 +128,15 @@ module.exports = async (data) => {
 					markdown: true,
 				},
 				{
+					type: 'divider',
+				},
+				{
 					type: 'text',
 					text: "지갑찾기 실패...",
 					markdown: true,
+				},
+				{
+					type: 'divider',
 				},
 				{
 					type: 'button',

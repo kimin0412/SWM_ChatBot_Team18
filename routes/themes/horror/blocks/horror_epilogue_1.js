@@ -50,6 +50,36 @@ module.exports = async (data) => {
 				}
 			},
 			{
+                type: 'text',
+                text: "입구에는 연수생 두 명이 서서 안내문을 바라보고 있다.",
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: `"음? 원래 마지막 문항이 이랬던가?"`,
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: "연수생 중 한 명이 이전과 달라진 듯한 안내문에 고개를 갸웃거립니다.",
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: `"뭐, 상관없겠지."`,
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: "연수생은 대수롭지 않게 넘겨버리고는 멘토링에 참석하러 들어갑니다.",
+                markdown: true,
+            },
+			{
+                type: 'text',
+                text: "사람들의 웃음소리와 인기척이 느껴지는 낮의 소마센터는 오늘도 평화롭습니다.",
+                markdown: true,
+            },
+			{
 				type: "divider"
 			},
 			{

@@ -47,6 +47,11 @@ module.exports = async (data) => {
 			},
 			{
 				type: 'text',
+				text: '조금씩',
+				markdown: true,
+			},
+			{
+				type: 'text',
 				text: '당신이 서있는 방향으로 돌아갑니다.',
 				markdown: true,
 			},

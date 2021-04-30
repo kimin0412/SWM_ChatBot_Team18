@@ -37,7 +37,7 @@ module.exports = async (data) => {
             },
 			{
                 type: 'text',
-                text: "빛을 따라 데스크로 간 당신은 켜져있는 노트북을 발견합니다.",
+                text: "빛을 따라 데스크로 간 당신은 켜져있는 *노트북*을 발견합니다.",
                 markdown: true,
             },
 			{
@@ -45,7 +45,7 @@ module.exports = async (data) => {
 			},
 			{
 				type: "image_link",
-				url: "https://ifh.cc/g/8gc0hi.jpg"
+				url: "https://ifh.cc/g/S52f9u.jpg"
 			},
 			{
 				type: "divider"

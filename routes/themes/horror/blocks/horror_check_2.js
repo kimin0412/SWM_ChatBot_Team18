@@ -24,7 +24,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: 'text',
-					text: `'흰색, 파란색, 빨간색, 노란색을 영어로 바꾸고 적힌 숫자의 철자였네..'`,
+					text: `'` + '*흰색, 파란색, 빨간색, 노란색을 영어로 바꾸고 적힌 숫자 위치의 철자였네..*'+ `'`,
 					markdown: true,
 				},
 				{
@@ -44,7 +44,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: 'text',
-					text: "여전히 캄캄한 내부와 사람의 온기가 없는 싸늘한 공기에 당신은 침을 꿀꺽 삼킵니다.",
+					text: "여전히 캄캄한 내부와 사람의 온기가 없는 싸늘한 공기에 침을 꿀꺽 삼킵니다.",
 					markdown: true,
 				},
 				{

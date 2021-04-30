@@ -12,7 +12,7 @@ module.exports = async (data) => {
         blocks: [
             {
                 type: 'text',
-                text: '힌트 : 카드의 도형을 영어로 바꿔보면...?',
+                text: '힌트 : 카드에 4가지 기호가 뭐더라...',
                 markdown: true,
             },
         ],

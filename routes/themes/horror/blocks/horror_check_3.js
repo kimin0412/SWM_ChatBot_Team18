@@ -39,7 +39,7 @@ module.exports = async (data) => {
 				},
 				{
 					type: 'text',
-					text: "당신은 켜진 노트북의 바탕화면을 살펴보다가 문서를 하나 발견합니다.",
+					text: "당신은 켜진 노트북의 바탕화면을 살펴보다가 *문서*를 하나 발견합니다.",
 					markdown: true,
 				},
 				{
@@ -88,9 +88,15 @@ module.exports = async (data) => {
 					markdown: true,
 				},
 				{
+					type: 'divider',
+				},
+				{
 					type: 'text',
 					text: "지갑찾기 실패...",
 					markdown: true,
+				},
+				{
+					type: 'divider',
 				},
 				{
 					type: 'button',

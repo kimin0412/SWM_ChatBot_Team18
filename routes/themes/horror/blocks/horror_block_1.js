@@ -15,7 +15,7 @@ module.exports = async (data) => {
 				elements: [
 					{
 						type: 'button',
-						text: '일단 튀쳐나간다.',
+						text: '튀쳐나간다.',
 						style: 'danger',
 						action_type: 'submit_action',
 						action_name: 'horror_fail_1',

@@ -37,7 +37,7 @@ module.exports = async (data) => {
             },
 			{
                 type: 'text',
-                text: "버튼음이 아닌 경고음이 울리고 당신은 고개를 들어 엘레베이터의 전광판을 확인합니다.",
+                text: "씨끄러운 경고음이 울리고 당신은 고개를 들어 엘레베이터의 전광판을 확인합니다.",
                 markdown: true,
             },
 			{

@@ -22,7 +22,7 @@ module.exports = async (data) => {
 			},
 			{
 				type: 'text',
-				text: "내용을 떠올리는 중에도 등 뒤의 웃음소리는 점점 더 기괴하게 커지며 가까이 다가옵니다.",
+				text: "내용을 떠올리는 중에도 등 뒤의 *웃음소리*는 점점 더 기괴하게 커지며 가까이 다가옵니다.",
 				markdown: true,
 			},
 			{
@@ -47,7 +47,7 @@ module.exports = async (data) => {
 			},
 			{
 				type: 'text',
-				text: "아무도 없는 회의실에서 절대 들릴리 없는, 들려서는 안되는 구두 소리가 귓가에 맴돕니다.",
+				text: "아무도 없는 회의실에서 절대 들릴리 없는, 들려서는 안되는 *구두 소리*가 귓가에 맴돕니다.",
 				markdown: true,
 			},
 			{
@@ -71,9 +71,15 @@ module.exports = async (data) => {
 				markdown: true,
 			},
 			{
+				type: 'divider',
+			},
+			{
 				type: 'text',
 				text: "지갑찾기 실패...",
 				markdown: true,
+			},
+			{
+				type: 'divider',
 			},
 			{
 				type: 'button',

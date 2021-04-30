@@ -26,7 +26,7 @@ module.exports = async (data) => {
             },
 			{
                 type: 'text',
-                text: "유리창 너머로 보이는 회의실은 불빛 하나 없는 암흑입니다.",
+                text: "유리창 너머로 보이는 회의실은 불빛 하나 없는 *암흑*입니다.",
                 markdown: true,
             },
 			{
@@ -59,7 +59,7 @@ module.exports = async (data) => {
             },
 			{
                 type: 'text',
-                text: "문을 열기위해 주변을 둘러보던 당신은 방금 전 발견한 종이쪽지가 생각납니다.",
+                text: "문을 열기위해 주변을 둘러보던 당신은 방금 전 발견한 *종이쪽지*가 생각납니다.",
                 markdown: true,
             },
 			{
