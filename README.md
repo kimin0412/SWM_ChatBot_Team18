@@ -3,6 +3,8 @@
 
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkimin0412%2FSWM_ChatBot_Team18&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
+<img src = "https://i.ibb.co/XjLPZzv/003.png" width="600"><br>
 # 환영합니다!
 <img src = "https://user-images.githubusercontent.com/24457164/116533462-5da1df00-a91c-11eb-8656-f25cc603eb59.PNG" width="600"><br>
 
